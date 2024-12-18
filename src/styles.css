@@ -7,3 +7,17 @@
 .content-container {
     @apply w-screen h-screen font-serif flex flex-col justify-center items-center gap-2
 }
+
+.title {
+    @apply text-5xl font-bold
+}
+
+.subtitle {
+    @apply text-xl
+}
+
+.action-btn {
+    @apply bg-blue-500 text-white shadow-lg shadow-blue-200 rounded-full p-4 px-8 my-4 
+            transition duration-150 
+            hover:bg-blue-400 hover:shadow-xl hover:shadow-blue-200 hover:ease-out
+}
