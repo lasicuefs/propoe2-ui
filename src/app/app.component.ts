@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { WelcomePage } from "./welcome/welcome.component";
 import { Background } from "./background/background.component";
 
 @Component({
@@ -13,6 +12,5 @@ import { Background } from "./background/background.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'propoe2-ui';
-  WelcomePage = WelcomePage
+  title = 'Propoe2';
 }
