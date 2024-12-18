@@ -7,7 +7,6 @@ import { Background } from "./background/background.component";
   selector: 'app-root',
   imports: [
     RouterOutlet, 
-    WelcomePage, 
     Background, 
   ],
   templateUrl: './app.component.html',
