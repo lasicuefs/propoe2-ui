@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './step-1.component.html',
   styleUrl: './step-1.component.css'
 })
-export class Step1Component {
+export class RhythmPatternForms {
 
 }

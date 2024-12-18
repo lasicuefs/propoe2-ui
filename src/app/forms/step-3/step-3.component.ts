@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './step-3.component.html',
   styleUrl: './step-3.component.css'
 })
-export class Step3Component {
+export class WeightsForms {
 
 }
