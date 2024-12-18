@@ -1,17 +1,5 @@
-<main class="relative z-10 w-screen h-screen font-serif flex flex-col justify-center items-center gap-2">
-    <h1 class="text-5xl font-bold">Bem-vindo ao Propoe</h1>
-    <h2 class="text-xl">Começe a gerar poemas de arquivos MIVES</h2>
-    <a href="">
-        <button class="bg-blue-400 text-white shadow-lg shadow-blue-200 rounded-full p-4 px-8 my-4 transition duration-150 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-200 hover:ease-out">Começar</button>
-    </a>
-    <a href="https://github.com/lasicuefs/propoe2" class="underline transition duration-150 hover:-translate-y-1 hover:shadow-md hover:ease-out">
-        <span>Siga-nos no Github</span>
-    </a>
-</main>
-
-<!-- Background Layer -->
-<div class="absolute inset-0 overflow-hidden z-0"> 
-    <img src="assets/spiral-fx.svg" alt="Background's Spiral Effect" class="absolute inset-0 w-full h-full object-cover z-[-1] animate-spin-infinite"> 
-    <img src="assets/background.svg" alt="Background Layer" class="absolute inset-0 w-full h-full object-cover z-[-2]"> 
+<div class="relative z-10 w-screen h-screen">
+    <app-welcome></app-welcome>
 </div>
+<app-background></app-background>
 <router-outlet />

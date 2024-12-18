@@ -9,19 +9,7 @@ module.exports = {
       'serif': ['Cardo', 'ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
     },
-    extend: {
-      keyframes: { 
-        rotate: { 
-          '0%': { transform: 'rotate(0deg)' }, 
-          '100%': { transform: 'rotate(360deg)' 
-
-          }, 
-        } 
-      }, 
-      animation: { 
-        'spin-infinite': 'rotate 100s linear infinite', 
-      }
-    },
+    extend: {},
   },
   plugins: [],
 }
