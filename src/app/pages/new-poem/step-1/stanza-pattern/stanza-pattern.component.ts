@@ -12,6 +12,7 @@ interface Unit {
   standalone: true,
   imports: [CommonModule, PatternUnit],
   templateUrl: './stanza-pattern.component.html',
+  styleUrl: "./stanza-pattern.component.css"
 })
 export class StanzaPattern {
   patternUnits: PatternUnit[] = [
