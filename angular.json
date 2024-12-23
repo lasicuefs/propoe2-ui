@@ -15,9 +15,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "angular-cli-ghpages:deploy",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "docs/",
+            "baseHref": "/propoe2-ui/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
