@@ -3,7 +3,12 @@
     
     <section class="flex flex-col gap-4 min-w-96 place-items-center overflow-hidden rounded-3xl">   
         <!-- Stanzas -->
-        <section class="flex flex-col place-items-start flex-grow gap-4" >
+        <section class="flex flex-col place-items-start flex-grow gap-4 
+            max-h-80 overflow-y-scroll px-4 
+            [&::-webkit-scrollbar]:w-2
+            [&::-webkit-scrollbar-track]:bg-transparent
+            [&::-webkit-scrollbar-thumb]:bg-slate-100
+        ">
             <stanzas-pattern *ngFor="let i of stanzaArray()"></stanzas-pattern>
         </section>
         <!-- New Stanza button -->
