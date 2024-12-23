@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "/": {},
+    "/new/mives": {},
+    "/new/rhythm": {},
+    "/new/weights": {},
+    "/poem": {}
+  }
+}
