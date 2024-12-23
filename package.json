@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "deploy": "ng build --configuration production && npx angular-cli-ghpages --dir=docs",
     "serve:ssr:propoe2-ui": "node dist/propoe2-ui/server/server.mjs"
   },
   "private": true,
