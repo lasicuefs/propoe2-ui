@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common'
   styleUrl: './step-1.component.css'
 })
 export class RhythmPatternForms {
-  stanzas: number = 2
+  stanzas: number = 1
 
   addStanza(): void {
     this.stanzas++

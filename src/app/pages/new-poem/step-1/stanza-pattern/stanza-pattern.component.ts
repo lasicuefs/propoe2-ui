@@ -16,9 +16,6 @@ interface Unit {
 export class StanzaPattern {
   patternUnits: PatternUnit[] = [
     { letter: 'A', number: '10', onNumberChange: () => {}, onLetterChange: () => {} },
-    { letter: 'B', number: '10', onNumberChange: () => {}, onLetterChange: () => {} },
-    { letter: 'A', number: '10', onNumberChange: () => {}, onLetterChange: () => {} },
-    { letter: 'B', number: '10', onNumberChange: () => {}, onLetterChange: () => {} }
   ];
 
   addPatternUnit(): void {

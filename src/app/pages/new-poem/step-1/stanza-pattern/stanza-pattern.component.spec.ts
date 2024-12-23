@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StanzaPatternComponent } from './stanza-pattern.component';
+import { StanzaPattern as StanzaPatternComponent } from './stanza-pattern.component';
 
 describe('StanzaPatternComponent', () => {
   let component: StanzaPatternComponent;
