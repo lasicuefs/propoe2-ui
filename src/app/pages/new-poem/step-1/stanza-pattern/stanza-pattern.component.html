@@ -1,0 +1,10 @@
+<ul class="flex gap-4 w-full">
+    <pattern-unit 
+        *ngFor="let unit of patternUnits"
+        [letter]="unit.letter"
+        [number]="unit.number">
+    </pattern-unit>
+    <li class="pattern-unit">
+        <button (click)="addPatternUnit()" class="text-xl w-full h-full">+</button>
+    </li>
+  </ul>
