@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Background } from "./background/background.component";
+import { Background } from "./layout/background/background.component";
 
 @Component({
   selector: 'app-root',
