@@ -1,5 +1,10 @@
-<main>
-    <article>
-        {{poem}}
+<main class="content-container bg-slate-50">
+    <article class="my-10 mx-auto px-10 max-h-screen overflow-y-auto">
+        <p class="prose" *ngFor="let paragraph of poem.split('\n\n')">
+            <span *ngFor="let line of paragraph.split('\n')">
+                {{ line }}
+                <br>
+            </span>
+        </p>
     </article>
 </main>

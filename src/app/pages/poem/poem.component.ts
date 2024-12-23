@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-poem',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './poem.component.html',
   styleUrl: './poem.component.css'
 })
