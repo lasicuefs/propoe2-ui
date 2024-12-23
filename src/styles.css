@@ -23,5 +23,5 @@
 }
 
 .hint-msg {
-    @apply text-lg mt-2
+    @apply text-lg mt-2 text-center
 }
