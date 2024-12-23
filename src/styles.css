@@ -13,7 +13,7 @@
 }
 
 .subtitle {
-    @apply text-xl
+    @apply text-2xl
 }
 
 .action-btn {
