@@ -4,13 +4,11 @@
     <section class="flex flex-col gap-4 min-w-96 place-items-center overflow-hidden rounded-3xl">   
         <!-- Stanzas -->
         <section class="flex flex-col place-items-start flex-grow gap-4" >
-            <stanzas-pattern></stanzas-pattern>
-            <stanzas-pattern></stanzas-pattern>
+            <stanzas-pattern *ngFor="let i of stanzaArray()"></stanzas-pattern>
         </section>
         <!-- New Stanza button -->
-        <button class="bg-slate-50 bg-opacity-60 w-full">+</button>
+        <button (click)="addStanza()" class="bg-slate-50 bg-opacity-60 w-full">+</button>
     </section>
-    
     <a routerLink="/new/mives">
         <button class="action-btn">Próximo</button>
     </a>
