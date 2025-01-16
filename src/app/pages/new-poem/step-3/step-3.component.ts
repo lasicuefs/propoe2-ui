@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { AttributeField } from './attribute-field/attribute-field.component';
 import { CommonModule } from '@angular/common';
+import { Steps } from "../steps/steps.component";
 
 @Component({
   selector: 'app-step-3',
-  imports: [AttributeField, CommonModule],
+  imports: [AttributeField, CommonModule, Steps],
   templateUrl: './step-3.component.html',
   styleUrl: './step-3.component.css'
 })

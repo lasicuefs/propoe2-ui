@@ -2,10 +2,11 @@ import { Component } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { StanzaPattern } from './stanza-pattern/stanza-pattern.component'
 import { CommonModule } from '@angular/common'
+import { Steps } from "../steps/steps.component";
 
 @Component({
   selector: 'app-step-1',
-  imports: [RouterLink, StanzaPattern, CommonModule],
+  imports: [RouterLink, StanzaPattern, CommonModule, Steps],
   templateUrl: './step-1.component.html',
   styleUrl: './step-1.component.css'
 })
