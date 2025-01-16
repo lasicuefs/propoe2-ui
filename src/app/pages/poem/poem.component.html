@@ -1,10 +1,30 @@
-<main class="content-container bg-slate-50">
-    <article class="my-10 mx-auto px-10 max-h-screen overflow-y-auto">
-        <p class="prose" *ngFor="let paragraph of poem.split('\n\n')">
-            <span *ngFor="let line of paragraph.split('\n')">
-                {{ line }}
-                <br>
-            </span>
+<div class="relative min-h-screen bg-slate-50" #container>
+    <!-- New Poem Button-->
+    <button class="fixed z-50 left-4 bottom-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg">
+      New Poem
+    </button>
+  
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto">
+      <article class="py-20 flex flex-col justify-center items-center">
+        <p class="prose text-center mb-8" *ngFor="let paragraph of poem.split('\n\n')">
+          <span class="block leading-relaxed" *ngFor="let line of paragraph.split('\n')">
+            {{ line }}
+          </span>
         </p>
-    </article>
-</main>
+      </article>
+    </main>
+  
+    <!-- Scroll Button -->
+    <div class="fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4" 
+         *ngIf="showScrollButton()"
+         (click)="scrollDown()">
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent -z-10"></div>
+      <button class="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+            <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+        </svg>
+      </button>
+    </div>
+</div>
