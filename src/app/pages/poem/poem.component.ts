@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, signal, computed, ViewChild, ElementRef, afterNextRender } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-poem',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './poem.component.html',
   styleUrl: './poem.component.css'
 })
