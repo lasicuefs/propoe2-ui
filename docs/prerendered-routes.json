@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "/propoe2-ui": {},
+    "/propoe2-ui/new/mives": {},
+    "/propoe2-ui/new/rhythm": {},
+    "/propoe2-ui/new/weights": {},
+    "/propoe2-ui/poem": {}
+  }
+}
