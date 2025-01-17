@@ -1,8 +1,11 @@
 <main class="content-container">
     <h1 class="title">Arquivo MIVES</h1>
     <div class="flex gap-4 mt-4">
-        <button class="action-btn">Amostras</button>
-        <button class="action-btn">Abrir</button>
+        <input #sampleInput type="file" (change)="receiveFile($event)" class="hidden">
+        <button class="action-btn" (click)="sampleInput.click()">Amostras</button>
+        
+        <input #fileInput type="file" (change)="receiveFile($event)" class="hidden">
+        <button class="action-btn" (click)="fileInput.click()">Abrir</button>
     </div>
     <span class="hint-msg">
         Abra um arquivo MIVES do seu Desktop <br>
