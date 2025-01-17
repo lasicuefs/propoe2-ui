@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { AttributeField } from './attribute-field/attribute-field.component';
 import { CommonModule } from '@angular/common';
 import { Steps } from "../steps/steps.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-step-3',
-  imports: [AttributeField, CommonModule, Steps],
+  imports: [AttributeField, CommonModule, Steps, RouterLink],
   templateUrl: './step-3.component.html',
   styleUrl: './step-3.component.css'
 })
