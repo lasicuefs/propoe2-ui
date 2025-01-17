@@ -10,7 +10,7 @@ import { Component, Input, signal, computed, ViewChild, ElementRef, afterNextRen
 })
 export class PoemPage {
   @Input() poem: string = this.loremIpsum()
-  @ViewChild('container') container!: ElementRef
+  @ViewChild('mainContainer') mainContainer!: ElementRef<HTMLElement>
 
   // Signals for reactive state management
   private scrollPosition = signal(0)
@@ -37,25 +37,31 @@ export class PoemPage {
   }
 
   private setupScrollListener() {
-    document.addEventListener('scroll', () => {
-      this.scrollPosition.set(window.scrollY)
+    // Listen to scroll events on the main container instead of document
+    this.mainContainer.nativeElement.addEventListener('scroll', () => {
+      this.scrollPosition.set(this.mainContainer.nativeElement.scrollTop)
     }, { passive: true })
   }
 
   private setupResizeListener() {
+    // Update dimensions when window resizes
     window.addEventListener('resize', () => {
       this.updateDimensions()
     }, { passive: true })
   }
 
   private updateDimensions() {
-    this.viewportHeight.set(window.innerHeight)
-    this.contentHeight.set(document.documentElement.scrollHeight)
+    const mainElement = this.mainContainer.nativeElement;
+    // Use clientHeight for viewport height (visible area)
+    this.viewportHeight.set(mainElement.clientHeight)
+    // Use scrollHeight for total content height
+    this.contentHeight.set(mainElement.scrollHeight)
   }
 
   scrollDown() {
-    const scrollDistance = window.innerHeight * 0.8;
-    window.scrollBy({
+    const mainElement = this.mainContainer.nativeElement;
+    const scrollDistance = mainElement.clientHeight * 0.8;
+    mainElement.scrollBy({
       top: scrollDistance,
       behavior: 'smooth'
     })
@@ -95,5 +101,5 @@ export class PoemPage {
       Nullam vel odio at eros gravida fermentum. 
       Nullam nec purus id urna suscipit ultricies. 
       Nullam id diam.`
-    }
+  }
 }
