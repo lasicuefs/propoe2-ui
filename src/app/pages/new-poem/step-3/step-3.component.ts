@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import { AttributeField } from './attribute-field/attribute-field.component';
 import { CommonModule } from '@angular/common';
-import { Steps } from "../steps/steps.component";
 import { RouterLink } from '@angular/router';
+
+// Import Local Components
+import { AttributeField } from './attribute-field/attribute-field.component';
+import { Steps } from "../steps/steps.component";
+
+// Import Local Services
+import { Forms } from '../forms.service';
 
 @Component({
   selector: 'app-step-3',

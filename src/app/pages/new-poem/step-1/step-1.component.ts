@@ -1,8 +1,13 @@
 import { Component } from '@angular/core'
 import { RouterLink } from '@angular/router'
-import { StanzaPattern } from './stanza-pattern/stanza-pattern.component'
 import { CommonModule } from '@angular/common'
+
+// Import Local Components
+import { StanzaPattern } from './stanza-pattern/stanza-pattern.component'
 import { Steps } from "../steps/steps.component";
+
+// Import Local Services
+import { Forms } from '../forms.service';
 
 @Component({
   selector: 'app-step-1',

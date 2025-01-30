@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
-import { Steps } from "../steps/steps.component";
-import { Router } from '@angular/router';
+import { Component } from '@angular/core'
+import { Router } from '@angular/router'
+
+// Import Local Components
+import { Steps } from "../steps/steps.component"
+
+// Import Local Services
+import { Forms } from '../forms.service'
+
 
 @Component({
   selector: 'app-step-2',
