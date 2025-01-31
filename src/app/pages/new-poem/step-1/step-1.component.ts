@@ -46,7 +46,7 @@ export class RhythmPatternForms {
         pattern.push(' ');
       }
     });
-    this.formsService.updatePatternAndRhythm(pattern.join(''), rhythm);
+    this.formsService.prosodyFrom(pattern.join(''), rhythm);
   }
 
   onNext(event: Event): void {

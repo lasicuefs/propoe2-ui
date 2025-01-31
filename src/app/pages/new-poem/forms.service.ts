@@ -16,7 +16,7 @@ export class Forms {
     }
   }
 
-  updatePatternAndRhythm(pattern: string, rhythm: number[]) {
+  prosodyFrom(pattern: string, rhythm: number[]) {
     this.data.prosody.pattern = pattern
     this.data.prosody.rhythm = rhythm
     console.log(this)
