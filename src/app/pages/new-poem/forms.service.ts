@@ -24,7 +24,7 @@ export class Forms {
     console.log(this)
   }
 
-  updateWeights(weights: any): void {
+  weightsFrom(weights: any): void {
     this.data.weights = weights;
     console.log(this);
   }
