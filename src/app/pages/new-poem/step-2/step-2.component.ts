@@ -17,7 +17,7 @@ import { Forms } from '../forms.service'
 export class MivesForms {
   constructor(private router: Router) {}
 
-  receiveFile(event: any): void {
+  next(): void {
       this.router.navigate(['/new/weights']);
   }
 
