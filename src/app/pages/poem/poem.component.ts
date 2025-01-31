@@ -1,17 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, signal, computed, ViewChild, ElementRef, afterNextRender } from '@angular/core';
+import { Component, Input, signal, computed, ViewChild, ElementRef, afterNextRender, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Forms } from '../../services/forms.service';
 
 @Component({
   selector: 'app-poem',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, HttpClientModule],
   templateUrl: './poem.component.html',
   styleUrl: './poem.component.css'
 })
 export class PoemPage {
   @Input() poem: string = this.loremIpsum()
   @ViewChild('mainContainer') mainContainer!: ElementRef<HTMLElement>
+
+  http = inject(HttpClient)
 
   // Signals for reactive state management
   private scrollPosition = signal(0)
@@ -28,13 +32,31 @@ export class PoemPage {
     return isContentLargerThanViewport && isNotAtBottom
   });
 
-  constructor() {
+  constructor(private forms: Forms) {
     // Initialize after DOM is ready
     afterNextRender(() => {
       this.updateDimensions()
       this.setupScrollListener()
       this.setupResizeListener()
-    });
+    })
+  }
+
+  ngOnInit() {
+    this.fetchPoem()
+  }
+
+  private fetchPoem() {
+    this.http.post<{ content: string[] }>('http://localhost:8000/poem/', this.forms.dataJson())
+      .subscribe({
+        next: (data) => {
+          this.poem = data.content.join('\n\n')
+          console.log("Fecthed")
+        },
+        error: () => {
+          this.poem = this.loremIpsum()
+          console.log("Failed to connect")
+        }
+      })
   }
 
   private setupScrollListener() {
