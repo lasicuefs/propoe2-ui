@@ -8,7 +8,7 @@
     </a>
   
     <!-- Main Content -->
-    <main #mainContainer class="content-container pt-96 max-h-screen bg-slate-100 bg-opacity-65 overflow-y-scroll">
+    <main #mainContainer class="content-container max-h-screen bg-slate-100 bg-opacity-65 overflow-y-scroll">
       <ng-container *ngIf="poem$ | async as poem">
         <article class="py-20 flex flex-col justify-center items-center">
           <p class="prose text-center mb-8" *ngFor="let paragraph of poem.split('\n\n')">
