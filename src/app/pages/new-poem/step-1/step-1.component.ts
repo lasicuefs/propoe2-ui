@@ -39,13 +39,12 @@ export class RhythmPatternForms {
       const units = stanza.querySelectorAll('pattern-unit')
 
       units.forEach(unit => {
-        const $ = unit.querySelector
         
         const letter = (
-          $('input[type="text"]:nth-child(2)') as HTMLInputElement
+          unit.querySelector('input[type="text"]:nth-child(2)') as HTMLInputElement
         ).value
         const number = parseInt(
-          ($('input[type="text"]:nth-child(1)') as HTMLInputElement).value, 10
+          (unit.querySelector('input[type="text"]:nth-child(1)') as HTMLInputElement).value, 10
         )
 
         pattern.push(letter)

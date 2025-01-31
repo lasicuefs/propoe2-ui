@@ -31,9 +31,7 @@ export class WeightsForms {
     const weights: any = {}
 
     this.weights.forEach( weight => {
-      const $ = document.querySelector
-      
-      const input = $(`input[name="${weight.id}"]`) as HTMLInputElement;
+      const input = document.querySelector(`input[name="${weight.id}"]`) as HTMLInputElement;
       weights[weight.id] = parseFloat(input.value)
     })
 
