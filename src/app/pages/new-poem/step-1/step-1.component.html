@@ -14,8 +14,8 @@
         <!-- New Stanza button -->
         <button (click)="addStanza()" class="bg-slate-50 bg-opacity-60 w-full">+</button>
     </section>
-    <a routerLink="/new/mives">
-        <button class="action-btn" (click)="updateFormsService()">Próximo</button>
+    <a (click)="onNext($event)">
+        <button class="action-btn">Próximo</button>
     </a>
     <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
     <forms-steps [currentStep]="1" [totalSteps]="3"></forms-steps>

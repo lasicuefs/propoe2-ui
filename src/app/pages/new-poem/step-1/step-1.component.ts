@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { RouterLink } from '@angular/router'
+import { RouterLink, Router } from '@angular/router'
 import { CommonModule } from '@angular/common'
 
 // Import Local Components
@@ -18,7 +18,7 @@ import { Forms } from '../forms.service';
 export class RhythmPatternForms {
   stanzas: number = 1
 
-  constructor(private formsService: Forms) {}
+  constructor(private formsService: Forms, private router: Router) {}
 
   addStanza(): void {
     this.stanzas++
@@ -47,5 +47,11 @@ export class RhythmPatternForms {
       }
     });
     this.formsService.updatePatternAndRhythm(pattern.join(''), rhythm);
+  }
+
+  onNext(event: Event): void {
+    event.preventDefault();
+    this.updateFormsService();
+    this.router.navigate(['/new/mives']);
   }
 }
