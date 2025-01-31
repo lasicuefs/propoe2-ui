@@ -17,4 +17,10 @@ export class Forms {
       "rhythmic-structure": 1
     }
   }
+
+  updatePatternAndRhythm(pattern: string, rhythm: number[]): void {
+    this.data.prosody.pattern = pattern;
+    this.data.prosody.rhythm = rhythm;
+    console.log(this)
+  }
 }

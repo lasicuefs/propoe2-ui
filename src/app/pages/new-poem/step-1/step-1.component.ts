@@ -18,6 +18,8 @@ import { Forms } from '../forms.service';
 export class RhythmPatternForms {
   stanzas: number = 1
 
+  constructor(private formsService: Forms) {}
+
   addStanza(): void {
     this.stanzas++
   }
@@ -26,5 +28,24 @@ export class RhythmPatternForms {
     return Array(this.stanzas)
       .fill(0)
       .map((_, i) => i)
+  }
+
+  updateFormsService(): void {
+    const pattern: any = [];
+    const rhythm: any = [];
+    const stanzas = document.querySelectorAll('stanzas-pattern');
+    stanzas.forEach((stanza, index) => {
+      const units = stanza.querySelectorAll('pattern-unit');
+      units.forEach(unit => {
+        const letter = (unit.querySelector('input[type="text"]:nth-child(2)') as HTMLInputElement).value;
+        const number = parseInt((unit.querySelector('input[type="text"]:nth-child(1)') as HTMLInputElement).value, 10);
+        pattern.push(letter);
+        rhythm.push(number);
+      });
+      if (index < stanzas.length - 1) {
+        pattern.push(' ');
+      }
+    });
+    this.formsService.updatePatternAndRhythm(pattern.join(''), rhythm);
   }
 }
