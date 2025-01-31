@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common'
 
 // Import Local Components
 import { StanzaPattern } from './stanza-pattern/stanza-pattern.component'
-import { Steps } from "../steps/steps.component";
+import { Steps } from "../steps/steps.component"
 
 // Import Local Services
-import { Forms } from '../forms.service';
+import { Forms } from '../forms.service'
 
 @Component({
   selector: 'app-step-1',
@@ -30,28 +30,35 @@ export class RhythmPatternForms {
       .map((_, i) => i)
   }
 
-  updateFormsService(): void {
-    const pattern: any = [];
-    const rhythm: any = [];
-    const stanzas = document.querySelectorAll('stanzas-pattern');
+  updateFormsService() {
+    const pattern: any = []
+    const rhythm: any = []
+    const stanzas = document.querySelectorAll('stanzas-pattern')
+    
     stanzas.forEach((stanza, index) => {
-      const units = stanza.querySelectorAll('pattern-unit');
+      const units = stanza.querySelectorAll('pattern-unit')
+
       units.forEach(unit => {
-        const letter = (unit.querySelector('input[type="text"]:nth-child(2)') as HTMLInputElement).value;
-        const number = parseInt((unit.querySelector('input[type="text"]:nth-child(1)') as HTMLInputElement).value, 10);
-        pattern.push(letter);
-        rhythm.push(number);
-      });
+        const letter = (unit.querySelector('input[type="text"]:nth-child(2)') as HTMLInputElement).value
+        const number = parseInt((unit.querySelector('input[type="text"]:nth-child(1)') as HTMLInputElement).value, 10)
+
+        pattern.push(letter)
+        rhythm.push(number)
+      })
+
       if (index < stanzas.length - 1) {
-        pattern.push(' ');
+        pattern.push(' ')
       }
-    });
-    this.formsService.prosodyFrom(pattern.join(''), rhythm);
+
+    })
+
+    this.formsService.prosodyFrom(pattern.join(''), rhythm)
+
   }
 
-  onNext(event: Event): void {
-    event.preventDefault();
-    this.updateFormsService();
-    this.router.navigate(['/new/mives']);
+  onNext(event: Event) {
+    event.preventDefault()
+    this.updateFormsService()
+    this.router.navigate(['/new/mives'])
   }
 }
