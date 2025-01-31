@@ -13,8 +13,8 @@ export class PatternUnit {
   onNumberChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     const parsedValue = parseInt(value, 10);
-    if (isNaN(parsedValue) || parsedValue > 0) {
-      // Handle invalid input if needed
+    if (isNaN(parsedValue) || parsedValue < 1 || parsedValue > 0 ) {
+      alert('Por favor, insira um número de 1 a 100.')
     }
   }
 
