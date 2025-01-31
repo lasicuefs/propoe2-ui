@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
 // Import Local Components
 import { AttributeField } from './attribute-field/attribute-field.component';
@@ -18,10 +18,27 @@ import { Forms } from '../forms.service';
 export class WeightsForms {
 
   weights: { text: string, id: string, value: number }[] = [
-    { text: 'Rima toante e consoante', id: 'rima-toante-consoante', value: 1.0 },
-    { text: 'Acentuação', id: 'acentuacao', value: 1.0 },
-    { text: 'Posição tônica', id: 'posicao-tonica', value: 1.0 },
-    { text: 'Rima interna', id: 'rima-interna', value: 1.0 },
-    { text: 'Estrutura rítimica', id: 'estrutura-ritimica', value: 1.0 },
+    { text: 'Rima toante e consoante', id: 'vocal-harmony', value: 1.0 },
+    { text: 'Acentuação', id: 'accentuation', value: 1.0 },
+    { text: 'Posição tônica', id: 'tonic-position', value: 1.0 },
+    { text: 'Rima interna', id: 'internal-rhyme', value: 1.0 },
+    { text: 'Estrutura rítimica', id: 'rhythmic-structure', value: 1.0 },
   ];
+
+  constructor(private formsService: Forms, private router: Router) {}
+
+  updateFormsService(): void {
+    const weights: any = {};
+    this.weights.forEach(weight => {
+      const input = document.querySelector(`input[name="${weight.id}"]`) as HTMLInputElement;
+      weights[weight.id] = parseFloat(input.value);
+    });
+    this.formsService.updateWeights(weights);
+  }
+
+  onGenerate(event: Event): void {
+    event.preventDefault();
+    this.updateFormsService();
+    this.router.navigate(['/poem']);
+  }
 }

@@ -23,4 +23,10 @@ export class Forms {
     this.data.prosody.rhythm = rhythm;
     console.log(this)
   }
+
+  updateWeights(weights: any): void {
+    this.data.weights = weights;
+    console.log(this);
+  }
+
 }

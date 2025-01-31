@@ -9,7 +9,7 @@
             [id]="weight.id">
         </attribute-field>
     </ul>
-    <a routerLink="/poem">
+    <a (click)="onGenerate($event)">
         <button class="action-btn">Gerar</button>
     </a>
     <forms-steps [currentStep]="3" [totalSteps]="3"></forms-steps>
