@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { RouterLink, Router } from '@angular/router'
+import { Router } from '@angular/router'
 import { CommonModule } from '@angular/common'
 
 // Import Local Components
@@ -11,7 +11,7 @@ import { Forms } from '../forms.service';
 
 @Component({
   selector: 'app-step-1',
-  imports: [RouterLink, StanzaPattern, CommonModule, Steps],
+  imports: [StanzaPattern, CommonModule, Steps],
   templateUrl: './step-1.component.html',
   styleUrl: './step-1.component.css'
 })

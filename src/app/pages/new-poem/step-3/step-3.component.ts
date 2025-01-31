@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 // Import Local Components
 import { AttributeField } from './attribute-field/attribute-field.component';
@@ -11,7 +11,7 @@ import { Forms } from '../forms.service';
 
 @Component({
   selector: 'app-step-3',
-  imports: [AttributeField, CommonModule, Steps, RouterLink],
+  imports: [AttributeField, CommonModule, Steps],
   templateUrl: './step-3.component.html',
   styleUrl: './step-3.component.css'
 })
