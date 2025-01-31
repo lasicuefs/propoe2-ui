@@ -20,6 +20,5 @@ export class PatternUnit {
 
   onLetterChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    // Add validation/emit if needed
   }
 }
