@@ -37,7 +37,7 @@ export class WeightsForms {
       weights[weight.id] = parseFloat(input.value)
     })
 
-    this.forms.updateWeights(weights)
+    this.forms.weightsFrom(weights)
   }
 
   onGenerate(event: Event) {
