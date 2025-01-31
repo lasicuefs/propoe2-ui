@@ -5,7 +5,7 @@ import { Router } from '@angular/router'
 import { Steps } from "../steps/steps.component"
 
 // Import Local Services
-import { Forms } from '../forms.service'
+import { Forms } from '../../../services/forms.service'
 
 
 @Component({

@@ -7,7 +7,7 @@ import { AttributeField } from './attribute-field/attribute-field.component'
 import { Steps } from "../steps/steps.component"
 
 // Import Local Services
-import { Forms } from '../forms.service'
+import { Forms } from '../../../services/forms.service'
 
 @Component({
   selector: 'app-step-3',
