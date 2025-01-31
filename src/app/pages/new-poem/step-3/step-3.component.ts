@@ -43,8 +43,6 @@ export class WeightsForms {
   onGenerate(event: Event) {
     event.preventDefault()
     this.updateForms()
-    this.updateFormsService()
-    this.updateForms()
     this.router.navigate(['/poem'])
   }
 }
