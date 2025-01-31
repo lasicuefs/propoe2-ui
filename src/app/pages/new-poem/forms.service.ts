@@ -16,6 +16,10 @@ export class Forms {
     }
   }
 
+  dataJson(): any {
+    return this.data;
+  }
+
   prosodyFrom(pattern: string, rhythm: number[]) {
     this.data.prosody.pattern = pattern
     this.data.prosody.rhythm = rhythm
