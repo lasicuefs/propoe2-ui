@@ -18,11 +18,7 @@ export class MivesForms {
   constructor(private router: Router) {}
 
   receiveFile(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      // TODO: handle file to submit
       this.router.navigate(['/new/weights']);
-    }
   }
 
 }

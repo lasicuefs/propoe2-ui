@@ -1,10 +1,10 @@
 <main class="content-container">
     <h1 class="title">Arquivo MIVES</h1>
     <div class="flex gap-4 mt-4">
-        <input #sampleInput type="file" (change)="receiveFile($event)" class="hidden">
+        <input #sampleInput (change)="receiveFile($event)" class="hidden">
         <button class="action-btn" (click)="sampleInput.click()">Amostras</button>
         
-        <input #fileInput type="file" (change)="receiveFile($event)" class="hidden">
+        <input #fileInput (change)="receiveFile($event)" class="hidden">
         <button class="action-btn" (click)="fileInput.click()">Abrir</button>
     </div>
     <span class="hint-msg">
