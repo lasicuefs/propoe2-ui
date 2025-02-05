@@ -8,10 +8,10 @@
     </a>
   
     <!-- Main Content -->
-    <main #mainContainer class="content-container max-h-screen bg-slate-100 bg-opacity-65 overflow-y-scroll">
+    <main #mainContainer class="w-screen h-screen font-serif flex flex-col items-center justify-start bg-slate-100 bg-opacity-65 overflow-y-scroll">
       <ng-container *ngIf="poem$ | async as poem">
-        <article class="py-20 flex flex-col justify-center items-center">
-          <p class="prose text-center mb-8" *ngFor="let paragraph of poem.split('\n\n')">
+        <article class="flex flex-col justify-start items-center py-16">
+          <p class="prose-xl text-center mb-8 break-words" *ngFor="let paragraph of poem.split('\n\n')">
             <span class="block leading-relaxed" *ngFor="let line of paragraph.split('\n')">
               {{ line }}
             </span>
@@ -21,9 +21,7 @@
     </main>
   
     <!-- Scroll Button -->
-    <div class="fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4" 
-         *ngIf="showScrollButton()"
-         (click)="scrollDown()">
+    <div class="fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4 z-40" (click)="scrollDown()">
       <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent -z-10"></div>
       <button class="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 shadow-lg">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, Input, signal, computed, ViewChild, ElementRef, afterNextRender, inject } from '@angular/core'
+import { Component, ViewChild, ElementRef, inject, signal, computed } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { Observable, of } from 'rxjs'
@@ -15,9 +15,7 @@ import { Forms } from '../../services/forms.service'
 })
 export class PoemPage {
   @ViewChild('mainContainer') mainContainer!: ElementRef<HTMLElement>
-
   poem$: Observable<string> = of('')
-
   http = inject(HttpClient)
 
   private scrollPosition = signal(0)
@@ -28,21 +26,16 @@ export class PoemPage {
     const isContentLargerThanViewport = this.contentHeight() > this.viewportHeight();
     const isNotAtBottom = Math.ceil(
       this.contentHeight() - this.scrollPosition() - this.viewportHeight()
-    ) > 20
+    ) > 20;
+    const isAtTop = this.scrollPosition() < 20;
     
-    return isContentLargerThanViewport && isNotAtBottom
+    return isContentLargerThanViewport && (isNotAtBottom || isAtTop);
   });
 
-  constructor(private forms: Forms) {
-    afterNextRender(() => {
-      this.updateDimensions()
-      this.setupScrollListener()
-      this.setupResizeListener()
-    });
-  }
+  constructor(private forms: Forms) {}
 
   ngOnInit() {
-    this.fetchPoem()
+    this.fetchPoem();
   }
 
   private fetchPoem() {
@@ -51,28 +44,6 @@ export class PoemPage {
         map( data => data.content.join('\n')),
              catchError(() => of('Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.'))
       )
-  }
-
-  private setupScrollListener() {
-    // Listen to scroll events on the main container instead of document
-    this.mainContainer.nativeElement.addEventListener('scroll', () => {
-      this.scrollPosition.set(this.mainContainer.nativeElement.scrollTop)
-    }, { passive: true })
-  }
-
-  private setupResizeListener() {
-    // Update dimensions when window resizes
-    window.addEventListener('resize', () => {
-      this.updateDimensions()
-    }, { passive: true })
-  }
-
-  private updateDimensions() {
-    const mainElement = this.mainContainer.nativeElement
-    // Use clientHeight for viewport height (visible area)
-    this.viewportHeight.set(mainElement.clientHeight)
-    // Use scrollHeight for total content height
-    this.contentHeight.set(mainElement.scrollHeight)
   }
 
   scrollDown() {
