@@ -12,7 +12,11 @@
             <stanzas-pattern *ngFor="let i of stanzaArray()"></stanzas-pattern>
         </section>
         <!-- New Stanza button -->
-        <button (click)="addStanza()" class="bg-slate-50 bg-opacity-60 w-full">+</button>
+        <button title="Nova Estrofe"
+            (click)="addStanza()" 
+            class="bg-slate-50 bg-opacity-60 w-full">
+            +
+        </button>
     </section>
     <a (click)="onNext($event)">
         <button class="action-btn">Próximo</button>
