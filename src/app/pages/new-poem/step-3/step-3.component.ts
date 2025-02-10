@@ -8,10 +8,11 @@ import { Steps } from "../steps/steps.component"
 
 // Import Local Services
 import { Forms } from '../../../services/forms.service'
+import { BackBtnComponent } from "../back-btn/back-btn.component";
 
 @Component({
   selector: 'app-step-3',
-  imports: [AttributeField, CommonModule, Steps],
+  imports: [AttributeField, CommonModule, Steps, BackBtnComponent],
   templateUrl: './step-3.component.html',
   styleUrl: './step-3.component.css'
 })
