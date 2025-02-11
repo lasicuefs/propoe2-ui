@@ -1,12 +1,17 @@
 <main class="content-container">
     <h1 class="title">Pesos de avaliação</h1>
-    <span class="hint-msg">Preencha os campos abaixo para definir os pesos de avaliação do poema.</span>
-    <ul class="flex flex-col gap-2 text-lg overflow-hidden min-w-96 rounded-3xl mt-4 bg-white bg-opacity-45 p-4 px-10">
+    <span class="hint-msg"
+    >Preencha os campos abaixo para definir os pesos de avaliação do
+        poema.</span>
+    <ul
+        class="flex flex-col gap-2 text-lg overflow-hidden min-w-96 rounded-3xl mt-4 bg-white bg-opacity-45 p-4 px-10"
+    >
         <attribute-field
             *ngFor="let weight of weights"
             [attribute]="weight.text"
             [value]="weight.value"
-            [id]="weight.id">
+            [id]="weight.id"
+        >
         </attribute-field>
     </ul>
     <a (click)="onGenerate($event)">

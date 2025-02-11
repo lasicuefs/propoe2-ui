@@ -1,0 +1,18 @@
+{
+    // Deno is used only for formatting files.
+    // This is not used as Runtime due to Angular's compatibility issues
+    // Please, use `npm` and `ng` to manage the project.
+    //
+    // Also, disable Deno's extension for this workspace and use the Angular extension.
+    // To format, run `deno fmt`. 
+    "fmt": {
+        "options": {
+            "semiColons": false,
+            "useTabs": false,
+            "lineWidth": 80,
+            "indentWidth": 4,
+            "singleQuote": false,
+            "proseWrap": "always"
+        }
+    }
+}

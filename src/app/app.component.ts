@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Background } from "./layout/background/background.component";
+import { Component } from "@angular/core"
+import { RouterOutlet } from "@angular/router"
+import { Background } from "./layout/background/background.component"
 
 @Component({
-  selector: 'app-root',
-  imports: [
-    RouterOutlet, 
-    Background, 
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: "app-root",
+    imports: [
+        RouterOutlet,
+        Background,
+    ],
+    templateUrl: "./app.component.html",
+    styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  title = 'Propoe2';
+    title = "Propoe2"
 }
