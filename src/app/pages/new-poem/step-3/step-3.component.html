@@ -1,5 +1,7 @@
 <main class="content-container">
     <h1 class="title">Pesos de avaliação</h1>
+
+    <!-- Forms -->
     <span class="hint-msg"
     >Preencha os campos abaixo para definir os pesos de avaliação do
         poema.</span>
@@ -14,10 +16,14 @@
         >
         </attribute-field>
     </ul>
+    <!-- end: Forms -->
+
+    <!-- Bottom -->
     <a (click)="onGenerate($event)">
         <button class="action-btn">Gerar</button>
     </a>
 
+    <!-- Floating Navigation -->
     <back-btn route="/new/mives" pageTitle="Arquivo Mives"></back-btn>
     <forms-steps [currentStep]="3" [totalSteps]="3"></forms-steps>
 </main>
