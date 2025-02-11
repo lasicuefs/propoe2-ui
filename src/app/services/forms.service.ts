@@ -2,7 +2,19 @@ import { Injectable } from "@angular/core"
 
 @Injectable({ providedIn: "root" })
 export class Forms {
-    private data: any = {
+    private data: {
+        "prosody": {
+            "pattern": string,
+            "rhythm": number[]
+        },
+        "weights": {
+            "vocal-harmony": number,
+            "accentuation": number,
+            "tonic-position": number,
+            "internal-rhyme": number,
+            "rhythmic-structure": number,
+        }
+    } = {
         "prosody": {
             "pattern": "",
             "rhythm": [],
