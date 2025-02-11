@@ -19,7 +19,7 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
 export class RhythmPatternForms {
     stanzas: number = 1
 
-    constructor(private formsService: Forms, private router: Router) {}
+    constructor(private forms: Forms, private router: Router)
 
     addStanza(): void {
         this.stanzas++
@@ -61,7 +61,7 @@ export class RhythmPatternForms {
             }
         })
 
-        this.formsService.prosodyFrom(pattern.join(""), rhythm)
+        this.forms.prosodyFrom(pattern.join(""), rhythm)
     }
 
     onNext(event: Event) {
