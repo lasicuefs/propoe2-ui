@@ -4,7 +4,7 @@
     // Please, use `npm` and `ng` to manage the project.
     //
     // Also, disable Deno's extension for this workspace and use the Angular extension.
-    // To format, run `deno fmt`. 
+    // To format, run `deno fmt`.
     "fmt": {
         "options": {
             "semiColons": false,
