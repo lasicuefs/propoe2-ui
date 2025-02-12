@@ -41,7 +41,9 @@ export class RhythmPatternForms {
     }
     
     // Placeholder: delete this
-    addStanza() {}
+    addStanza() {
+        this.stanzas++
+    }
 
     // Should check for: 
     // - valid datatype
