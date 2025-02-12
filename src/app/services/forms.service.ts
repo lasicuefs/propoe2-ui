@@ -21,6 +21,11 @@ type Stanza = {
     lengths: number[],
 }
 
+type FormsData = {
+    "stanzas": Stanza[],
+    "weights": Weights
+}
+
 @Injectable({ providedIn: "root" })
 export class Forms {
     private data: RequestScheme = {
