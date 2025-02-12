@@ -1,20 +1,22 @@
 import { Injectable } from "@angular/core"
 
+type Output = {
+    "prosody": {
+        "pattern": string,
+        "rhythm": number[]
+    },
+    "weights": {
+        "vocal-harmony": number,
+        "accentuation": number,
+        "tonic-position": number,
+        "internal-rhyme": number,
+        "rhythmic-structure": number,
+    }
+}
+
 @Injectable({ providedIn: "root" })
 export class Forms {
-    private data: {
-        "prosody": {
-            "pattern": string,
-            "rhythm": number[]
-        },
-        "weights": {
-            "vocal-harmony": number,
-            "accentuation": number,
-            "tonic-position": number,
-            "internal-rhyme": number,
-            "rhythmic-structure": number,
-        }
-    } = {
+    private data: Output = {
         "prosody": {
             "pattern": "",
             "rhythm": [],
@@ -32,7 +34,7 @@ export class Forms {
         return this.data
     }
 
-    prosodyFrom(pattern: string, rhythm: number[]) {
+    prosodyFrom(stanzas: Stanza[]) {
         this.data.prosody.pattern = pattern
         this.data.prosody.rhythm = rhythm
         console.log(this)
