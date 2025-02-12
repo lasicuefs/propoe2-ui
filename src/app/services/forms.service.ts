@@ -1,28 +1,28 @@
 import { Injectable } from "@angular/core"
 
 type Weights = {
-    "vocal-harmony": number,
-    "accentuation": number,
-    "tonic-position": number,
-    "internal-rhyme": number,
-    "rhythmic-structure": number,
+    "vocal-harmony": number
+    "accentuation": number
+    "tonic-position": number
+    "internal-rhyme": number
+    "rhythmic-structure": number
 }
 
 type PostJson = {
     "prosody": {
-        "pattern": string,
+        "pattern": string
         "rhythm": number[]
-    },
+    }
     "weights": Weights
 }
 
 type Stanza = {
-    pattern: string[],
-    lengths: number[],
+    pattern: string[]
+    lengths: number[]
 }
 
 type FormsData = {
-    "stanzas": Stanza[],
+    "stanzas": Stanza[]
     "weights": Weights
 }
 
@@ -30,7 +30,7 @@ type FormsData = {
 export class Forms {
     private data: FormsData = {
         "stanzas": [
-            { pattern: ["A"], lengths: [10] }
+            { pattern: ["A"], lengths: [10] },
         ],
         "weights": {
             "vocal-harmony": 1,
