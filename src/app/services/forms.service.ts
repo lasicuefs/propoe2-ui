@@ -41,8 +41,18 @@ export class Forms {
         },
     }
 
-    dataJson(): any {
-        return this.data
+    dataJson(): RequestScheme {
+        return {
+            "prosody": {
+                "pattern": this.data.stanzas.flatMap((stanza: Stanza) =>
+                    stanza.pattern
+                ).join(" "),
+                "rhythm": this.data.stanzas.flatMap((stanza: Stanza) =>
+                    stanza.lengths
+                ),
+            },
+            "weights": this.data.weights,
+        }
     }
 
     prosodyFrom(stanzas: Stanza[]) {
