@@ -1,1 +1,22 @@
 
+#forms {
+    @apply 
+        flex flex-col place-items-center gap-4
+        min-w-96 
+        overflow-hidden 
+        rounded-3xl;
+}
+
+#stanzas {
+    @apply 
+        flex flex-col place-items-start flex-grow gap-4
+        px-4 max-h-80 
+        overflow-y-scroll
+        [&::-webkit-scrollbar]:w-2 
+            [&::-webkit-scrollbar-track]:bg-transparent 
+            [&::-webkit-scrollbar-thumb]:bg-slate-100
+}
+
+#add-stanza {
+    @apply bg-slate-50 bg-opacity-60 w-full
+}
