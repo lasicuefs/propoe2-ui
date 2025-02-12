@@ -4,6 +4,10 @@
         w-16 h-16 rounded-2xl
 }
 
-.pattern-input {
-    @apply bg-transparent max-w-full text-center
+input {
+    @apply 
+        bg-transparent 
+        max-w-full 
+        text-center 
+        appearance-none focus:outline-none
 }
