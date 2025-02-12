@@ -3,7 +3,9 @@
 
     <section id="forms">
         <section id="stanzas">
-            <stanza *ngFor="let i of stanzaArray()"></stanza>
+            @for (i of stanzaArray(); track stanzas) {
+                <stanza></stanza>
+            }
         </section>
         <button id="add-stanza" title="Nova Estrofe" (click)="addStanza()">+</button>
     </section>
