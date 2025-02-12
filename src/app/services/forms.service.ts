@@ -8,7 +8,7 @@ type Weights = {
     "rhythmic-structure": number,
 }
 
-type RequestScheme = {
+type PostJson = {
     "prosody": {
         "pattern": string,
         "rhythm": number[]
@@ -41,7 +41,7 @@ export class Forms {
         },
     }
 
-    postData(): RequestScheme {
+    postData(): PostJson {
         return {
             "prosody": {
                 "pattern": this.data.stanzas.flatMap((stanza: Stanza) =>
