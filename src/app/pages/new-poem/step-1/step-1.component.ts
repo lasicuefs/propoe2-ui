@@ -19,7 +19,9 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
 export class RhythmPatternForms {
     stanzas: number = 1
 
-    constructor(private forms: Forms, private router: Router)
+    constructor(private forms: Forms, private router: Router) {
+        
+    }
 
     addStanza(): void {
         this.stanzas++
