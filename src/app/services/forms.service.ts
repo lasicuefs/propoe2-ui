@@ -28,11 +28,10 @@ type FormsData = {
 
 @Injectable({ providedIn: "root" })
 export class Forms {
-    private data: RequestScheme = {
-        "prosody": {
-            "pattern": "",
-            "rhythm": [],
-        },
+    private data: FormsData = {
+        "stanzas": [
+            { pattern: ["A"], lengths: [10] }
+        ],
         "weights": {
             "vocal-harmony": 1,
             "accentuation": 1,
@@ -47,8 +46,7 @@ export class Forms {
     }
 
     prosodyFrom(stanzas: Stanza[]) {
-        this.data.prosody.pattern = pattern
-        this.data.prosody.rhythm = rhythm
+        this.data.stanzas = stanzas
         console.log(this)
     }
 
