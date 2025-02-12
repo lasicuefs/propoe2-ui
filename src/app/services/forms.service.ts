@@ -1,17 +1,19 @@
 import { Injectable } from "@angular/core"
 
+type Weights = {
+    "vocal-harmony": number,
+    "accentuation": number,
+    "tonic-position": number,
+    "internal-rhyme": number,
+    "rhythmic-structure": number,
+}
+
 type RequestScheme = {
     "prosody": {
         "pattern": string,
         "rhythm": number[]
     },
-    "weights": {
-        "vocal-harmony": number,
-        "accentuation": number,
-        "tonic-position": number,
-        "internal-rhyme": number,
-        "rhythmic-structure": number,
-    }
+    "weights": Weights
 }
 
 @Injectable({ providedIn: "root" })
