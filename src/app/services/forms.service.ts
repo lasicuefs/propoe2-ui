@@ -41,7 +41,7 @@ export class Forms {
         },
     }
 
-    dataJson(): RequestScheme {
+    postData(): RequestScheme {
         return {
             "prosody": {
                 "pattern": this.data.stanzas.flatMap((stanza: Stanza) =>

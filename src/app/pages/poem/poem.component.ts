@@ -51,7 +51,7 @@ export class PoemPage {
     private fetchPoem() {
         this.poem$ = this.http.post<{ content: string[] }>(
             "http://localhost:8000/poem/",
-            this.forms.dataJson(),
+            this.forms.postData(),
         )
             .pipe(
                 map((data) => data.content.join("\n")),
