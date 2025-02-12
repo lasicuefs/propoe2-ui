@@ -1,7 +1,7 @@
 <ul class="flex gap-4 w-full">
 
     @for (unit of units; track units) {
-        <li class="pattern-unit">
+        <li class="verse-button">
             <input
                 type="number"
                 [value]="unit.number"
@@ -17,5 +17,5 @@
         </li>
     }
 
-    <button title="Novo Verso" (click)="addPatternUnit()" class="pattern-unit text-xl w-full h-full">+</button>
+    <button title="Novo Verso" (click)="addPatternUnit()" class="verse-button text-xl w-full h-full">+</button>
 </ul>
