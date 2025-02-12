@@ -1,19 +1,21 @@
 <ul class="flex gap-4 w-full">
-    <pattern-unit
-        *ngFor="let unit of patternUnits"
-        [letter]="unit.letter"
-        [number]="unit.number"
-    >
-    </pattern-unit>
-    <li class="pattern-unit">
-        <!-- Placeholder: New Units will be put here. -->
-        <!-- Add Stanza button -->
-        <button
-            title="Novo Verso"
-            (click)="addPatternUnit()"
-            class="text-xl w-full h-full"
-        >
-            +
-        </button>
-    </li>
+
+    @for (unit of units; track units) {
+        <li class="pattern-unit">
+            <input
+                type="text"
+                [value]="unit.number"
+                title="Editar sílabas fonéticas do verso"
+                class="pattern-input appearance-none focus:outline-none"
+            >
+            <input
+                type="text"
+                [value]="unit.letter"
+                title="Editar padrão de rima do verso"
+                class="pattern-input text-xl appearance-none focus:outline-none"
+            >
+        </li>
+    }
+
+    <button title="Novo Verso" (click)="addPatternUnit()" class="pattern-unit text-xl w-full h-full">+</button>
 </ul>

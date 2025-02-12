@@ -3,3 +3,7 @@
         bg-slate-50 bg-opacity-30 
         w-16 h-16 rounded-2xl
 }
+
+.pattern-input {
+    @apply bg-transparent max-w-full text-center
+}
