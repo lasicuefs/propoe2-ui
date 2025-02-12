@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, Optional } from "@angular/core"
 import { Router } from "@angular/router"
 import { CommonModule } from "@angular/common"
 
@@ -10,6 +10,11 @@ import { Steps } from "../steps/steps.component"
 import { Forms } from "../../../services/forms.service"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
+interface Stanza {
+    pattern: string[]
+    lengths: number[]
+}
+
 @Component({
     selector: "app-step-1",
     imports: [StanzaPattern, CommonModule, Steps, BackBtnComponent],
@@ -17,29 +22,43 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
     styleUrl: "./step-1.component.css",
 })
 export class RhythmPatternForms {
+    // stanzas: Stanza[] = []
     stanzas: number = 1
+    constructor(private forms: Forms, private router: Router) {}
 
-    constructor(private forms: Forms, private router: Router) {
+    ngOnInit() {
+        // this.stanzas = this.forms.data.stanzas
+    }
+
+    // Adds a new default Stanza
+    add(): void {
         
     }
 
-    addStanza(): void {
-        this.stanzas++
+    // Should check for: 
+    // - valid datatype
+    // - valid lenghts
+    prosodyStatus(): string {
+        return "ok"
     }
 
-    stanzaArray(): number[] {
-        return Array(this.stanzas)
-            .fill(0)
-            .map((_, i) => i)
+    // TODO: Clears data from Forms and reloads UI
+    clear() {
+        
     }
 
-    updateForms() {
- 
-    }
-
+    // Goes to the next page if everything is right
+    // Otherwise, this will alert a message and reset this forms' step.
     onNext(event: Event) {
         event.preventDefault()
-        this.updateForms()
-        this.router.navigate(["/new/mives"])
+        const message = this.prosodyStatus()
+
+        if (message != "ok") {
+            alert(message)
+            this.clear()
+        } else {
+            // this.forms.prosodyFrom(this.stanzas)
+            this.router.navigate(["/new/mives"])
+        }
     }
 }
