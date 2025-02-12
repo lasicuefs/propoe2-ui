@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 import { CommonModule } from "@angular/common"
 
 // Import Local Components
-import { Stanzas } from "./stanzas/stanzas"
+import { StanzaComponent } from "./stanza/stanza"
 import { Steps } from "../steps/steps.component"
 
 // Import Local Services
@@ -17,7 +17,7 @@ interface Stanza {
 
 @Component({
     selector: "app-step-1",
-    imports: [Stanzas, CommonModule, Steps, BackBtnComponent],
+    imports: [StanzaComponent, CommonModule, Steps, BackBtnComponent],
     templateUrl: "./step-1.component.html",
     styleUrl: "./step-1.component.css",
 })

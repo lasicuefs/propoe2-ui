@@ -7,13 +7,13 @@ interface Unit {
 }
 
 @Component({
-    selector: "stanzas",
+    selector: "stanza",
     standalone: true,
     imports: [CommonModule],
-    templateUrl: "./stanzas.html",
-    styleUrl: "./stanzas.css",
+    templateUrl: "./stanza.html",
+    styleUrl: "./stanza.css",
 })
-export class Stanzas {
+export class StanzaComponent {
     units: Unit[] = [{ letter: "A", number: "10" }]
 
     addPatternUnit(): void {
