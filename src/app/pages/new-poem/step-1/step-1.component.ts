@@ -35,6 +35,14 @@ export class RhythmPatternForms {
         
     }
 
+    // Placeholder: delete this
+    stanzaArray(): number[] {
+        return new Array(this.stanzas).fill(0)
+    }
+    
+    // Placeholder: delete this
+    addStanza() {}
+
     // Should check for: 
     // - valid datatype
     // - valid lenghts
