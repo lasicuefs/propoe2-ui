@@ -18,9 +18,7 @@ export class StanzaPattern {
     patternUnits: PatternUnit[] = [
         {
             letter: "A",
-            number: "10",
-            onNumberChange: () => {},
-            onLetterChange: () => {},
+            number: "10"        
         },
     ]
 
@@ -28,8 +26,6 @@ export class StanzaPattern {
         this.patternUnits.push({
             letter: "A",
             number: "10",
-            onNumberChange: () => {},
-            onLetterChange: () => {},
         })
     }
 }
