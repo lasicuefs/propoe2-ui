@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { StanzaPattern as StanzaPatternComponent } from "./stanza-pattern.component"
+import { Stanzas } from "./stanzas"
 
 describe("StanzaPatternComponent", () => {
-    let component: StanzaPatternComponent
-    let fixture: ComponentFixture<StanzaPatternComponent>
+    let component: Stanzas
+    let fixture: ComponentFixture<Stanzas>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [StanzaPatternComponent],
+            imports: [Stanzas],
         })
             .compileComponents()
 
-        fixture = TestBed.createComponent(StanzaPatternComponent)
+        fixture = TestBed.createComponent(Stanzas)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

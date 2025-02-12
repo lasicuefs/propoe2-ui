@@ -3,7 +3,7 @@
 
     <section id="forms">
         <section id="stanzas">
-            <stanzas-pattern *ngFor="let i of stanzaArray()"></stanzas-pattern>
+            <stanzas *ngFor="let i of stanzaArray()"></stanzas>
         </section>
         <button id="add-stanza" title="Nova Estrofe" (click)="addStanza()">+</button>
     </section>
