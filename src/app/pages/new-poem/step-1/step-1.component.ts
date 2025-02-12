@@ -34,36 +34,7 @@ export class RhythmPatternForms {
     }
 
     updateForms() {
-        const pattern: any = []
-        const rhythm: any = []
-        const stanzas = document.querySelectorAll("stanzas-pattern")
-
-        stanzas.forEach((stanza, index) => {
-            const units = stanza.querySelectorAll("pattern-unit")
-
-            units.forEach((unit) => {
-                const letter = (
-                    unit.querySelector(
-                        'input[type="text"]:nth-child(2)',
-                    ) as HTMLInputElement
-                ).value
-                const number = parseInt(
-                    (unit.querySelector(
-                        'input[type="text"]:nth-child(1)',
-                    ) as HTMLInputElement).value,
-                    10,
-                )
-
-                pattern.push(letter)
-                rhythm.push(number)
-            })
-
-            if (index < stanzas.length - 1) {
-                pattern.push(" ")
-            }
-        })
-
-        this.forms.prosodyFrom(pattern.join(""), rhythm)
+ 
     }
 
     onNext(event: Event) {
