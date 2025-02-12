@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 
-type Output = {
+type RequestScheme = {
     "prosody": {
         "pattern": string,
         "rhythm": number[]
@@ -16,7 +16,7 @@ type Output = {
 
 @Injectable({ providedIn: "root" })
 export class Forms {
-    private data: Output = {
+    private data: RequestScheme = {
         "prosody": {
             "pattern": "",
             "rhythm": [],
