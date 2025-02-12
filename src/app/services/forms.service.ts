@@ -28,7 +28,7 @@ type FormsData = {
 
 @Injectable({ providedIn: "root" })
 export class Forms {
-    private data: FormsData = {
+    data: FormsData = {
         stanzas: [
             { pattern: ["A"], lengths: [10] },
         ],
