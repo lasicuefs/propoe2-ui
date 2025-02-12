@@ -22,17 +22,17 @@ type Stanza = {
 }
 
 type FormsData = {
-    "stanzas": Stanza[]
-    "weights": Weights
+    stanzas: Stanza[]
+    weights: Weights
 }
 
 @Injectable({ providedIn: "root" })
 export class Forms {
     private data: FormsData = {
-        "stanzas": [
+        stanzas: [
             { pattern: ["A"], lengths: [10] },
         ],
-        "weights": {
+        weights: {
             "vocal-harmony": 1,
             "accentuation": 1,
             "tonic-position": 1,
