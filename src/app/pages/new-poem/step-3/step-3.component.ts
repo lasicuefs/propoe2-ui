@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, inject } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { Router } from "@angular/router"
 
@@ -17,6 +17,9 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
     styleUrl: "./step-3.component.css",
 })
 export class WeightsForms {
+    private forms = inject(Forms)
+    private router = inject(Router)
+
     weights: { text: string; id: string; value: number }[] = [
         { text: "Rima toante e consoante", id: "vocal-harmony", value: 1.0 },
         { text: "Acentuação", id: "accentuation", value: 1.0 },
@@ -24,8 +27,6 @@ export class WeightsForms {
         { text: "Rima interna", id: "internal-rhyme", value: 1.0 },
         { text: "Estrutura rítimica", id: "rhythmic-structure", value: 1.0 },
     ]
-
-    constructor(private forms: Forms, private router: Router) {}
 
     updateForms(): void {
         const weights: any = {}
