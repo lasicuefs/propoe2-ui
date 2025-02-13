@@ -17,6 +17,7 @@
             >
         </li>
     }
-
-    <button title="Novo Verso" (click)="add()" class="verse-button text-xl w-full h-full">+</button>
+    @if (units.length < 8) {
+        <button title="Novo Verso" (click)="add()" class="verse-button text-xl w-full h-full">+</button>
+    }
 </ul>
