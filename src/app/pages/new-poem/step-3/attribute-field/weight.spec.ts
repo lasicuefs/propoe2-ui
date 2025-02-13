@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { WeightOption } from "./attribute-field.component"
+import { WeightOption } from "./weight"
 
 describe("AttributeFieldComponent", () => {
     let component: WeightOption

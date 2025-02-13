@@ -15,8 +15,8 @@ function within(x: number, low: number, high: number) {
 @Component({
     selector: "weight",
     imports: [],
-    templateUrl: "./attribute-field.component.html",
-    styleUrl: "./attribute-field.component.css",
+    templateUrl: "./weight.html",
+    styleUrl: "./weight.css",
 })
 export class WeightOption {
     @Input()
