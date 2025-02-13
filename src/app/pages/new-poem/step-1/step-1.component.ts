@@ -1,4 +1,4 @@
-import { Component, Optional } from "@angular/core"
+import { Component, inject, OnInit, Optional } from "@angular/core"
 import { Router } from "@angular/router"
 import { CommonModule } from "@angular/common"
 
@@ -10,19 +10,16 @@ import { Steps } from "../steps/steps.component"
 import { Forms } from "../../../services/forms.service"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
-interface Stanza {
-    pattern: string[]
-    lengths: number[]
-}
 
 @Component({
     selector: "app-step-1",
-    imports: [StanzaComponent, CommonModule, Steps, BackBtnComponent],
+    imports: [StanzaComponent, Steps, BackBtnComponent],
     templateUrl: "./step-1.component.html",
     styleUrl: "./step-1.component.css",
 })
-export class RhythmPatternForms {
-    constructor(private forms: Forms, private router: Router) {}
+export class RhythmPatternForms implements OnInit {
+    private service = inject(Forms)
+    private router  = inject(Router)
 
     ngOnInit() {}
     add(): void {}
