@@ -16,6 +16,14 @@ type WeightsOption = {
     value: number
 }
 
+const defaultOptions: WeightsOption[] = [
+    { text: "Rima toante e consoante", id: "vocal-harmony", value: 1.0 },
+    { text: "Acentuação", id: "accentuation", value: 1.0 },
+    { text: "Posição tônica", id: "tonic-position", value: 1.0 },
+    { text: "Rima interna", id: "internal-rhyme", value: 1.0 },
+    { text: "Estrutura rítimica", id: "rhythmic-structure", value: 1.0 },
+]
+
 @Component({
     selector: "app-step-3",
     imports: [AttributeField, CommonModule, Steps, BackBtnComponent],
@@ -26,13 +34,7 @@ export class WeightsForms {
     private forms = inject(Forms)
     private router = inject(Router)
 
-    weights: { text: string; id: string; value: number }[] = [
-        { text: "Rima toante e consoante", id: "vocal-harmony", value: 1.0 },
-        { text: "Acentuação", id: "accentuation", value: 1.0 },
-        { text: "Posição tônica", id: "tonic-position", value: 1.0 },
-        { text: "Rima interna", id: "internal-rhyme", value: 1.0 },
-        { text: "Estrutura rítimica", id: "rhythmic-structure", value: 1.0 },
-    ]
+    weights = defaultOptions
 
     updateForms(): void {
         const weights: any = {}
