@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 
 //  Components
 import { StanzaComponent } from "./stanza/stanza"
-import { Steps } from "../steps/steps.component"
+import { Steps } from "../steps/steps"
 import { ReturnButton } from "../return-back/button"
 
 // Services

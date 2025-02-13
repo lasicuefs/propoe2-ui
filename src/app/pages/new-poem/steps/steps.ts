@@ -4,8 +4,8 @@ import { CommonModule } from "@angular/common"
 @Component({
     selector: "forms-steps",
     imports: [CommonModule],
-    templateUrl: "./steps.component.html",
-    styleUrl: "./steps.component.css",
+    templateUrl: "./steps.html",
+    styleUrl: "./steps.css",
 })
 export class Steps {
     @Input()

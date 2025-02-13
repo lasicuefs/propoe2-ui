@@ -4,7 +4,7 @@ import { Router } from "@angular/router"
 
 // Import Local Components
 import { WeightOption } from "./weight/weight"
-import { Steps } from "../steps/steps.component"
+import { Steps } from "../steps/steps"
 import { ReturnButton } from "../return-back/button"
 
 // Import Local Services

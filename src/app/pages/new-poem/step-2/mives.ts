@@ -2,7 +2,7 @@ import { Component, inject } from "@angular/core"
 import { Router } from "@angular/router"
 
 // Import Local Components
-import { Steps } from "../steps/steps.component"
+import { Steps } from "../steps/steps"
 import { ReturnButton } from "../return-back/button"
 
 @Component({
