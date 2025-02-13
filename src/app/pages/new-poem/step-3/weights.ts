@@ -39,8 +39,8 @@ function inspect(obj: any): string {
 @Component({
     selector: "app-step-3",
     imports: [WeightOption, CommonModule, Steps, BackBtnComponent],
-    templateUrl: "./step-3.component.html",
-    styleUrl: "./step-3.component.css",
+    templateUrl: "./weights.html",
+    styleUrl: "./weights.css",
 })
 export class WeightsForms {
     private forms = inject(Forms)

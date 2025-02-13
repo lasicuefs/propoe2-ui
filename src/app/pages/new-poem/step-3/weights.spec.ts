@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { WeightsForms } from "./step-3.component"
+import { WeightsForms } from "./weights"
 
 describe("Step3Component", () => {
     let component: WeightsForms
