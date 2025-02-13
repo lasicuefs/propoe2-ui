@@ -13,6 +13,8 @@ import { Observable, of } from "rxjs"
 import { catchError, map } from "rxjs/operators"
 import { Forms } from "../../services/forms.service"
 
+const PROPOE_API = "http://localhost:8000/poem/"
+
 @Component({
     selector: "app-poem",
     standalone: true,
@@ -51,10 +53,7 @@ export class PoemPage {
     }
 
     private fetchPoem() {
-        this.poem$ = this.http.post<{ content: string[] }>(
-            "http://localhost:8000/poem/",
-            this.forms.postData(),
-        )
+        this.poem$ = this.http.post<{ content: string[] }>(PROPOE_API, this.forms.postData())
             .pipe(
                 map((data) => data.content.join("\n")),
                 catchError(() =>
