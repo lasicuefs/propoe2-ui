@@ -21,9 +21,6 @@ function within(x: number, low: number, high: number) {
 export class AttributeField {
     @Input()
     displayName: string = "Parâmetro não definido"
-    
-    @Input()
-    key: string = ""
 
     @Input()
     value: number = 1.0

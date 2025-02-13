@@ -5,9 +5,8 @@
         Preencha os campos abaixo para definir os pesos de avaliação do poema.
     </span>
     <ul id="options">
-    @for (option of weights(); track option.key) {
+    @for (option of weights(); track $index) {
         <attribute-field
-            [key]="option.key"
             [displayName]="option.display"
             [value]="option.value"
         >
