@@ -11,6 +11,9 @@ import { Forms } from "../../../services/forms.service"
 import { Prosody, Stanza } from "./prosody.service"
 import { CommonModule } from "@angular/common"
 
+function debug(obj: any): string {
+    return JSON.stringify(obj)
+}
 
 @Component({
     selector: "app-step-1",
@@ -30,6 +33,10 @@ export class RhythmPatternForms implements OnInit {
         console.log("Prosody: ", this.stanzas())
     }
 
+    debug(obj: any): string {
+        return debug(obj)
+    }
+
     add(): void {
         this.stanzas.set(this.stanzas().concat({ pattern: ["A"], lengths: [10] }))
         console.log("Signal: ", this.stanzas())
@@ -42,7 +49,6 @@ export class RhythmPatternForms implements OnInit {
 
     clear(event: Event) {
         this.stanzas.set([])
-        this.add()
     }
 
     onNext(event: Event) {
@@ -63,6 +69,10 @@ export class RhythmPatternForms implements OnInit {
     }
 
     private nextStep() {
-        this.router.navigate(["/mives"])
+        this.router.navigate(["/new/mives"])
+    }
+
+    trackByIndex(index: number, item: any): number {
+        return index;
     }
 }

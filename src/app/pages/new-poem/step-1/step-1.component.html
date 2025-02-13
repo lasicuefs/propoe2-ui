@@ -3,8 +3,8 @@
 
     <section id="forms">
         <section id="stanzas">
-            @for (stanza of stanzas(); track stanzas) {
-                <stanza [lengths]="stanza.lengths" [pattern]="stanza.pattern" ></stanza>
+            @for (stanza of stanzas(); track trackByIndex) {
+                <stanza [lengths]="stanza.lengths" [pattern]="stanza.pattern"></stanza>
             }
         </section>
         <button id="add-stanza" title="Nova Estrofe" (click)="add()">+</button>
@@ -20,6 +20,7 @@
     </section>
 
     <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
+    <span>{{debug(stanzas())}}</span>
 </main>
 
 <back-btn route="/" pageTitle="Página Principal"></back-btn>
