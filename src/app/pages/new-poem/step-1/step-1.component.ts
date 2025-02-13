@@ -11,7 +11,7 @@ import { Forms } from "../../../services/forms.service"
 import { Prosody, Stanza } from "./prosody.service"
 import { CommonModule } from "@angular/common"
 
-function debug(obj: any): string {
+function inspect(obj: any): string {
     return JSON.stringify(obj)
 }
 
@@ -32,8 +32,8 @@ export class RhythmPatternForms implements OnInit {
         this.stanzas.set(this.forms.data.stanzas)
     }
 
-    debug(obj: any): string {
-        return debug(obj)
+    inspect(obj: any): string {
+        return inspect(obj)
     }
 
     add(): void {
