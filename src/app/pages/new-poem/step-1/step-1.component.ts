@@ -24,7 +24,7 @@ function inspect(obj: any): string {
     templateUrl: "./step-1.component.html",
     styleUrl: "./step-1.component.css",
 })
-export class RhythmPatternForms implements OnInit {
+export class ProsodyForms implements OnInit {
     private forms   = inject(Forms)
     private router  = inject(Router)
 

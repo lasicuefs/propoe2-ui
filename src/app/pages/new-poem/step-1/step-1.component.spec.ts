@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { RhythmPatternForms } from "./step-1.component"
+import { ProsodyForms } from "./step-1.component"
 
 describe("Step1Component", () => {
-    let component: RhythmPatternForms
-    let fixture: ComponentFixture<RhythmPatternForms>
+    let component: ProsodyForms
+    let fixture: ComponentFixture<ProsodyForms>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [RhythmPatternForms],
+            imports: [ProsodyForms],
         })
             .compileComponents()
 
-        fixture = TestBed.createComponent(RhythmPatternForms)
+        fixture = TestBed.createComponent(ProsodyForms)
         component = fixture.componentInstance
         fixture.detectChanges()
     })
