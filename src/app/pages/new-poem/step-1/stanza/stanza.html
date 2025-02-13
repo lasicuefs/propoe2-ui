@@ -6,11 +6,13 @@
                 type="text"
                 [value]="unit.length"
                 title="Editar sílabas fonéticas do verso"
+                (change)="updateLenght($event, $index)"
             >
             <input
                 type="text"
                 [value]="unit.letter"
                 title="Editar padrão de rima do verso"
+                (change)="updateLetter($event, $index)"
                 class="text-xl"
             >
         </li>
