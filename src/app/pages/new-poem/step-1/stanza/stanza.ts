@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core"
+import { Component, computed, Input, OnInit, ɵLocaleDataIndex } from "@angular/core"
 import { CommonModule } from "@angular/common"
 
 interface Unit {
@@ -13,20 +13,22 @@ interface Unit {
     templateUrl: "./stanza.html",
     styleUrl: "./stanza.css",
 })
-export class StanzaComponent implements OnInit {
+export class StanzaComponent {
     @Input() pattern: string[] = []
     @Input() lengths: number[] = []
 
-    units: Unit[] = []
-
-    ngOnInit() {
-        this.units = this.pattern.map((letter, index) => ({
-            letter,
-            length: this.lengths[index]
-        }))
+    get units() {
+        return this.pattern.map((letter, index) => (
+            {
+                id: index,
+                letter,
+                length: this.lengths[index]
+            }
+        ))
     }
 
     add(): void {
-        this.units.push({ letter: "A", length: 10 })
+        this.pattern.push("A")
+        this.lengths.push(10)
     }
 }
