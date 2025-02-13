@@ -43,24 +43,14 @@ export class RhythmPatternForms implements OnInit {
         console.log("Forms:", this.forms)
     }
 
-    prosodyStatus(): string {
-        return "ok"
-    }
-
     clear(event: Event) {
         this.stanzas.set([])
         this.add()
     }
 
-    onNext(event: Event) {
-        const message = this.prosodyStatus()     
-
-        if ("ok" == message) {
-            this.saveState()
-            this.nextStep()
-        } else {
-            alert(message)
-        }
+    onNext(event: Event) {  
+        this.saveState()
+        this.nextStep()
     }
 
     private saveState() {
