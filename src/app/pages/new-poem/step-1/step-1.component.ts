@@ -8,8 +8,13 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
 
 // Services
 import { Forms } from "../../../services/forms.service"
-import { Prosody, Stanza } from "./prosody.service"
+import { Prosody } from "./prosody.service"
 import { CommonModule } from "@angular/common"
+
+interface Stanza {
+    pattern: string[]
+    lengths: number[]
+}
 
 function inspect(obj: any): string {
     return JSON.stringify(obj)
