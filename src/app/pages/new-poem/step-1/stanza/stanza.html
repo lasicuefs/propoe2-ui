@@ -1,0 +1,27 @@
+<ul class="flex gap-4 w-full">
+    @for (unit of units; track unit.id) {
+    <li class="verse-button">
+        <input
+            type="text"
+            [value]="unit.length"
+            title="Editar sílabas fonéticas do verso"
+            (change)="updateLenght($event, $index)"
+        >
+        <input
+            type="text"
+            [value]="unit.letter"
+            title="Editar padrão de rima do verso"
+            (change)="updateLetter($event, $index)"
+            class="text-xl"
+        >
+    </li>
+    } @if (units.length < 8) {
+    <button
+        title="Novo Verso"
+        (click)="add()"
+        class="verse-button text-xl w-full h-full"
+    >
+        +
+    </button>
+    }
+</ul>

@@ -1,64 +1,56 @@
 import { CommonModule } from "@angular/common"
 import {
     Component,
-    computed,
     ElementRef,
     inject,
+    OnInit,
     signal,
     ViewChild,
 } from "@angular/core"
-import { RouterLink } from "@angular/router"
+import { Router } from "@angular/router"
 import { HttpClient, HttpClientModule } from "@angular/common/http"
 import { Observable, of } from "rxjs"
 import { catchError, map } from "rxjs/operators"
 import { Forms } from "../../services/forms.service"
 
+const PROPOE_API = "http://localhost:8000/poem/"
+
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, RouterLink, HttpClientModule],
+    imports: [CommonModule, HttpClientModule],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
-export class PoemPage {
+export class PoemPage implements OnInit {
+    private http = inject(HttpClient)
+    private router = inject(Router)
+    private forms = inject(Forms)
+
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
     poem$: Observable<string> = of("")
-    http = inject(HttpClient)
 
     private scrollPosition = signal(0)
     private viewportHeight = signal(0)
     private contentHeight = signal(0)
-
-    showScrollButton = computed(() => {
-        const isContentLargerThanViewport =
-            this.contentHeight() > this.viewportHeight()
-        const isNotAtBottom = Math.ceil(
-            this.contentHeight() - this.scrollPosition() -
-                this.viewportHeight(),
-        ) > 20
-        const isAtTop = this.scrollPosition() < 20
-
-        return isContentLargerThanViewport && (isNotAtBottom || isAtTop)
-    })
-
-    constructor(private forms: Forms) {}
 
     ngOnInit() {
         this.fetchPoem()
     }
 
     private fetchPoem() {
-        this.poem$ = this.http.post<{ content: string[] }>(
-            "http://localhost:8000/poem/",
-            this.forms.dataJson(),
-        )
+        const body = this.forms.postData()
+        console.log(body)
+        this.poem$ = this.http.post<{ content: string[] }>(PROPOE_API, body)
             .pipe(
-                map((data) => data.content.join("\n")),
+                map((data) => {
+                    const res = data.content.join("\n")
+                    console.log(res)
+                    return res
+                }),
                 catchError(() =>
-                    of(
-                        "Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.",
-                    )
+                    of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")
                 ),
             )
     }
@@ -70,5 +62,11 @@ export class PoemPage {
             top: scrollDistance,
             behavior: "smooth",
         })
+    }
+
+    goHome() {
+        this.forms.clear()
+        console.log(this.forms)
+        this.router.navigate(["/"])
     }
 }

@@ -1,1 +1,21 @@
 
+#main-container {
+    @apply 
+        w-screen h-screen 
+        font-serif
+        flex flex-col items-center justify-start 
+        bg-slate-100 bg-opacity-65 
+        overflow-y-scroll
+}
+
+.poem {
+    @apply flex flex-col justify-start items-center py-16
+}
+
+.stanza {
+    @apply prose-xl text-center break-words
+}
+
+.verse {
+    @apply block leading-relaxed
+}

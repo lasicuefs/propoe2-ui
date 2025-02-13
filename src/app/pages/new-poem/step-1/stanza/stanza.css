@@ -1,0 +1,13 @@
+.verse-button {
+    @apply flex flex-col justify-center items-center 
+        bg-slate-50 bg-opacity-30 
+        w-16 h-16 rounded-2xl
+}
+
+input {
+    @apply 
+        bg-transparent 
+        max-w-full 
+        text-center 
+        appearance-none focus:outline-none
+}
