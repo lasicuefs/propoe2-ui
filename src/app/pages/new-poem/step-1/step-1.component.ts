@@ -22,53 +22,31 @@ interface Stanza {
     styleUrl: "./step-1.component.css",
 })
 export class RhythmPatternForms {
-    // stanzas: Stanza[] = []
-    stanzas: number = 1
     constructor(private forms: Forms, private router: Router) {}
 
-    ngOnInit() {
-        // this.stanzas = this.forms.data.stanzas
-    }
+    ngOnInit() {}
+    add(): void {}
 
-    // Adds a new default Stanza
-    add(): void {
-        
-    }
-
-    // Placeholder: delete this
-    stanzaArray(): number[] {
-        return new Array(this.stanzas).fill(0)
-    }
-    
-    // Placeholder: delete this
-    addStanza() {
-        this.stanzas++
-    }
-
-    // Should check for: 
-    // - valid datatype
-    // - valid lenghts
     prosodyStatus(): string {
         return "ok"
     }
 
-    // TODO: Clears data from Forms and reloads UI
     clear() {
-        
+
     }
 
-    // Goes to the next page if everything is right
-    // Otherwise, this will alert a message and reset this forms' step.
     onNext(event: Event) {
         event.preventDefault()
-        const message = this.prosodyStatus()
+        const message = this.prosodyStatus()     
 
-        if (message != "ok") {
-            alert(message)
-            this.clear()
+        if ("ok" == message) {
+            this.saveState()
+            this.nextStep()
         } else {
-            // this.forms.prosodyFrom(this.stanzas)
-            this.router.navigate(["/new/mives"])
+            alert(message)
         }
     }
+
+    private saveState() {}
+    private nextStep() {}
 }
