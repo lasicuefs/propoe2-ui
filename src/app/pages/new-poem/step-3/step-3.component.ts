@@ -11,17 +11,17 @@ import { Forms } from "../../../services/forms.service"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
 type WeightsOption = {
-    text: string,
-    id: string,
+    key: string,
+    display: string,
     value: number
 }
 
 const defaultOptions: WeightsOption[] = [
-    { text: "Rima toante e consoante", id: "vocal-harmony", value: 1.0 },
-    { text: "Acentuação", id: "accentuation", value: 1.0 },
-    { text: "Posição tônica", id: "tonic-position", value: 1.0 },
-    { text: "Rima interna", id: "internal-rhyme", value: 1.0 },
-    { text: "Estrutura rítimica", id: "rhythmic-structure", value: 1.0 },
+    { key: "vocal-harmony", display: "Rima toante e consoante", value: 1.0 },
+    { key: "accentuation", display: "Acentuação", value: 1.0 },
+    { key: "tonic-position", display: "Posição tônica", value: 1.0 },
+    { key: "internal-rhyme", display: "Rima interna", value: 1.0 },
+    { key: "rhythmic-structure", display: "Estrutura rítimica", value: 1.0 },
 ]
 
 function inspect(obj: any): string {
@@ -49,9 +49,9 @@ export class WeightsForms {
 
         this.weights().forEach((weight) => {
             const input = document.querySelector(
-                `input[name="${weight.id}"]`,
+                `input[name="${weight.key}"]`,
             ) as HTMLInputElement
-            weights[weight.id] = parseFloat(input.value)
+            weights[weight.key] = parseFloat(input.value)
         })
 
         this.forms.weightsFrom(weights)

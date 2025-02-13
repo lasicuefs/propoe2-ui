@@ -7,10 +7,10 @@
     <ul
         class="flex flex-col gap-2 text-lg overflow-hidden min-w-96 rounded-3xl mt-4 bg-white bg-opacity-45 p-4 px-10"
     >
-    @for (option of weights(); track option.id) {
+    @for (option of weights(); track option.key) {
         <attribute-field
-            [key]="option.id"
-            [displayName]="option.text"
+            [key]="option.key"
+            [displayName]="option.display"
             [value]="option.value"
         >
         </attribute-field>
