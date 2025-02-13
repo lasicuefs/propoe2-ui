@@ -25,6 +25,7 @@ const PROPOE_API = "http://localhost:8000/poem/"
 export class PoemPage {
     http = inject(HttpClient)
     router = inject(Router)
+    forms = inject(Forms)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
@@ -33,8 +34,6 @@ export class PoemPage {
     private scrollPosition = signal(0)
     private viewportHeight = signal(0)
     private contentHeight = signal(0)
-
-    constructor(private forms: Forms) {}
 
     ngOnInit() {
         this.fetchPoem()
