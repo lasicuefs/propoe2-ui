@@ -30,7 +30,6 @@ export class RhythmPatternForms implements OnInit {
 
     ngOnInit() {
         this.stanzas.set(this.forms.data.stanzas)
-        console.log("Prosody: ", this.stanzas())
     }
 
     debug(obj: any): string {
@@ -39,8 +38,6 @@ export class RhythmPatternForms implements OnInit {
 
     add(): void {
         this.stanzas.set(this.stanzas().concat({ pattern: ["A"], lengths: [10] }))
-        console.log("Signal: ", this.stanzas())
-        console.log("Forms:", this.forms)
     }
 
     clear(event: Event) {
@@ -54,9 +51,7 @@ export class RhythmPatternForms implements OnInit {
     }
 
     private saveState() {
-        console.log("Forms: ", this.forms.data)
         this.forms.data.stanzas = this.stanzas()
-        console.log("Forms: ", this.forms.data)
     }
 
     private nextStep() {
