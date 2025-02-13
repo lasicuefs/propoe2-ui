@@ -22,9 +22,8 @@ function inspect(obj: any): string {
     styleUrl: "./step-1.component.css",
 })
 export class RhythmPatternForms implements OnInit {
-    private forms   = inject(Forms)     // Post Request Data
-    private router  = inject(Router)    // Router
-    // private prosody = inject(Prosody)   // Temporary Data
+    private forms   = inject(Forms)
+    private router  = inject(Router)
 
     stanzas = signal<Stanza[]>([])
 
