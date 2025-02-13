@@ -4,17 +4,17 @@
         <li class="verse-button">
             <input
                 type="text"
-                [value]="unit.number"
+                [(value)]="unit.length"
                 title="Editar sílabas fonéticas do verso"
             >
             <input
                 type="text"
-                [value]="unit.letter"
+                [(value)]="unit.letter"
                 title="Editar padrão de rima do verso"
                 class="text-xl"
             >
         </li>
     }
 
-    <button title="Novo Verso" (click)="addPatternUnit()" class="verse-button text-xl w-full h-full">+</button>
+    <button title="Novo Verso" (click)="add()" class="verse-button text-xl w-full h-full">+</button>
 </ul>

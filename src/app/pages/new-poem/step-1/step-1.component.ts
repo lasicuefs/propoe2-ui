@@ -1,13 +1,14 @@
 import { Component, inject, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
 
-// Import Local Components
+//  Components
 import { StanzaComponent } from "./stanza/stanza"
 import { Steps } from "../steps/steps.component"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
-// Import Local Services
+// Services
 import { Forms } from "../../../services/forms.service"
+import { Prosody, Stanza } from "./prosody.service"
 
 
 @Component({
@@ -17,22 +18,34 @@ import { Forms } from "../../../services/forms.service"
     styleUrl: "./step-1.component.css",
 })
 export class RhythmPatternForms implements OnInit {
-    private service = inject(Forms)
+    private forms   = inject(Forms)
     private router  = inject(Router)
+    private prosody = inject(Prosody)
 
-    ngOnInit() {}
-    add(): void {}
+    ngOnInit() {
+        this.prosody.from(this.forms)
+        console.log("Prosody: ", this.prosody.data)
+    }
+
+    get stanzas(): Stanza[] {
+        return this.prosody.data
+    }
+
+    add(): void {
+        this.prosody.data.push({ pattern: ["A"], lengths: [10] })
+        console.log("Prosody:", this.prosody)
+        console.log("Forms:", this.forms)
+    }
 
     prosodyStatus(): string {
         return "ok"
     }
 
-    clear() {
-
+    clear(event: Event) {
+        this.prosody.data = [{ pattern: ["A"], lengths: [10] }]
     }
 
     onNext(event: Event) {
-        event.preventDefault()
         const message = this.prosodyStatus()     
 
         if ("ok" == message) {
@@ -43,6 +56,13 @@ export class RhythmPatternForms implements OnInit {
         }
     }
 
-    private saveState() {}
-    private nextStep() {}
+    private saveState() {
+        console.log("Forms: ", this.forms.data)
+        this.forms.data.stanzas = this.prosody.data
+        console.log("Forms: ", this.forms.data)
+    }
+
+    private nextStep() {
+        this.router.navigate(["/mives"])
+    }
 }

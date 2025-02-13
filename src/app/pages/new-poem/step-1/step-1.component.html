@@ -3,16 +3,22 @@
 
     <section id="forms">
         <section id="stanzas">
-            @for (i of stanzaArray(); track stanzas) {
-                <stanza></stanza>
+            @for (stanza of stanzas; track stanzas) {
+                <stanza [lengths]="stanza.lengths" [pattern]="stanza.pattern" ></stanza>
             }
         </section>
-        <button id="add-stanza" title="Nova Estrofe" (click)="addStanza()">+</button>
+        <button id="add-stanza" title="Nova Estrofe" (click)="add()">+</button>
     </section>
 
-    <a (click)="onNext($event)">
-        <button class="action-btn">Próximo</button>
-    </a>
+    <section>
+        <a (click)="clear($event)">
+            <button class="action-btn">Limpar</button>
+        </a>
+        <a (click)="onNext($event)">
+            <button class="action-btn">Próximo</button>
+        </a>
+    </section>
+
     <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
 </main>
 
