@@ -6,11 +6,11 @@ import { Steps } from "../steps/steps.component"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
-import { BackBtnComponent } from "../back-btn/back-btn.component"
+import { ReturnButton } from "../back-btn/back-btn.component"
 
 @Component({
     selector: "app-step-2",
-    imports: [Steps, BackBtnComponent],
+    imports: [Steps, ReturnButton],
     templateUrl: "./step-2.component.html",
     styleUrl: "./step-2.component.css",
 })

@@ -4,7 +4,7 @@ import { Router } from "@angular/router"
 //  Components
 import { StanzaComponent } from "./stanza/stanza"
 import { Steps } from "../steps/steps.component"
-import { BackBtnComponent } from "../back-btn/back-btn.component"
+import { ReturnButton } from "../back-btn/back-btn.component"
 
 // Services
 import { Forms } from "../../../services/forms.service"
@@ -20,7 +20,7 @@ function inspect(obj: any): string {
 
 @Component({
     selector: "app-step-1",
-    imports: [StanzaComponent, Steps, BackBtnComponent],
+    imports: [StanzaComponent, Steps, ReturnButton],
     templateUrl: "./prosody.html",
     styleUrl: "./prosody.css",
 })

@@ -8,7 +8,7 @@ import { RouterLink } from "@angular/router"
     templateUrl: "./back-btn.component.html",
     styleUrl: "./back-btn.component.css",
 })
-export class BackBtnComponent {
+export class ReturnButton {
     @Input()
     route: string = ""
     @Input()

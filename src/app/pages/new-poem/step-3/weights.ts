@@ -5,7 +5,7 @@ import { Router } from "@angular/router"
 // Import Local Components
 import { WeightOption } from "./weight/weight"
 import { Steps } from "../steps/steps.component"
-import { BackBtnComponent } from "../back-btn/back-btn.component"
+import { ReturnButton } from "../back-btn/back-btn.component"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
@@ -38,7 +38,7 @@ function inspect(obj: any): string {
 
 @Component({
     selector: "app-step-3",
-    imports: [WeightOption, CommonModule, Steps, BackBtnComponent],
+    imports: [WeightOption, CommonModule, Steps, ReturnButton],
     templateUrl: "./weights.html",
     styleUrl: "./weights.css",
 })
