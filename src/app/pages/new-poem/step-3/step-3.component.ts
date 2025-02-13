@@ -46,6 +46,8 @@ export class WeightsForms {
     private forms = inject(Forms)
     private router = inject(Router)
 
+    DEBUG = false
+    
     weights = signal<WeightsOption[]>(defaultOptions)
 
     valueOf(key: string): number {

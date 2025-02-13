@@ -22,7 +22,9 @@
     </section>
 
     <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
-    <span>{{inspect(stanzas())}}</span>
+    @if (DEBUG) {
+        <span>{{inspect(stanzas())}}</span>
+    }
 </main>
 
 <back-btn route="/" pageTitle="Página Principal"></back-btn>

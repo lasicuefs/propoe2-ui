@@ -28,6 +28,8 @@ export class RhythmPatternForms implements OnInit {
     private forms   = inject(Forms)
     private router  = inject(Router)
 
+    DEBUG = false
+    
     stanzas = signal<Stanza[]>([])
 
     ngOnInit() {
