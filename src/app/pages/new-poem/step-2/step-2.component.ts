@@ -6,7 +6,7 @@ import { Steps } from "../steps/steps.component"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
-import { ReturnButton } from "../back-btn/button"
+import { ReturnButton } from "../return-back/button"
 
 @Component({
     selector: "app-step-2",

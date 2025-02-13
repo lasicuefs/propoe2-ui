@@ -5,7 +5,7 @@ import { Router } from "@angular/router"
 // Import Local Components
 import { WeightOption } from "./weight/weight"
 import { Steps } from "../steps/steps.component"
-import { ReturnButton } from "../back-btn/button"
+import { ReturnButton } from "../return-back/button"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
