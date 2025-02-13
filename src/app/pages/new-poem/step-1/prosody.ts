@@ -21,8 +21,8 @@ function inspect(obj: any): string {
 @Component({
     selector: "app-step-1",
     imports: [StanzaComponent, Steps, BackBtnComponent],
-    templateUrl: "./step-1.component.html",
-    styleUrl: "./step-1.component.css",
+    templateUrl: "./prosody.html",
+    styleUrl: "./prosody.css",
 })
 export class ProsodyForms implements OnInit {
     private forms   = inject(Forms)

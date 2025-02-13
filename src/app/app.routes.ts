@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router"
 
 import { WelcomePage } from "./pages/welcome/welcome.component"
-import { ProsodyForms } from "./pages/new-poem/step-1/step-1.component"
+import { ProsodyForms } from "./pages/new-poem/step-1/prosody"
 import { MivesForms } from "./pages/new-poem/step-2/step-2.component"
 import { WeightsForms } from "./pages/new-poem/step-3/weights"
 import { PoemPage } from "./pages/poem/poem.component"
