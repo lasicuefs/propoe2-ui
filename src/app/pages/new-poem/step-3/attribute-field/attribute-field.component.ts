@@ -8,11 +8,13 @@ import { Component, Input } from "@angular/core"
 })
 export class AttributeField {
     @Input()
-    attribute: string = ""
+    displayName: string = ""
+    
+    @Input()
+    key: string = ""
+
     @Input()
     value: number = 1.0
-    @Input()
-    id: string = ""
 
     ngOnChanges() {
         if (!this.value) {

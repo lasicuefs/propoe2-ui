@@ -9,9 +9,9 @@
     >
     @for (option of weights(); track option.id) {
         <attribute-field
-            [attribute]="option.text"
+            [key]="option.id"
+            [displayName]="option.text"
             [value]="option.value"
-            [id]="option.id"
         >
         </attribute-field>
     }
