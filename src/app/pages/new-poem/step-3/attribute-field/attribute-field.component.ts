@@ -31,7 +31,7 @@ export class AttributeField {
     onChange(event: Event) {
         let input = event.target as HTMLInputElement
         const value = (input).value
-        const result = within(toFloat(toJSNotation(value)), 0, 10)
+        const result = within(toFloat(toJSNotation(value)), 0, 1)
 
         this.value = result
         this.valueChange.emit(this.value)
