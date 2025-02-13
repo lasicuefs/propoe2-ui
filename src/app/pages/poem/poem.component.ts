@@ -7,7 +7,7 @@ import {
     signal,
     ViewChild,
 } from "@angular/core"
-import { Router, RouterLink } from "@angular/router"
+import { Router } from "@angular/router"
 import { HttpClient, HttpClientModule } from "@angular/common/http"
 import { Observable, of } from "rxjs"
 import { catchError, map } from "rxjs/operators"
@@ -18,7 +18,7 @@ const PROPOE_API = "http://localhost:8000/poem/"
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, RouterLink, HttpClientModule],
+    imports: [CommonModule, HttpClientModule],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
