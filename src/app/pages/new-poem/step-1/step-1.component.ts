@@ -72,7 +72,4 @@ export class RhythmPatternForms implements OnInit {
         this.router.navigate(["/new/mives"])
     }
 
-    trackByIndex(index: number, item: any): number {
-        return index;
-    }
 }

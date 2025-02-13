@@ -3,7 +3,7 @@
 
     <section id="forms">
         <section id="stanzas">
-            @for (stanza of stanzas(); track trackByIndex) {
+            @for (stanza of stanzas(); track $index) {
                 <stanza [lengths]="stanza.lengths" [pattern]="stanza.pattern"></stanza>
             }
         </section>
