@@ -58,11 +58,11 @@ export class WeightsForms {
 
     onGenerate(event: Event) {
         event.preventDefault()
-        this.updateForms()
+        this.storeState()
         this.router.navigate(["/poem"])
     }
 
-    updateForms(): void {
+    storeState(): void {
         this.forms.weightsFrom(
             {
                 "vocal-harmony": this.valueOf("vocal-harmony"),
