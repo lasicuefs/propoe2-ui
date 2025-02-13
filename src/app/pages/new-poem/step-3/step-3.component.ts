@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core"
+import { Component, inject, signal } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { Router } from "@angular/router"
 
@@ -24,6 +24,10 @@ const defaultOptions: WeightsOption[] = [
     { text: "Estrutura rítimica", id: "rhythmic-structure", value: 1.0 },
 ]
 
+function inspect(obj: any): string {
+    return JSON.stringify(obj)
+}
+
 @Component({
     selector: "app-step-3",
     imports: [AttributeField, CommonModule, Steps, BackBtnComponent],
@@ -34,12 +38,16 @@ export class WeightsForms {
     private forms = inject(Forms)
     private router = inject(Router)
 
-    weights = defaultOptions
+    weights = signal<WeightsOption[]>(defaultOptions)
+
+    inspect(obj: any): string {
+        return inspect(obj)
+    }
 
     updateForms(): void {
         const weights: any = {}
 
-        this.weights.forEach((weight) => {
+        this.weights().forEach((weight) => {
             const input = document.querySelector(
                 `input[name="${weight.id}"]`,
             ) as HTMLInputElement
