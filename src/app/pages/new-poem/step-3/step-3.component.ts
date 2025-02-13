@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common"
 import { Router } from "@angular/router"
 
 // Import Local Components
-import { WeightOption } from "./attribute-field/weight"
+import { WeightOption } from "./weight/weight"
 import { Steps } from "../steps/steps.component"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
