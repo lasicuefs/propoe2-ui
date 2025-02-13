@@ -6,12 +6,12 @@
     </span>
     <ul id="options">
     @for (option of weights(); track $index) {
-        <attribute-field
+        <weight
             [displayName]="option.display"
             [value]="option.value"
             (valueChange)="onValueChange(option.key, $event)"
         >
-        </attribute-field>
+        </weight>
     }
     </ul>
 

@@ -13,7 +13,7 @@ function within(x: number, low: number, high: number) {
 }
 
 @Component({
-    selector: "attribute-field",
+    selector: "weight",
     imports: [],
     templateUrl: "./attribute-field.component.html",
     styleUrl: "./attribute-field.component.css",
