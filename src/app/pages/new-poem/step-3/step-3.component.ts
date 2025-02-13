@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common"
 import { Router } from "@angular/router"
 
 // Import Local Components
-import { AttributeField } from "./attribute-field/attribute-field.component"
+import { WeightOption } from "./attribute-field/attribute-field.component"
 import { Steps } from "../steps/steps.component"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
@@ -38,7 +38,7 @@ function inspect(obj: any): string {
 
 @Component({
     selector: "app-step-3",
-    imports: [AttributeField, CommonModule, Steps, BackBtnComponent],
+    imports: [WeightOption, CommonModule, Steps, BackBtnComponent],
     templateUrl: "./step-3.component.html",
     styleUrl: "./step-3.component.css",
 })

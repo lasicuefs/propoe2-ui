@@ -18,7 +18,7 @@ function within(x: number, low: number, high: number) {
     templateUrl: "./attribute-field.component.html",
     styleUrl: "./attribute-field.component.css",
 })
-export class AttributeField {
+export class WeightOption {
     @Input()
     displayName: string = "Parâmetro não definido"
 
