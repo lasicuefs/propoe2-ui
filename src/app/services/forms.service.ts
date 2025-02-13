@@ -48,14 +48,14 @@ export class Forms {
     }
 
     postData(): PostJson {
+        const stanzas = this.data.stanzas
+        const pattern = stanzas.map((s: Stanza) => s.pattern.join("")).join(" ")
+        const rhythm = stanzas.map((s: Stanza) => s.lengths).flat()
+
         return {
             "prosody": {
-                "pattern": this.data.stanzas.flatMap((stanza: Stanza) =>
-                    stanza.pattern
-                ).join(" "),
-                "rhythm": this.data.stanzas.flatMap((stanza: Stanza) =>
-                    stanza.lengths
-                ),
+                "pattern": pattern,
+                "rhythm": rhythm
             },
             "weights": this.data.weights,
         }

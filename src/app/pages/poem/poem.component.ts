@@ -40,15 +40,18 @@ export class PoemPage {
     }
 
     private fetchPoem() {
-        this.poem$ = this.http.post<{ content: string[] }>(PROPOE_API, this.forms.postData())
+        const body = this.forms.postData()
+        console.log(body)
+        this.poem$ = this.http.post<{ content: string[] }>(PROPOE_API, body)
             .pipe(
-                map((data) => data.content.join("\n")),
-                catchError(() =>
-                    of(
-                        "Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.",
-                    )
-                ),
+                map((data) => {
+                    const res = data.content.join("\n") 
+                    console.log(res)
+                    return res
+                }), 
+                catchError(() => of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")),
             )
+
     }
 
     scrollDown() {

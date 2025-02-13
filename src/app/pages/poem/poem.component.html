@@ -12,9 +12,10 @@
             @for (stanza of poem.split("\n\n"); track $index) {
                 <p class="stanza">
                 @for (verse of stanza.split('\n'); track $index) {
-                    <span class="verse">{{ verse }}</span><br>
+                    <span class="verse">{{ verse }}</span>
                 }
                 </p>
+                <br/>
             }
             </article>
         }
