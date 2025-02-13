@@ -23,9 +23,9 @@ const PROPOE_API = "http://localhost:8000/poem/"
     styleUrl: "./poem.component.css",
 })
 export class PoemPage {
-    http = inject(HttpClient)
-    router = inject(Router)
-    forms = inject(Forms)
+    private http = inject(HttpClient)
+    private router = inject(Router)
+    private forms = inject(Forms)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
