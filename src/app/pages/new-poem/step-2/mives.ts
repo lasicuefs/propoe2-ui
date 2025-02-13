@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, inject } from "@angular/core"
 import { Router } from "@angular/router"
 
 // Import Local Components
@@ -15,7 +15,7 @@ import { ReturnButton } from "../return-back/button"
     styleUrl: "./mives.css",
 })
 export class MivesForms {
-    constructor(private router: Router) {}
+    private router = inject(Router)
 
     next(): void {
         this.router.navigate(["/new/weights"])
