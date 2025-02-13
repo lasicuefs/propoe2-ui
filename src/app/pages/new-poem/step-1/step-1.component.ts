@@ -8,7 +8,6 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
 
 // Services
 import { Forms } from "../../../services/forms.service"
-import { Prosody } from "./prosody.service"
 import { CommonModule } from "@angular/common"
 
 interface Stanza {
