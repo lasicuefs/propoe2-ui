@@ -34,18 +34,6 @@ export class PoemPage {
     private viewportHeight = signal(0)
     private contentHeight = signal(0)
 
-    showScrollButton = computed(() => {
-        const isContentLargerThanViewport =
-            this.contentHeight() > this.viewportHeight()
-        const isNotAtBottom = Math.ceil(
-            this.contentHeight() - this.scrollPosition() -
-                this.viewportHeight(),
-        ) > 20
-        const isAtTop = this.scrollPosition() < 20
-
-        return isContentLargerThanViewport && (isNotAtBottom || isAtTop)
-    })
-
     constructor(private forms: Forms) {}
 
     ngOnInit() {
