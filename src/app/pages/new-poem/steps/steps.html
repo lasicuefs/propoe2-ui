@@ -8,16 +8,16 @@
                 Etapa {{ currentStep }}
             </div>
             <div id="step-bars">
-                <div
-                    *ngFor="let step of steps; let i = index"
-                    class="step-bar"
+            @for (step of steps; track $index) {
+                <div class="step-bar"
                     [ngClass]='{
-                        "opacity-80": (i + 1) < currentStep,
-                        "opacity-70": (i + 1) === currentStep,
-                        "opacity-40": (i + 1) > currentStep,
+                        "opacity-80": ($index + 1) < currentStep,
+                        "opacity-70": ($index + 1) === currentStep,
+                        "opacity-40": ($index + 1) > currentStep,
                     }'
                 >
                 </div>
+            }
             </div>
         </div>
     </div>
