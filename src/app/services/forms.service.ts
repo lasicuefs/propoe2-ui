@@ -57,11 +57,9 @@ export class Forms {
 
     prosodyFrom(stanzas: Stanza[]) {
         this.data.stanzas = stanzas
-        console.log(this)
     }
 
     weightsFrom(weights: Weights) {
         this.data.weights = weights
-        console.log(this)
     }
 }
