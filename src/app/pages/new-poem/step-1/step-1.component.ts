@@ -8,7 +8,6 @@ import { BackBtnComponent } from "../back-btn/back-btn.component"
 
 // Services
 import { Forms } from "../../../services/forms.service"
-import { CommonModule } from "@angular/common"
 
 interface Stanza {
     pattern: string[]
@@ -21,7 +20,7 @@ function inspect(obj: any): string {
 
 @Component({
     selector: "app-step-1",
-    imports: [StanzaComponent, Steps, BackBtnComponent, CommonModule],
+    imports: [StanzaComponent, Steps, BackBtnComponent],
     templateUrl: "./step-1.component.html",
     styleUrl: "./step-1.component.css",
 })
