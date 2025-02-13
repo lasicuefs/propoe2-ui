@@ -1,7 +1,8 @@
 import { Component, Input } from "@angular/core"
 
+function toJSNotation(x: string): string { return x.replace(",", ".") }
 function valid(x: number):          number {return x ? x : 0}
-function toFloat(x: string): number { 
+function toFloat(x: string): number {
     const num = Number.parseFloat((x == "")? "0" : x)
     return valid(num)
 }
@@ -19,7 +20,7 @@ function within(x: number, low: number, high: number) {
 })
 export class AttributeField {
     @Input()
-    displayName: string = ""
+    displayName: string = "Parâmetro não definido"
     
     @Input()
     key: string = ""
@@ -27,10 +28,10 @@ export class AttributeField {
     @Input()
     value: number = 1.0
 
-    onChange(event: Event, key: string) {
+    onChange(event: Event) {
         let input = event.target as HTMLInputElement
         const value = (input).value
-        const result = within(toFloat(value), 0, 1)
+        const result = toFloat(toJSNotation(value))
 
         this.value = result
         this.forcedUpdateInput(input, result.toString())
