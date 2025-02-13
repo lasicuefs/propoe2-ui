@@ -45,13 +45,14 @@ export class PoemPage implements OnInit {
         this.poem$ = this.http.post<{ content: string[] }>(PROPOE_API, body)
             .pipe(
                 map((data) => {
-                    const res = data.content.join("\n") 
+                    const res = data.content.join("\n")
                     console.log(res)
                     return res
-                }), 
-                catchError(() => of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")),
+                }),
+                catchError(() =>
+                    of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")
+                ),
             )
-
     }
 
     scrollDown() {

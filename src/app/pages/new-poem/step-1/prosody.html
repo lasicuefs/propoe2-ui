@@ -4,11 +4,14 @@
     <section id="forms">
         <section id="stanzas">
             @for (stanza of stanzas(); track $index) {
-                <stanza [lengths]="stanza.lengths" [pattern]="stanza.pattern"></stanza>
+            <stanza
+                [lengths]="stanza.lengths"
+                [pattern]="stanza.pattern"
+            ></stanza>
             }
         </section>
         @if (stanzas().length < 6) {
-            <button id="add-stanza" title="Nova Estrofe" (click)="add()">+</button>
+        <button id="add-stanza" title="Nova Estrofe" (click)="add()">+</button>
         }
     </section>
 
@@ -23,7 +26,7 @@
 
     <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
     @if (DEBUG) {
-        <span>{{inspect(stanzas())}}</span>
+    <span>{{inspect(stanzas())}}</span>
     }
 </main>
 

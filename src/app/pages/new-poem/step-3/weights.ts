@@ -10,8 +10,8 @@ import { ReturnButton } from "../return-back/button"
 import { Forms } from "../../../services/forms.service"
 
 type WeightsOption = {
-    key: string,
-    display: string,
+    key: string
+    display: string
     value: number
 }
 
@@ -46,11 +46,11 @@ export class WeightsForms {
     private router = inject(Router)
 
     DEBUG = false
-    
+
     weights = signal<WeightsOption[]>(defaultOptions)
 
     valueOf(key: string): number {
-        return this.weights().find(x => x.key === key)?.value ?? 1
+        return this.weights().find((x) => x.key === key)?.value ?? 1
     }
 
     inspect(obj: any): string {
@@ -76,10 +76,10 @@ export class WeightsForms {
     }
 
     onValueChange(key: string, newValue: number) {
-        this.weights.update(weights => {
-            const option = weights.find(x => x.key === key)
-            if (option) { option.value = newValue }
+        this.weights.update((weights) => {
+            const option = weights.find((x) => x.key === key)
+            if (option) option.value = newValue
             return weights
-        });
+        })
     }
 }

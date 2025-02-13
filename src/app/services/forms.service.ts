@@ -55,7 +55,7 @@ export class Forms {
         return {
             "prosody": {
                 "pattern": pattern,
-                "rhythm": rhythm
+                "rhythm": rhythm,
             },
             "weights": this.data.weights,
         }

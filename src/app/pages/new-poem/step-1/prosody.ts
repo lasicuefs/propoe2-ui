@@ -25,11 +25,11 @@ function inspect(obj: any): string {
     styleUrl: "./prosody.css",
 })
 export class ProsodyForms implements OnInit {
-    private forms   = inject(Forms)
-    private router  = inject(Router)
+    private forms = inject(Forms)
+    private router = inject(Router)
 
     DEBUG = false
-    
+
     stanzas = signal<Stanza[]>([])
 
     ngOnInit() {
@@ -41,7 +41,9 @@ export class ProsodyForms implements OnInit {
     }
 
     add(): void {
-        this.stanzas.set(this.stanzas().concat({ pattern: ["A"], lengths: [10] }))
+        this.stanzas.set(
+            this.stanzas().concat({ pattern: ["A"], lengths: [10] }),
+        )
     }
 
     clear(event: Event) {
@@ -49,7 +51,7 @@ export class ProsodyForms implements OnInit {
         this.add()
     }
 
-    onNext(event: Event) {  
+    onNext(event: Event) {
         this.saveState()
         this.nextStep()
     }
@@ -61,5 +63,4 @@ export class ProsodyForms implements OnInit {
     private nextStep() {
         this.router.navigate(["/new/mives"])
     }
-
 }

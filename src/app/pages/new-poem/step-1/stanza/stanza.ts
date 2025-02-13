@@ -6,22 +6,34 @@ interface Unit {
 }
 
 // Number Manipulation
-function valid(x: number):          number {return x ? x : 0}
-function toInt(x: string): number { 
-    const num = Number.parseInt((x == "")? "0" : x)
+function valid(x: number): number {
+    return x ? x : 0
+}
+function toInt(x: string): number {
+    const num = Number.parseInt((x == "") ? "0" : x)
     return valid(num)
 }
-function max(a: number, b: number): number {return (a > b)? a : b}
-function min(a: number, b: number): number {return (a < b)? a : b}
+function max(a: number, b: number): number {
+    return (a > b) ? a : b
+}
+function min(a: number, b: number): number {
+    return (a < b) ? a : b
+}
 function within(x: number, low: number, high: number) {
     return min(max(x, low), high)
 }
 
 // String Manipulation
 const defaultLetter = "A"
-function first(x: string): string { return x.at(0) ?? defaultLetter }
-function upper(x: string): string { return x.toUpperCase() }
-function alpha(x: string): string { return /^[A-Za-z]*$/.test(x)? x : defaultLetter }
+function first(x: string): string {
+    return x.at(0) ?? defaultLetter
+}
+function upper(x: string): string {
+    return x.toUpperCase()
+}
+function alpha(x: string): string {
+    return /^[A-Za-z]*$/.test(x) ? x : defaultLetter
+}
 
 @Component({
     selector: "stanza",
@@ -31,15 +43,17 @@ function alpha(x: string): string { return /^[A-Za-z]*$/.test(x)? x : defaultLet
     styleUrl: "./stanza.css",
 })
 export class StanzaComponent {
-    @Input() pattern: string[] = []
-    @Input() lengths: number[] = []
+    @Input()
+    pattern: string[] = []
+    @Input()
+    lengths: number[] = []
 
     get units() {
         return this.pattern.map((letter, index) => (
             {
                 id: index,
                 letter,
-                length: this.lengths[index]
+                length: this.lengths[index],
             }
         ))
     }
@@ -64,7 +78,7 @@ export class StanzaComponent {
         this.pattern[index] = result
         this.forcedUpdateInput(input, result.toString())
     }
-    
+
     // Enforced rules
     // --------------
     //
@@ -75,22 +89,21 @@ export class StanzaComponent {
     //
     updateLenght(event: Event, index: number) {
         let input = event.target as HTMLInputElement
-        const value = (input).value
+        const value = input.value
         const result = within(toInt(value), 0, 15)
 
         this.lengths[index] = result
         this.forcedUpdateInput(input, result.toString())
     }
 
-    // The reason is that if the Model's value doesn't change, 
+    // The reason is that if the Model's value doesn't change,
     // Angular won't update the UI.
     //
-    // For instance, if you write -8 (invalid), this will set 0 on model, 
+    // For instance, if you write -8 (invalid), this will set 0 on model,
     // then this will update the UI to also show 0.
     // But, if you write -8 again, this won't update the UI. The reason is quite simple:
     // the Model's value remains 0, so since this didn't changed, the UI won't be re-rendered.
     private forcedUpdateInput(input: HTMLInputElement, value: string) {
         input.value = value
     }
-
 }
