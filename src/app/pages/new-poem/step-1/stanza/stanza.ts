@@ -77,7 +77,7 @@ export class StanzaComponent {
     updateLenght(event: Event, index: number) {
         let input = event.target as HTMLInputElement
         const value = (input).value
-        const result = within(toInt(value), 0, 10)
+        const result = within(toInt(value), 0, 15)
 
         this.lengths[index] = result
         this.forcedUpdateInput(input, result.toString())
