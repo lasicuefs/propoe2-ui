@@ -16,6 +16,14 @@ type WeightsOption = {
     value: number
 }
 
+interface Weights {
+    "vocal-harmony": number
+    "accentuation": number
+    "tonic-position": number
+    "internal-rhyme": number
+    "rhythmic-structure": number
+}
+
 const defaultOptions: WeightsOption[] = [
     { key: "vocal-harmony", display: "Rima toante e consoante", value: 1.0 },
     { key: "accentuation", display: "Acentuação", value: 1.0 },
@@ -40,6 +48,10 @@ export class WeightsForms {
 
     weights = signal<WeightsOption[]>(defaultOptions)
 
+    valueOf(key: string): number {
+        return this.weights().find(x => x.key === key)?.value ?? 1
+    }
+
     inspect(obj: any): string {
         return inspect(obj)
     }
@@ -51,15 +63,14 @@ export class WeightsForms {
     }
 
     updateForms(): void {
-        const weights: any = {}
-
-        this.weights().forEach((weight) => {
-            const input = document.querySelector(
-                `input[name="${weight.key}"]`,
-            ) as HTMLInputElement
-            weights[weight.key] = parseFloat(input.value)
-        })
-
-        this.forms.weightsFrom(weights)
+        this.forms.weightsFrom(
+            {
+                "vocal-harmony": this.valueOf("vocal-harmony"),
+                "accentuation": this.valueOf("accentuation"),
+                "tonic-position": this.valueOf("tonic-position"),
+                "internal-rhyme": this.valueOf("internal-rhyme"),
+                "rhythmic-structure": this.valueOf("rhythmic-structure"),
+            },
+        )
     }
 }
