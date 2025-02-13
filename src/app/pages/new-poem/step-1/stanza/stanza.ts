@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 
 interface Unit {
@@ -9,26 +9,24 @@ interface Unit {
 @Component({
     selector: "stanza",
     standalone: true,
-    imports: [],
+    imports: [CommonModule],
     templateUrl: "./stanza.html",
     styleUrl: "./stanza.css",
 })
-export class StanzaComponent {
-    pattern = input.required<string[]>()
-    lengths = input.required<number[]>()
+export class StanzaComponent implements OnInit {
+    @Input() pattern: string[] = []
+    @Input() lengths: number[] = []
 
-    get units(): Unit[] {
-        const unit = function(l: string, n: number): Unit { 
-            return {"letter": l, "length": n} 
-        }
-        
-        return this.pattern().map((val: string, idx: number) =>
-            unit(val, this.lengths()[idx])
-        )
+    units: Unit[] = []
+
+    ngOnInit() {
+        this.units = this.pattern.map((letter, index) => ({
+            letter,
+            length: this.lengths[index]
+        }))
     }
 
     add(): void {
-        this.pattern().push("A")
-        this.lengths().push(10)
+        this.units.push({ letter: "A", length: 10 })
     }
 }
