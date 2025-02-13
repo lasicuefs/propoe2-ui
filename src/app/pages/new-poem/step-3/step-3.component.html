@@ -1,29 +1,26 @@
 <main class="content-container">
     <h1 class="title">Pesos de avaliação</h1>
 
-    <!-- Forms -->
     <span class="hint-msg"
     >Preencha os campos abaixo para definir os pesos de avaliação do
         poema.</span>
     <ul
         class="flex flex-col gap-2 text-lg overflow-hidden min-w-96 rounded-3xl mt-4 bg-white bg-opacity-45 p-4 px-10"
     >
+    @for (option of weights; track option.id) {
         <attribute-field
-            *ngFor="let weight of weights"
-            [attribute]="weight.text"
-            [value]="weight.value"
-            [id]="weight.id"
+            [attribute]="option.text"
+            [value]="option.value"
+            [id]="option.id"
         >
         </attribute-field>
+    }
     </ul>
-    <!-- end: Forms -->
 
-    <!-- Bottom -->
     <a (click)="onGenerate($event)">
         <button class="action-btn">Gerar</button>
     </a>
 
-    <!-- Floating Navigation -->
     <back-btn route="/new/mives" pageTitle="Arquivo Mives"></back-btn>
     <forms-steps [currentStep]="3" [totalSteps]="3"></forms-steps>
 </main>
