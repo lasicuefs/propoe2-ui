@@ -49,6 +49,7 @@ export class RhythmPatternForms implements OnInit {
 
     clear(event: Event) {
         this.stanzas.set([])
+        this.add()
     }
 
     onNext(event: Event) {
