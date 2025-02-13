@@ -60,7 +60,7 @@ export class Forms {
         console.log(this)
     }
 
-    weightsFrom(weights: any) {
+    weightsFrom(weights: Weights) {
         this.data.weights = weights
         console.log(this)
     }
