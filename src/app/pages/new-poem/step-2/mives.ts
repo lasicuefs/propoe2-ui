@@ -11,8 +11,8 @@ import { ReturnButton } from "../return-back/button"
 @Component({
     selector: "app-step-2",
     imports: [Steps, ReturnButton],
-    templateUrl: "./step-2.component.html",
-    styleUrl: "./step-2.component.css",
+    templateUrl: "./mives.html",
+    styleUrl: "./mives.css",
 })
 export class MivesForms {
     constructor(private router: Router) {}

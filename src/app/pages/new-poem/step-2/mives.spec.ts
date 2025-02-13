@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { MivesForms } from "./step-2.component"
+import { MivesForms } from "./mives"
 
 describe("Step2Component", () => {
     let component: MivesForms
