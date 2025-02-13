@@ -10,12 +10,10 @@ import { Steps } from "../steps/steps.component"
 import { Forms } from "../../../services/forms.service"
 import { BackBtnComponent } from "../back-btn/back-btn.component"
 
-interface Weights {
-    "vocal-harmony": number
-    "accentuation": number
-    "tonic-position": number
-    "internal-rhyme": number
-    "rhythmic-structure": number
+type WeightsOption = {
+    text: string,
+    id: string,
+    value: number
 }
 
 @Component({
