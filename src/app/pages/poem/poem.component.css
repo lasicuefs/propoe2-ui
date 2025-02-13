@@ -2,7 +2,7 @@
 #main-container {
     @apply 
         w-screen h-screen 
-        font-serif 
+        font-serif
         flex flex-col items-center justify-start 
         bg-slate-100 bg-opacity-65 
         overflow-y-scroll
@@ -13,7 +13,7 @@
 }
 
 .stanza {
-    @apply prose-xl text-center mb-8 break-words
+    @apply prose-xl text-center break-words
 }
 
 .verse {
