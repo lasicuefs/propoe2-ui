@@ -5,10 +5,10 @@ import { Router } from "@angular/router"
 // Import Local Components
 import { AttributeField } from "./attribute-field/attribute-field.component"
 import { Steps } from "../steps/steps.component"
+import { BackBtnComponent } from "../back-btn/back-btn.component"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
-import { BackBtnComponent } from "../back-btn/back-btn.component"
 
 type WeightsOption = {
     key: string,
