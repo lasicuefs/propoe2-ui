@@ -44,6 +44,12 @@ export class WeightsForms {
         return inspect(obj)
     }
 
+    onGenerate(event: Event) {
+        event.preventDefault()
+        this.updateForms()
+        this.router.navigate(["/poem"])
+    }
+
     updateForms(): void {
         const weights: any = {}
 
@@ -55,11 +61,5 @@ export class WeightsForms {
         })
 
         this.forms.weightsFrom(weights)
-    }
-
-    onGenerate(event: Event) {
-        event.preventDefault()
-        this.updateForms()
-        this.router.navigate(["/poem"])
     }
 }
