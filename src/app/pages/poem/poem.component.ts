@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common"
 import {
     Component,
     ElementRef,
@@ -17,7 +18,7 @@ const PROPOE_API = "http://localhost:8000/poem/"
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [ HttpClientModule],
+    imports: [CommonModule, HttpClientModule],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
