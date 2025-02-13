@@ -4,8 +4,8 @@ import { RouterLink } from "@angular/router"
 @Component({
     selector: "app-welcome",
     imports: [RouterLink],
-    templateUrl: "./welcome.component.html",
-    styleUrl: "./welcome.component.css",
+    templateUrl: "./welcome.html",
+    styleUrl: "./welcome.css",
 })
 export class WelcomePage {
 }

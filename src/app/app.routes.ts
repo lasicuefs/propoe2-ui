@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router"
 
-import { WelcomePage } from "./pages/welcome/welcome.component"
+import { WelcomePage } from "./pages/welcome/welcome"
 import { ProsodyForms } from "./pages/new-poem/step-1/prosody"
 import { MivesForms } from "./pages/new-poem/step-2/mives"
 import { WeightsForms } from "./pages/new-poem/step-3/weights"
