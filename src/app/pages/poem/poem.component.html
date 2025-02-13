@@ -1,5 +1,4 @@
 <div class="relative min-h-screen w-screen overflow-x-hidden" #container>
-    <!-- New Poem Button-->
 
     <a (click)="goHome()">
         <button class="action-btn fixed z-50 left-4 bottom-4">
@@ -7,21 +6,11 @@
         </button>
     </a>
 
-    <!-- Main Content -->
-    <main
-        #mainContainer
-        class="w-screen h-screen font-serif flex flex-col items-center justify-start bg-slate-100 bg-opacity-65 overflow-y-scroll"
-    >
+    <main #mainContainer id="main-container">
         <ng-container *ngIf="poem$ | async as poem">
-            <article class="flex flex-col justify-start items-center py-16">
-                <p
-                    class="prose-xl text-center mb-8 break-words"
-                    *ngFor="let paragraph of poem.split('\n\n')"
-                >
-                    <span
-                        class="block leading-relaxed"
-                        *ngFor="let line of paragraph.split('\n')"
-                    >
+            <article class="poem">
+                <p class="stanza" *ngFor="let paragraph of poem.split('\n\n')">
+                    <span class="verse" *ngFor="let line of paragraph.split('\n')">
                         {{ line }}
                     </span>
                 </p>
