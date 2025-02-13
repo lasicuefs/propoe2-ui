@@ -9,6 +9,7 @@
         <attribute-field
             [displayName]="option.display"
             [value]="option.value"
+            (valueChange)="onValueChange(option.key, $event)"
         >
         </attribute-field>
     }

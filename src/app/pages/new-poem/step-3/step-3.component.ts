@@ -73,4 +73,12 @@ export class WeightsForms {
             },
         )
     }
+
+    onValueChange(key: string, newValue: number) {
+        this.weights.update(weights => {
+            const option = weights.find(x => x.key === key)
+            if (option) { option.value = newValue }
+            return weights
+        });
+    }
 }

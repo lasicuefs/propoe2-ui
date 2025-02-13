@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core"
+import { Component, Input, Output, EventEmitter } from "@angular/core"
 
 function toJSNotation(x: string): string { return x.replace(",", ".") }
 function valid(x: number):          number {return x ? x : 0}
@@ -25,12 +25,16 @@ export class AttributeField {
     @Input()
     value: number = 1.0
 
+    @Output()
+    valueChange = new EventEmitter<number>();
+
     onChange(event: Event) {
         let input = event.target as HTMLInputElement
         const value = (input).value
         const result = within(toFloat(toJSNotation(value)), 0, 10)
 
         this.value = result
+        this.valueChange.emit(this.value)
         this.forcedUpdateInput(input, result.toString())
     }
 
