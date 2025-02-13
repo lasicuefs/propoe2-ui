@@ -5,8 +5,8 @@ import { RouterLink } from "@angular/router"
 @Component({
     selector: "return-back",
     imports: [CommonModule, RouterLink],
-    templateUrl: "./back-btn.component.html",
-    styleUrl: "./back-btn.component.css",
+    templateUrl: "./button.html",
+    styleUrl: "./button.css",
 })
 export class ReturnButton {
     @Input()

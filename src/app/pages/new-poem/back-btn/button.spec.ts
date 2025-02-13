@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { ReturnButton } from "./back-btn.component"
+import { ReturnButton } from "./button"
 
 describe("BackBtnComponent", () => {
     let component: ReturnButton
