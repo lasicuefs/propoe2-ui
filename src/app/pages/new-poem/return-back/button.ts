@@ -1,10 +1,9 @@
-import { CommonModule } from "@angular/common"
 import { Component, Input } from "@angular/core"
 import { RouterLink } from "@angular/router"
 
 @Component({
     selector: "return-back",
-    imports: [CommonModule, RouterLink],
+    imports: [RouterLink],
     templateUrl: "./button.html",
     styleUrl: "./button.css",
 })

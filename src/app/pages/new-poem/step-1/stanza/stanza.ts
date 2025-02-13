@@ -1,5 +1,4 @@
 import { Component, Input } from "@angular/core"
-import { CommonModule } from "@angular/common"
 
 interface Unit {
     letter: string
@@ -27,7 +26,7 @@ function alpha(x: string): string { return /^[A-Za-z]*$/.test(x)? x : defaultLet
 @Component({
     selector: "stanza",
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     templateUrl: "./stanza.html",
     styleUrl: "./stanza.css",
 })

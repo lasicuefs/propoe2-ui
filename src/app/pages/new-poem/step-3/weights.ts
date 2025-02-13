@@ -1,5 +1,4 @@
 import { Component, inject, signal } from "@angular/core"
-import { CommonModule } from "@angular/common"
 import { Router } from "@angular/router"
 
 // Import Local Components
@@ -38,7 +37,7 @@ function inspect(obj: any): string {
 
 @Component({
     selector: "app-step-3",
-    imports: [WeightOption, CommonModule, Steps, ReturnButton],
+    imports: [WeightOption, Steps, ReturnButton],
     templateUrl: "./weights.html",
     styleUrl: "./weights.css",
 })

@@ -1,9 +1,8 @@
-import { CommonModule } from "@angular/common"
 import {
     Component,
-    computed,
     ElementRef,
     inject,
+    OnInit,
     signal,
     ViewChild,
 } from "@angular/core"
@@ -18,11 +17,11 @@ const PROPOE_API = "http://localhost:8000/poem/"
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, HttpClientModule],
+    imports: [ HttpClientModule],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
-export class PoemPage {
+export class PoemPage implements OnInit {
     private http = inject(HttpClient)
     private router = inject(Router)
     private forms = inject(Forms)
