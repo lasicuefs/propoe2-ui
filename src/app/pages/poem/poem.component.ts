@@ -7,7 +7,7 @@ import {
     signal,
     ViewChild,
 } from "@angular/core"
-import { RouterLink } from "@angular/router"
+import { Router, RouterLink } from "@angular/router"
 import { HttpClient, HttpClientModule } from "@angular/common/http"
 import { Observable, of } from "rxjs"
 import { catchError, map } from "rxjs/operators"
@@ -21,10 +21,12 @@ import { Forms } from "../../services/forms.service"
     styleUrl: "./poem.component.css",
 })
 export class PoemPage {
+    http = inject(HttpClient)
+    router = inject(Router)
+
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
     poem$: Observable<string> = of("")
-    http = inject(HttpClient)
 
     private scrollPosition = signal(0)
     private viewportHeight = signal(0)
@@ -70,5 +72,11 @@ export class PoemPage {
             top: scrollDistance,
             behavior: "smooth",
         })
+    }
+
+    goHome() {
+        this.forms.clear()
+        console.log(this.forms)
+        this.router.navigate(["/"])
     }
 }

@@ -26,19 +26,25 @@ type FormsData = {
     weights: Weights
 }
 
+const defaultData: FormsData = {
+    stanzas: [
+        { pattern: ["A"], lengths: [10] },
+    ],
+    weights: {
+        "vocal-harmony": 1,
+        "accentuation": 1,
+        "tonic-position": 1,
+        "internal-rhyme": 1,
+        "rhythmic-structure": 1,
+    },
+}
+
 @Injectable({ providedIn: "root" })
 export class Forms {
-    data: FormsData = {
-        stanzas: [
-            { pattern: ["A"], lengths: [10] },
-        ],
-        weights: {
-            "vocal-harmony": 1,
-            "accentuation": 1,
-            "tonic-position": 1,
-            "internal-rhyme": 1,
-            "rhythmic-structure": 1,
-        },
+    data: FormsData = JSON.parse(JSON.stringify(defaultData))
+
+    clear() {
+        this.data = JSON.parse(JSON.stringify(defaultData))
     }
 
     postData(): PostJson {
