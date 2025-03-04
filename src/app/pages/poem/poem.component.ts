@@ -27,7 +27,7 @@ const post = async (route: string, body: any) => {
         body: JSON.stringify(body)
     }
 
-    return await fetch(`http://{PROPOE_API}/${route}`, options)
+    return await fetch(`http://${PROPOE_API}/${route}`, options)
 }
 
 @Component({
