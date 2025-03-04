@@ -2,6 +2,7 @@ import { CommonModule, DOCUMENT } from "@angular/common"
 import {
     Component,
     ElementRef,
+    HostListener,
     inject,
     OnInit,
     signal,
@@ -14,6 +15,21 @@ import { catchError, map } from "rxjs/operators"
 import { Forms } from "../../services/forms.service"
 
 const PROPOE_API = "http://localhost:8000/poem/"
+
+const post = async (route: string, body: any) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            // For development purposes
+            'Ignore-Certificate-Errors': 'true'
+        },
+        body: JSON.stringify(body)
+    }
+
+    return await fetch(`http://localhost:8000/${route}`, options)
+}
 
 @Component({
     selector: "app-poem",
@@ -60,9 +76,19 @@ export class PoemPage implements OnInit {
     print() {
         if (this.window) {
             this.window.print()
+            this.requestFeedback()
         } else {
             alert("Window not found.")
         }
+    }
+
+    requestFeedback() {
+        let stars = prompt("From 1-5 what is your opinion about Propoe?")
+        let comment = prompt("Write more about your experience. (Optional)", "")
+
+        post("feedback", {stars: parseInt(stars ?? "1"), comment})
+            .then(req => console.log(req))
+            .catch(req => console.log(req))
     }
 
     scrollDown() {
