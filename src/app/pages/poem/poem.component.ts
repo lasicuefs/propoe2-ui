@@ -2,16 +2,13 @@ import { CommonModule, DOCUMENT } from "@angular/common"
 import {
     Component,
     ElementRef,
-    HostListener,
     inject,
     OnInit,
     signal,
     ViewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
-import { HttpClientModule, HttpHeaders } from "@angular/common/http"
 import { Observable, of } from "rxjs"
-import { catchError, map } from "rxjs/operators"
 import { Forms } from "../../services/forms.service"
 
 const post = async (route: string, body: any) => {
@@ -33,7 +30,7 @@ const post = async (route: string, body: any) => {
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, HttpClientModule],
+    imports: [CommonModule],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
