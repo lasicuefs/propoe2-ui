@@ -9,7 +9,7 @@ import {
     ViewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
-import { HttpClient, HttpClientModule } from "@angular/common/http"
+import { HttpClientModule, HttpHeaders } from "@angular/common/http"
 import { Observable, of } from "rxjs"
 import { catchError, map } from "rxjs/operators"
 import { Forms } from "../../services/forms.service"
@@ -39,7 +39,6 @@ const post = async (route: string, body: any) => {
     styleUrl: "./poem.component.css",
 })
 export class PoemPage implements OnInit {
-    private http = inject(HttpClient)
     private router = inject(Router)
     private forms = inject(Forms)
     document = inject(DOCUMENT)
@@ -60,17 +59,17 @@ export class PoemPage implements OnInit {
     private fetchPoem() {
         const body = this.forms.postData()
         console.log(body)
-        this.poem$ = this.http.post<{ content: string[] }>(PROPOE_API, body)
-            .pipe(
-                map((data) => {
-                    const res = data.content.join("\n")
-                    console.log(res)
-                    return res
-                }),
-                catchError(() =>
-                    of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")
-                ),
-            )
+        
+        post("poem", body)
+            .then(response => response.json())
+            .then(data => {
+                const res = data.content.join("\n")
+                console.log(res)
+                this.poem$ = of(res)
+            })
+            .catch(() => {
+                this.poem$ = of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")
+            })
     }
 
     print() {
@@ -101,6 +100,7 @@ export class PoemPage implements OnInit {
     }
 
     goHome() {
+        this.requestFeedback()
         this.forms.clear()
         console.log(this.forms)
         this.router.navigate(["/"])
