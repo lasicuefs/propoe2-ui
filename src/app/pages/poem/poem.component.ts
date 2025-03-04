@@ -14,9 +14,8 @@ import { Observable, of } from "rxjs"
 import { catchError, map } from "rxjs/operators"
 import { Forms } from "../../services/forms.service"
 
-const PROPOE_API = "http://localhost:8000/poem/"
-
 const post = async (route: string, body: any) => {
+    const PROPOE_API = "localhost:8000/"
     const options = {
         method: 'POST',
         headers: {
@@ -28,7 +27,7 @@ const post = async (route: string, body: any) => {
         body: JSON.stringify(body)
     }
 
-    return await fetch(`http://localhost:8000/${route}`, options)
+    return await fetch(`http://{PROPOE_API}/${route}`, options)
 }
 
 @Component({
