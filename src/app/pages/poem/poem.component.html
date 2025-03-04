@@ -22,6 +22,7 @@
         }
     </main>
     <aside class="print:!hidden w-1/6">
+    @if (poem$ | async) {
         <a (click)="print()">
             <button class="secondary-btn flex flex-row items-center gap-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
@@ -31,8 +32,10 @@
                 <span>Salvar</span>
             </button>
         </a>
+    }
     </aside>
 
+    @if (poem$ | async) {
     <div
         id="scroll-button-area"
         (click)="scrollDown()"
@@ -64,4 +67,5 @@
             </svg>
         </button>
     </div>
+    }
 </div>
