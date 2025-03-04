@@ -1,6 +1,6 @@
-<div class="relative min-h-screen w-screen overflow-x-hidden" #container>
-    <a (click)="goHome()">
-        <button class="action-btn fixed z-50 left-4 bottom-4">
+<div class="screen:[relative min-h-screen w-screen overflow-x-hidden] print:!bg-white" #container>
+    <a class="print:!hidden" (click)="goHome()">
+        <button class="print:hidden action-btn fixed z-50 left-4 bottom-4">
             Novo Poema
         </button>
     </a>
@@ -23,7 +23,7 @@
     <div
         id="scroll-button-area"
         (click)="scrollDown()"
-        class="fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4 z-40"
+        class="print:!hidden fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4 z-40"
     >
         <div
             class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent -z-10"
