@@ -11,7 +11,7 @@ import { Observable, of } from "rxjs"
 import { Forms } from "../../services/forms.service"
 
 const post = async (route: string, body: any) => {
-    const PROPOE_API = "localhost:8000/"
+    const PROPOE_API = "localhost:8000"
     const options = {
         method: 'POST',
         headers: {
