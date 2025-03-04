@@ -44,10 +44,6 @@ export class PoemPage implements OnInit {
     mainContainer!: ElementRef<HTMLElement>
     poem$: Observable<string> = of("")
 
-    private scrollPosition = signal(0)
-    private viewportHeight = signal(0)
-    private contentHeight = signal(0)
-
     ngOnInit() {
         this.fetchPoem()
     }
