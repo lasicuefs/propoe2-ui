@@ -4,7 +4,6 @@ import {
     ElementRef,
     inject,
     OnInit,
-    signal,
     ViewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
