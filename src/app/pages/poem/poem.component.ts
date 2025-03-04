@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common"
+import { CommonModule, DOCUMENT } from "@angular/common"
 import {
     Component,
     ElementRef,
@@ -26,6 +26,8 @@ export class PoemPage implements OnInit {
     private http = inject(HttpClient)
     private router = inject(Router)
     private forms = inject(Forms)
+    document = inject(DOCUMENT)
+    window = this.document.defaultView?.window
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
@@ -53,6 +55,14 @@ export class PoemPage implements OnInit {
                     of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")
                 ),
             )
+    }
+
+    print() {
+        if (this.window) {
+            this.window.print()
+        } else {
+            alert("Window not found.")
+        }
     }
 
     scrollDown() {
