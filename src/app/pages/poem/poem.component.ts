@@ -26,6 +26,11 @@ const post = async (route: string, body: any) => {
     return await fetch(`http://${PROPOE_API}/${route}`, options)
 }
 
+const trace = (obj: any) => {
+    console.log(JSON.stringify(obj))
+    return obj
+}
+
 @Component({
     selector: "app-poem",
     standalone: true,
@@ -47,20 +52,17 @@ export class PoemPage implements OnInit {
         this.fetchPoem()
     }
 
-    private fetchPoem() {
-        const body = this.forms.postData()
-        console.log(body)
-        
-        post("poem", body)
+    private fetchPoem() {        
+        const asLines = (x: any) => x.join("\n")
+        const FAIL_MESSAGE = `
+            Desculpa, mas seu poema não pode ser gerado.
+            Tente gerar um novo.
+        `
+
+        post("poem", trace(this.forms.postData()))
             .then(response => response.json())
-            .then(data => {
-                const res = data.content.join("\n")
-                console.log(res)
-                this.poem$ = of(res)
-            })
-            .catch(() => {
-                this.poem$ = of("Desculpa, mas seu poema não pode ser gerado.\nTente gerar um novo.")
-            })
+            .then(data => this.poem$ = of(trace(asLines(data.content))))
+            .catch(() => this.poem$ = of(FAIL_MESSAGE))
     }
 
     print() {
