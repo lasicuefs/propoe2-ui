@@ -96,7 +96,7 @@ export class PoemPage implements OnInit {
             .then(req => console.log(req))
             .catch(req => console.log(req))
 
-        this.feedbackBeingRequired.set(false)
+        this.goHome()
     }
 
     scrollDown() {
@@ -109,7 +109,6 @@ export class PoemPage implements OnInit {
     }
 
     goHome() {
-        this.requestFeedback()
         this.forms.clear()
         console.log(this.forms)
         this.router.navigate(["/"])
