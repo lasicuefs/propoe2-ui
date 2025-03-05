@@ -4,6 +4,7 @@ import {
     ElementRef,
     inject,
     OnInit,
+    signal,
     ViewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
@@ -31,6 +32,11 @@ const trace = (obj: any) => {
     return obj
 }
 
+type Feedback = {
+    stars: number,
+    comment: string
+}
+
 @Component({
     selector: "app-poem",
     standalone: true,
@@ -43,6 +49,9 @@ export class PoemPage implements OnInit {
     private forms = inject(Forms)
     document = inject(DOCUMENT)
     window = this.document.defaultView?.window
+
+    feedbackBeingRequired = signal<boolean>(false)
+    feedback = signal<Feedback | null>(null)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
@@ -75,12 +84,20 @@ export class PoemPage implements OnInit {
     }
 
     requestFeedback() {
-        let stars = prompt("From 1-5 what is your opinion about Propoe?")
-        let comment = prompt("Write more about your experience. (Optional)", "")
+        this.feedbackBeingRequired.set(true)
+    }
 
-        post("feedback", {stars: parseInt(stars ?? "1"), comment})
+    onSubmitFeedback(event: Event) {
+        event.preventDefault();
+                
+        const stars = trace((document.querySelector('input[name="rating"]:checked') as HTMLInputElement)?.value)
+        const comment = trace((document.querySelector('#comment') as HTMLTextAreaElement).value)
+        
+        post("feedback", { stars: parseInt(stars as string), comment })
             .then(req => console.log(req))
             .catch(req => console.log(req))
+
+        this.feedbackBeingRequired.set(false)
     }
 
     scrollDown() {
