@@ -51,7 +51,6 @@ export class PoemPage implements OnInit {
     window = this.document.defaultView?.window
 
     feedbackBeingRequired = signal<boolean>(false)
-    feedback = signal<Feedback | null>(null)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>

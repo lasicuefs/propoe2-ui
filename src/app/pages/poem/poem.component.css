@@ -29,3 +29,12 @@
 .poem {
     @apply flex flex-col justify-start items-center py-16
 }
+
+.rating label:hover,
+.rating label:hover ~ label {
+  filter: grayscale(0) !important;
+}
+
+.rating input:checked ~ label {
+    filter: grayscale(0) !important;
+}
