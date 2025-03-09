@@ -8,8 +8,8 @@ import {
     ViewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
-import { Observable, of } from "rxjs"
 import { Forms } from "../../services/forms.service"
+import { Poetry } from "../../services/poetry"
 
 const post = async (route: string, body: any) => {
     const PROPOE_API = "localhost:8000"
@@ -24,11 +24,11 @@ const post = async (route: string, body: any) => {
         body: JSON.stringify(body)
     }
 
-    return await fetch(`http://${PROPOE_API}/${route}`, options)
+    return fetch(`http://${PROPOE_API}/${route}`, options)
 }
 
-const trace = (obj: any) => {
-    console.log(JSON.stringify(obj))
+const trace = (obj: any, msg: string = "") => {
+    console.log(msg, JSON.stringify(obj))
     return obj
 }
 
@@ -36,6 +36,7 @@ type Feedback = {
     stars: number,
     comment: string
 }
+
 
 @Component({
     selector: "app-poem",
@@ -47,30 +48,31 @@ type Feedback = {
 export class PoemPage implements OnInit {
     private router = inject(Router)
     private forms = inject(Forms)
-    document = inject(DOCUMENT)
-    window = this.document.defaultView?.window
+    private poetry = inject(Poetry)
+    private document = inject(DOCUMENT)
+    private window = this.document.defaultView?.window
 
+    poem = signal<string>(this.poetry.poem)
     feedbackBeingRequired = signal<boolean>(false)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
-    poem$: Observable<string> = of("")
 
     ngOnInit() {
-        this.fetchPoem()
+        if (!this.poetry.hasWrote) {
+            this.fetchPoem()
+        }
     }
 
-    private fetchPoem() {        
+    private async fetchPoem() {
         const asLines = (x: any) => x.join("\n")
-        const FAIL_MESSAGE = `
-            Desculpa, mas seu poema não pode ser gerado.
-            Tente gerar um novo.
-        `
 
-        post("poem", trace(this.forms.postData()))
+        const poem: string = await post("poem", trace(this.forms.postData()))
             .then(response => response.json())
-            .then(data => this.poem$ = of(trace(asLines(data.content))))
-            .catch(() => this.poem$ = of(FAIL_MESSAGE))
+            .then(data => trace(asLines(data.content)))
+
+        this.poetry.write(poem)
+        this.poem.set(poem)
     }
 
     print() {
@@ -92,10 +94,7 @@ export class PoemPage implements OnInit {
         const stars = trace((document.querySelector('input[name="rating"]:checked') as HTMLInputElement)?.value)
         const comment = trace((document.querySelector('#comment') as HTMLTextAreaElement).value)
         
-        post("feedback", { stars: parseInt(stars as string), comment })
-            .then(req => console.log(req))
-            .catch(req => console.log(req))
-
+        trace(post("feedback", { stars: parseInt(stars as string), comment }))
         this.goHome()
     }
 
