@@ -32,11 +32,6 @@ const trace = (obj: any, msg: string = "") => {
     return obj
 }
 
-type Feedback = {
-    stars: number,
-    comment: string
-}
-
 
 @Component({
     selector: "app-poem",
