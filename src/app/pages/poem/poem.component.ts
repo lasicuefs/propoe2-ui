@@ -46,11 +46,8 @@ type Feedback = {
     styleUrl: "./poem.component.css",
 })
 export class PoemPage implements OnInit {
-    private router = inject(Router)
     private forms = inject(Forms)
     private poetry = inject(Poetry)
-    private document = inject(DOCUMENT)
-    private window = this.document.defaultView?.window
 
     poem = signal<string>(this.poetry.poem)
     feedbackBeingRequired = signal<boolean>(false)
@@ -59,9 +56,8 @@ export class PoemPage implements OnInit {
     mainContainer!: ElementRef<HTMLElement>
 
     ngOnInit() {
-        if (!this.poetry.hasWrote) {
-            this.fetchPoem()
-        }
+        if (this.poetry.hasWrote) return 
+        this.fetchPoem()
     }
 
     private async fetchPoem() {
@@ -76,12 +72,14 @@ export class PoemPage implements OnInit {
     }
 
     print() {
-        if (this.window) {
-            this.window.print()
-            this.requestFeedback()
-        } else {
+        const window = inject(DOCUMENT).defaultView?.window
+        if (!window) {
             alert("Window not found.")
+            return
         }
+
+        window.print()
+        this.requestFeedback()
     }
 
     requestFeedback() {
@@ -101,6 +99,7 @@ export class PoemPage implements OnInit {
     scrollDown() {
         const mainElement = this.mainContainer.nativeElement
         const scrollDistance = mainElement.clientHeight * 0.8
+
         mainElement.scrollBy({
             top: scrollDistance,
             behavior: "smooth",
@@ -108,8 +107,9 @@ export class PoemPage implements OnInit {
     }
 
     goHome() {
+        const router = inject(Router)
+
         this.forms.clear()
-        console.log(this.forms)
-        this.router.navigate(["/"])
+        router.navigate(["/"])
     }
 }
