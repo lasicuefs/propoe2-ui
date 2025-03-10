@@ -1,15 +1,21 @@
 
-#main-container {
-    @apply 
-        w-screen h-screen 
-        font-serif
-        flex flex-col items-center justify-start 
-        bg-slate-100 bg-opacity-65 
-        overflow-y-scroll
-}
+@media screen {
+    .background {
+        @apply 
+            w-screen h-screen 
+            flex flex-col items-center justify-start 
+            overflow-y-scroll
+    }
 
-.poem {
-    @apply flex flex-col justify-start items-center py-16
+    .secondary-btn {
+        @apply  
+            bg-slate-100 text-black
+            shadow-lg 
+            rounded-full p-2 px-4 m-2
+            transition duration-150 
+            hover:bg-slate-200 hover:shadow-xl hover:ease-out
+    }
+
 }
 
 .stanza {
@@ -18,4 +24,17 @@
 
 .verse {
     @apply block leading-relaxed
+}
+
+.poem {
+    @apply flex flex-col justify-start items-center py-16
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  filter: grayscale(0) !important;
+}
+
+.rating input:checked ~ label {
+    filter: grayscale(0) !important;
 }

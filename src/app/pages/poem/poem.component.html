@@ -1,12 +1,8 @@
-<div class="relative min-h-screen w-screen overflow-x-hidden" #container>
-    <a (click)="goHome()">
-        <button class="action-btn fixed z-50 left-4 bottom-4">
-            Novo Poema
-        </button>
-    </a>
-
-    <main #mainContainer id="main-container">
-        @if (poem$ | async; as poem) {
+<div id="background" class="bg-slate-100 bg-opacity-40 screen:[relative min-h-screen w-screen overflow-x-hidden] print:!bg-white flex justify-around items-baseline" #container>
+    <aside class="print:!hidden w-1/6">
+    </aside>
+    <main #mainContainer class="font-serif w-2/3">
+        @if (poem(); as poem) {
             <article class="poem">
                 @for (stanza of poem.split("\n\n"); track $index) {
                     <p class="stanza">
@@ -19,36 +15,66 @@
             </article>
         }
     </main>
+    <aside class="print:!hidden w-1/6">
+    @if (poem()) {
+        <a (click)="print()">
+            <button class="secondary-btn flex flex-row items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
+                    <path d="M11 2H9v3h2z"/>
+                    <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z"/>
+                </svg>
+                <span>Salvar</span>
+            </button>
+        </a>
+    }
+    </aside>
+</div>
 
-    <div
-        id="scroll-button-area"
-        (click)="scrollDown()"
-        class="fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4 z-40"
-    >
-        <div
-            class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent -z-10"
-        >
-        </div>
-        <button
-            class="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 shadow-lg"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-chevron-double-down"
-                viewBox="0 0 16 16"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                />
-                <path
-                    fill-rule="evenodd"
-                    d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                />
+<a class="print:!hidden" (click)="requestFeedback()">
+    <button class="print:hidden action-btn fixed z-40 left-4 bottom-4">
+        Novo Poema
+    </button>
+</a>
+
+@if (poem()) {
+    <div id="scroll-button-area" (click)="scrollDown()" class="print:!hidden fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4 z-30">
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent -z-10"></div>
+        <button class="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
             </svg>
         </button>
     </div>
-</div>
+}
+
+@if (feedbackBeingRequired()) {
+    @let star = "⭐";
+
+    <section class="feedback z-50 fixed top-0 left-0 w-screen h-screen backdrop-blur-xl flex items-center justify-center">
+        <form id="feedback-form" class="bg-slate-100 p-6 rounded-xl shadow-xl flex flex-col gap-4">
+            <div class="rating flex flex-row-reverse justify-center gap-2 mb-4">
+                @for (i of [5, 4, 3, 2, 1]; track $index ) {
+                    <input type="radio" id="star-{{i}}" name="rating" value={{i}} class="hidden">
+                    <label for="star-{{i}}" class="text-3xl cursor-pointer grayscale-[1]">{{star}}</label>
+                }
+            </div>
+            <div class="comment">
+                <textarea id="comment" name="comment" 
+                    placeholder="Comente sobre sua experiência..." value=""
+                    class="w-full p-2 bg-slate-100 border rounded outline-none resize-none"
+                    cols="45" rows="4"
+                    maxlength="180"></textarea>
+            </div>
+            <div class="flex gap-4">
+                <button type="submit" (click)="this.feedbackBeingRequired.set(false)" 
+                    class="action-btn w-full">
+                    Cancelar
+                </button>
+                <button type="submit" (click)="onSubmitFeedback($event)" class="action-btn w-full">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </section>
+}
