@@ -43,6 +43,8 @@ const trace = (obj: any, msg: string = "") => {
 export class PoemPage implements OnInit {
     private forms = inject(Forms)
     private poetry = inject(Poetry)
+    private router = inject(Router)
+    private window = inject(DOCUMENT).defaultView?.window
 
     poem = signal<string>(this.poetry.poem)
     feedbackBeingRequired = signal<boolean>(false)
@@ -67,13 +69,12 @@ export class PoemPage implements OnInit {
     }
 
     print() {
-        const window = inject(DOCUMENT).defaultView?.window
-        if (!window) {
+        if (!this.window) {
             alert("Window not found.")
             return
         }
 
-        window.print()
+        this.window.print()
         this.requestFeedback()
     }
 
@@ -102,9 +103,7 @@ export class PoemPage implements OnInit {
     }
 
     goHome() {
-        const router = inject(Router)
-
         this.forms.clear()
-        router.navigate(["/"])
+        this.router.navigate(["/"])
     }
 }
