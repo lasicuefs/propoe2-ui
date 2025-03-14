@@ -82,14 +82,16 @@ export class PoemPage implements OnInit {
         this.feedbackBeingRequired.set(true)
     }
 
-    onSubmitFeedback(event: Event) {
-        event.preventDefault();
-                
+    onGoHome() {
+        this.requestFeedback()
+        this.goHome()
+    }
+
+    onSubmitFeedback() {
         const stars = trace((document.querySelector('input[name="rating"]:checked') as HTMLInputElement)?.value)
         const comment = trace((document.querySelector('#comment') as HTMLTextAreaElement).value)
         
         trace(post("feedback", { stars: parseInt(stars as string), comment }))
-        this.goHome()
     }
 
     scrollDown() {

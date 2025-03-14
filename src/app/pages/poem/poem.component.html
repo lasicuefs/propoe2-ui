@@ -34,7 +34,7 @@
     </aside>
 </div>
 
-<a class="print:!hidden" (click)="requestFeedback()">
+<a class="print:!hidden" (click)="onGoHome()">
     <button class="print:hidden action-btn fixed z-40 left-4 bottom-4">
         Novo Poema
     </button>
@@ -75,7 +75,7 @@
                     class="action-btn w-full">
                     Cancelar
                 </button>
-                <button type="submit" (click)="onSubmitFeedback($event)" class="action-btn w-full">
+                <button type="submit" (click)="onSubmitFeedback()" class="action-btn w-full">
                     Enviar
                 </button>
             </div>
