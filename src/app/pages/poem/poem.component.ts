@@ -46,15 +46,15 @@ export class PoemPage implements OnInit {
     private router = inject(Router)
     private window = inject(DOCUMENT).defaultView?.window
 
-    poem = signal<string>(this.poetry.poem)
+    poem = signal<string | null>(this.poetry.poem)
     feedbackBeingRequired = signal<boolean>(false)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
 
-    ngOnInit() {
-        if (this.poetry.hasWrote) return 
-        this.fetchPoem()
+    async ngOnInit() {
+        const poem = this.poetry.poem ?? await this.fetchPoem()
+        this.poem.set(poem)
     }
 
     private async fetchPoem() {
@@ -63,9 +63,9 @@ export class PoemPage implements OnInit {
         const poem: string = await post("poem", trace(this.forms.postData()))
             .then(response => response.json())
             .then(data => trace(asLines(data.content)))
+            .catch(() => "Desculpe, não foi possível gerar o poema.")
 
-        this.poetry.write(poem)
-        this.poem.set(poem)
+        return poem
     }
 
     print() {

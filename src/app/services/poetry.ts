@@ -10,14 +10,14 @@ const FAIL_MESSAGE = `
 export class Poetry {
     // Manages the Poem caching, to avoid unnecessary requests
 
-    private _poem: string = ""
+    private _poem: string | null = null
 
     get hasWrote(): boolean {
-        return this._poem != ""
+        return this._poem != null
     }
 
-    get poem(): string {
-        return this.hasWrote? this._poem : FAIL_MESSAGE
+    get poem(): string | null {
+        return this._poem
     }
    
     set poem(poem: string) {
@@ -29,7 +29,7 @@ export class Poetry {
     }
 
     erase() {
-        this._poem = ""
+        this._poem = null
     }
 
 }
