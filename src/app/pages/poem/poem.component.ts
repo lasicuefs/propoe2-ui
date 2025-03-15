@@ -43,7 +43,7 @@ import { Poem } from "./Poem"
         </a>
 
         @if (feedbackRequested()) {
-            <feedback [(isOpen)]="feedbackRequested"></feedback>
+            <feedback [(isOpen)]="feedbackRequested" [poemId]="poemId()"></feedback>
         }
     `,
 })
@@ -53,6 +53,7 @@ export class PoemPage {
 
     poem = viewChild(Poem)
     poemLoaded = computed(() => this.poem()?.content() != "")
+    poemId = computed(() => this.poem()?.id())
     feedbackRequested = signal<boolean>(false)
 
     onGoHome(event: Event) {

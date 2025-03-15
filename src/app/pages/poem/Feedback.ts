@@ -1,4 +1,4 @@
-import { Component, model } from "@angular/core"
+import { Component, input, model } from "@angular/core"
 import { post, trace } from "./common"
 
 @Component({
@@ -51,6 +51,7 @@ import { post, trace } from "./common"
     `,
 })
 export class Feedback {
+    poemId = input<string | undefined>("")
     isOpen = model<boolean>(false)
 
     onCancel(event: Event) {
@@ -68,6 +69,6 @@ export class Feedback {
         const stars = trace((document.querySelector('input[name="rating"]:checked') as HTMLInputElement)?.value)
         const comment = trace((document.querySelector('#comment') as HTMLTextAreaElement).value)
 
-        trace(post("feedback", { stars: parseInt(stars as string), comment }))
+        trace(post("feedback", { stars: parseInt(stars as string), comment, poem_id: this.poemId()?? "" }))
     }
 }

@@ -45,6 +45,7 @@ type PoemStatus = "Empty"
 export class Poem implements OnInit {
     private forms = inject(Forms)
     
+    id = signal<string>("")
     status = signal<PoemStatus>("Cached")
     content = signal<string | null>(null)
 
@@ -65,13 +66,16 @@ export class Poem implements OnInit {
     private async requestNewPoem() {
         const asLines = (x: any) => x.join("\n")
 
-        const content: string = await post("poem", trace(this.forms.postData()))
+        const data = await post("poem", trace(this.forms.postData()))
             .then(response => response.json())
-            .then(data => trace(asLines(data.content)))
             .catch(() => null)
+
+        const content = trace(asLines(data.content))
+        const id = trace(data.id, "POEM ID:")
 
         Session.save("poem", content)
         this.status.set((content)? "Fetched" : "Error")    
         this.content.set(content)
+        this.id.set(id)
     }
 }
