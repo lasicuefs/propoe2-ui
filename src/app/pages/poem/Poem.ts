@@ -37,8 +37,8 @@ type PoemStatus = "Empty"
     `,
     styles: `
         .content {
-            @apply flex flex-col justify-start items-center gap-0
-                py-16 prose-xl text-center;
+            @apply flex flex-col justify-center justify-items-center gap-0 
+                prose-xl text-center;
         }
     `
 })
