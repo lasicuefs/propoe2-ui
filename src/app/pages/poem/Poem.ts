@@ -21,7 +21,7 @@ type PoemStatus = "Empty"
         @default {
             <!-- Cached || Fetched -->
             <article class="content"> 
-            @for (stanza of content().split("\n\n"); track $index) {
+            @for (stanza of content()?.split("\n\n"); track $index) {
                 <p class="break-words"> 
                     @for (verse of stanza.split("\n"); track $index) {
                         <span class="block leading-relaxed">
@@ -46,7 +46,7 @@ export class Poem implements OnInit {
     private forms = inject(Forms)
     
     status = signal<PoemStatus>("Cached")
-    content = signal<string>("")
+    content = signal<string | null>(null)
 
     async ngOnInit() {
         this.loadInitialState()
@@ -56,10 +56,10 @@ export class Poem implements OnInit {
     }
 
     private loadInitialState() {
-        const content: string = ""
+        const content: string | null = sessionStorage.getItem("poem")
 
+        this.status.set((content)? "Cached" : "Empty")
         this.content.set(content)
-        this.status.set((content != "")? "Cached" : "Empty")
     }
 
     private async requestNewPoem() {
@@ -68,9 +68,10 @@ export class Poem implements OnInit {
         const content: string = await post("poem", trace(this.forms.postData()))
             .then(response => response.json())
             .then(data => trace(asLines(data.content)))
-            .catch(() => "")
+            .catch(() => null)
 
-        this.status.set((content != "")? "Fetched" : "Error")    
+        sessionStorage.setItem("poem", content)
+        this.status.set((content)? "Fetched" : "Error")    
         this.content.set(content)
     }
 }
