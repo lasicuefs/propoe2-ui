@@ -15,16 +15,6 @@ import { Component, input } from "@angular/core"
         </button>
     </div>
     `,
-    styles: `
-        .rating label:hover,
-        .rating label:hover ~ label {
-        filter: grayscale(0) !important;
-        }
-
-        .rating input:checked ~ label {
-            filter: grayscale(0) !important;
-        }
-    `,
 })
 export class ScrollDownButton {
     container = input.required<HTMLElement>()
