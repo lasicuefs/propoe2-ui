@@ -4,14 +4,17 @@ import { post, trace } from "./common";
 
 @Injectable({ providedIn: "root" })
 export class FeedbackService {
-    isOpen = signal<boolean>(false)
+    private _isOpen = signal<boolean>(false)
+
+    get isOpen() { return this._isOpen() }
+    get isClosed() { return !this.isOpen }
 
     open() {
-        this.isOpen.set(true)
+        this._isOpen.set(true)
     }
     
     close() {
-        this.isOpen.set(false)
+        this._isOpen.set(false)
     }
 }
 
