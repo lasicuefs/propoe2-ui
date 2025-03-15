@@ -18,15 +18,33 @@ import { Poem } from "./Poem"
     selector: "app-poem",
     standalone: true,
     imports: [CommonModule, Feedback, SaveButton, Poem],
-    templateUrl: "./poem.component.html",
-    styles: `
-    @media screen {
-        .background {
-            @apply w-screen h-screen 
-                flex flex-col items-center justify-start 
-                overflow-y-scroll
+    template: `
+        <div id="background" class="flex items-start relative w-screen
+            bg-slate-100 bg-opacity-40
+            screen:[overflow-y-scroll] 
+            print:!bg-white"
+        >
+            <aside class="print:!hidden w-1/6">
+            </aside>
+            <main class="font-serif w-2/3">
+                <poem></poem>
+            </main>
+            <aside class="print:!hidden w-1/6">
+                @if (poemLoaded()) {
+                    <save-button></save-button>
+                }
+            </aside>
+        </div>
+
+        <a class="print:!hidden" (click)="onGoHome($event)">
+            <button class="print:hidden action-btn fixed z-40 left-4 bottom-4">
+                Novo Poema
+            </button>
+        </a>
+
+        @if (feedbackRequested()) {
+            <feedback [(isOpen)]="feedbackRequested"></feedback>
         }
-    }   
     `,
 })
 export class PoemPage {
