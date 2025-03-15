@@ -5,6 +5,7 @@ import {
     inject,
     OnInit,
     signal,
+    viewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
@@ -20,28 +21,13 @@ import { Poem } from "./Poem"
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
-export class PoemPage implements OnInit {
+export class PoemPage {
     private forms = inject(Forms)
     private router = inject(Router)
-    
+
+    poem = viewChild(Poem)
+    poemLoaded = computed(() => this.poem()?.content() != "")
     feedbackRequested = signal<boolean>(false)
-    poem = signal<string>("")
-
-    async ngOnInit() {
-        const poem = await this.fetchPoem()
-        this.poem.set(poem)
-    }
-
-    private async fetchPoem() {
-        const asLines = (x: any) => x.join("\n")
-
-        const poem: string = await post("poem", trace(this.forms.postData()))
-            .then(response => response.json())
-            .then(data => trace(asLines(data.content)))
-            .catch(() => "Desculpe, não foi possível gerar o poema.")
-
-        return poem
-    }
 
     onGoHome(event: Event) {
         event.preventDefault()

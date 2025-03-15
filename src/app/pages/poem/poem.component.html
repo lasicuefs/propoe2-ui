@@ -2,18 +2,12 @@
     <aside class="print:!hidden w-1/6">
     </aside>
     <main class="font-serif w-2/3">
-        @if (poem(); as poem) {
-            <poem [poem]="poem"></poem>
-        } @else {
-            <p class="prose-xl text-center flex flex-col justify-start items-center py-16">
-                Gerando poema...
-            </p>
-        }
+        <poem></poem>
     </main>
     <aside class="print:!hidden w-1/6">
-    @if (poem()) {
-        <save-button></save-button>
-    }
+        @if (poemLoaded()) {
+            <save-button></save-button>
+        }
     </aside>
 </div>
 
