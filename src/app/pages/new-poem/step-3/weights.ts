@@ -8,7 +8,6 @@ import { ReturnButton } from "../return-back/button"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
-import { Poetry } from "../../../services/poetry"
 
 type WeightsOption = {
     key: string
@@ -45,7 +44,6 @@ function inspect(obj: any): string {
 export class WeightsForms {
     private forms = inject(Forms)
     private router = inject(Router)
-    private poetry = inject(Poetry)
 
     DEBUG = false
 
@@ -61,7 +59,6 @@ export class WeightsForms {
 
     onGenerate(event: Event) {
         event.preventDefault()
-        this.poetry.erase()
         this.storeState()
         this.router.navigate(["/poem"])
     }
