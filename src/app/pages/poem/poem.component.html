@@ -3,16 +3,7 @@
     </aside>
     <main class="font-serif w-2/3">
         @if (poem(); as poem) {
-            <article class="poem">
-                @for (stanza of poem.split("\n\n"); track $index) {
-                    <p class="stanza">
-                        @for (verse of stanza.split("\n"); track $index) {
-                            <span class="verse">{{ verse }}</span>
-                        }
-                    </p>
-                    <br />
-                }
-            </article>
+            <poem [poem]="poem"></poem>
         } @else {
             <p class="prose-xl text-center flex flex-col justify-start items-center py-16">
                 Gerando poema...

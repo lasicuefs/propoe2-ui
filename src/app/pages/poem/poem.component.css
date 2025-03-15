@@ -7,15 +7,3 @@
             overflow-y-scroll
     }
 }
-
-.stanza {
-    @apply prose-xl text-center break-words
-}
-
-.verse {
-    @apply block leading-relaxed
-}
-
-.poem {
-    @apply flex flex-col justify-start items-center py-16
-}

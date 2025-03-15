@@ -11,11 +11,12 @@ import { Poetry } from "../../services/poetry"
 import { Feedback, FeedbackService } from "./Feedback"
 import { post, trace } from "./common"
 import { SaveButton } from "./SaveButton";
+import { Poem } from "./Poem";
 
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, Feedback, SaveButton],
+    imports: [CommonModule, Feedback, SaveButton, Poem],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
