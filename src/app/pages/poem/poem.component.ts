@@ -1,4 +1,4 @@
-import { CommonModule, DOCUMENT } from "@angular/common"
+import { CommonModule } from "@angular/common"
 import {
     Component,
     inject,
@@ -10,11 +10,12 @@ import { Forms } from "../../services/forms.service"
 import { Poetry } from "../../services/poetry"
 import { Feedback, FeedbackService } from "./Feedback"
 import { post, trace } from "./common"
+import { SaveButton } from "./SaveButton";
 
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, Feedback],
+    imports: [CommonModule, Feedback, SaveButton],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
@@ -22,7 +23,6 @@ export class PoemPage implements OnInit {
     private forms = inject(Forms)
     private poetry = inject(Poetry)
     private router = inject(Router)
-    private window = inject(DOCUMENT).defaultView?.window
     feedback = inject(FeedbackService)
 
     poem = signal<string | null>(this.poetry.poem)
@@ -41,16 +41,6 @@ export class PoemPage implements OnInit {
             .catch(() => "Desculpe, não foi possível gerar o poema.")
 
         return poem
-    }
-
-    print() {
-        if (!this.window) {
-            alert("Window not found.")
-            return
-        }
-
-        this.window.print()
-        this.openFeedback()
     }
 
     openFeedback() {

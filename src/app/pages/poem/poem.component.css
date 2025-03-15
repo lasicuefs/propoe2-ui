@@ -6,16 +6,6 @@
             flex flex-col items-center justify-start 
             overflow-y-scroll
     }
-
-    .secondary-btn {
-        @apply  
-            bg-slate-100 text-black
-            shadow-lg 
-            rounded-full p-2 px-4 m-2
-            transition duration-150 
-            hover:bg-slate-200 hover:shadow-xl hover:ease-out
-    }
-
 }
 
 .stanza {
