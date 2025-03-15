@@ -33,10 +33,10 @@ export class FeedbackService {
                 </div>
                 <!-- Submit and Cancel buttons -->
                 <div class="flex gap-4">
-                    <button type="submit" (click)="onCancel()" class="action-btn w-full">
+                    <button type="button" (click)="onCancel($event)" class="action-btn w-full">
                         Cancelar
                     </button>
-                    <button type="submit" (click)="onSubmit()" class="action-btn w-full">
+                    <button type="submit" (click)="onSubmit($event)" class="action-btn w-full">
                         Enviar
                     </button>
                 </div>
@@ -57,11 +57,13 @@ export class FeedbackService {
 export class Feedback {
     private service = inject(FeedbackService)
 
-    onCancel() {
+    onCancel(event: Event) {
+        event.preventDefault()
         this.service.isOpen.set(false)
     }
     
-    onSubmit() {
+    onSubmit(event: Event) {
+        event.preventDefault()
         this.postFeedback()
         this.service.isOpen.set(false)
     }
