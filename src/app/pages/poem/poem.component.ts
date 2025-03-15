@@ -10,28 +10,7 @@ import {
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
 import { Poetry } from "../../services/poetry"
-
-const post = async (route: string, body: any) => {
-    const PROPOE_API = "localhost:8000"
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            // For development purposes
-            'Ignore-Certificate-Errors': 'true'
-        },
-        body: JSON.stringify(body)
-    }
-
-    return fetch(`http://${PROPOE_API}/${route}`, options)
-}
-
-const trace = (obj: any, msg: string = "") => {
-    console.log(msg, JSON.stringify(obj))
-    return obj
-}
-
+import { post, trace } from "./common"
 
 @Component({
     selector: "app-poem",
