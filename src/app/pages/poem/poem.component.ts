@@ -59,7 +59,7 @@ export class PoemPage implements OnInit {
     }
 
     openFeedback() {
-        this.feedback.isOpen.set(true)
+        this.feedback.open()
     }
 
     onGoHome() {
@@ -79,7 +79,7 @@ export class PoemPage implements OnInit {
 
     goHome() {
         this.forms.clear()
-        this.feedback.isOpen.set(false)
+        this.feedback.close()
         this.router.navigate(["/"])
     }
 }

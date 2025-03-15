@@ -5,6 +5,14 @@ import { post, trace } from "./common";
 @Injectable({ providedIn: "root" })
 export class FeedbackService {
     isOpen = signal<boolean>(false)
+
+    open() {
+        this.isOpen.set(true)
+    }
+    
+    close() {
+        this.isOpen.set(false)
+    }
 }
 
 @Component({
@@ -59,13 +67,13 @@ export class Feedback {
 
     onCancel(event: Event) {
         event.preventDefault()
-        this.service.isOpen.set(false)
+        this.service.close()
     }
     
     onSubmit(event: Event) {
         event.preventDefault()
         this.postFeedback()
-        this.service.isOpen.set(false)
+        this.service.close()
     }
 
     postFeedback() {
