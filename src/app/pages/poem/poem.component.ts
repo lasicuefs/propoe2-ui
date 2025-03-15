@@ -19,7 +19,15 @@ import { Poem } from "./Poem"
     standalone: true,
     imports: [CommonModule, Feedback, SaveButton, Poem],
     templateUrl: "./poem.component.html",
-    styleUrl: "./poem.component.css",
+    styles: `
+    @media screen {
+        .background {
+            @apply w-screen h-screen 
+                flex flex-col items-center justify-start 
+                overflow-y-scroll
+        }
+    }   
+    `,
 })
 export class PoemPage {
     private forms = inject(Forms)
