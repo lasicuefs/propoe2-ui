@@ -9,8 +9,8 @@ import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
 import { Feedback } from "./Feedback"
 import { post, trace } from "./common"
-import { SaveButton } from "./SaveButton";
-import { Poem } from "./Poem";
+import { SaveButton } from "./SaveButton"
+import { Poem } from "./Poem"
 
 @Component({
     selector: "app-poem",
