@@ -1,7 +1,7 @@
 <div id="background" class="bg-slate-100 bg-opacity-40 screen:[relative min-h-screen w-screen overflow-x-hidden] print:!bg-white flex justify-around items-baseline" #container>
     <aside class="print:!hidden w-1/6">
     </aside>
-    <main #mainContainer class="font-serif w-2/3">
+    <main class="font-serif w-2/3">
         @if (poem(); as poem) {
             <article class="poem">
                 @for (stanza of poem.split("\n\n"); track $index) {
