@@ -1,27 +1,10 @@
-import { CommonModule } from "@angular/common";
-import { Component, inject, Injectable, signal } from "@angular/core";
-import { post, trace } from "./common";
-
-@Injectable({ providedIn: "root" })
-export class FeedbackService {
-    private _isOpen = signal<boolean>(false)
-
-    get isOpen() { return this._isOpen() }
-    get isClosed() { return !this.isOpen }
-
-    open() {
-        this._isOpen.set(true)
-    }
-    
-    close() {
-        this._isOpen.set(false)
-    }
-}
+import { Component, model } from "@angular/core"
+import { post, trace } from "./common"
 
 @Component({
     selector: "feedback",
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     template: `
         @let star = "⭐";
 
@@ -29,7 +12,7 @@ export class FeedbackService {
             <form class="bg-slate-100 p-6 rounded-xl shadow-xl flex flex-col gap-4">
                 
                 <!-- Rating Stars -->
-                <div class="flex flex-row-reverse justify-center gap-2 mb-4">
+                <div class="rating flex flex-row-reverse justify-center gap-2 mb-4">
                     @for (i of [5, 4, 3, 2, 1]; track $index ) {
                         <input type="radio" id="star-{{i}}" name="rating" value={{i}} class="hidden">
                         <label for="star-{{i}}" class="text-3xl cursor-pointer grayscale-[1]">{{star}}</label>
@@ -68,17 +51,17 @@ export class FeedbackService {
     `,
 })
 export class Feedback {
-    private service = inject(FeedbackService)
+    isOpen = model<boolean>(false)
 
     onCancel(event: Event) {
         event.preventDefault()
-        this.service.close()
+        this.isOpen.set(false)
     }
     
     onSubmit(event: Event) {
         event.preventDefault()
         this.postFeedback()
-        this.service.close()
+        this.isOpen.set(false)
     }
 
     postFeedback() {
