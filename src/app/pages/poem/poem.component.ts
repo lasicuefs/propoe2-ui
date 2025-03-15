@@ -10,12 +10,13 @@ import {
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
 import { Poetry } from "../../services/poetry"
+import { Feedback, FeedbackService } from "./Feedback"
 import { post, trace } from "./common"
 
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, Feedback],
     templateUrl: "./poem.component.html",
     styleUrl: "./poem.component.css",
 })
@@ -24,9 +25,9 @@ export class PoemPage implements OnInit {
     private poetry = inject(Poetry)
     private router = inject(Router)
     private window = inject(DOCUMENT).defaultView?.window
+    feedback = inject(FeedbackService)
 
     poem = signal<string | null>(this.poetry.poem)
-    feedbackBeingRequired = signal<boolean>(false)
 
     @ViewChild("mainContainer")
     mainContainer!: ElementRef<HTMLElement>
@@ -54,23 +55,16 @@ export class PoemPage implements OnInit {
         }
 
         this.window.print()
-        this.requestFeedback()
+        this.openFeedback()
     }
 
-    requestFeedback() {
-        this.feedbackBeingRequired.set(true)
+    openFeedback() {
+        this.feedback.isOpen.set(true)
     }
 
     onGoHome() {
-        this.requestFeedback()
+        this.openFeedback()
         this.goHome()
-    }
-
-    onSubmitFeedback() {
-        const stars = trace((document.querySelector('input[name="rating"]:checked') as HTMLInputElement)?.value)
-        const comment = trace((document.querySelector('#comment') as HTMLTextAreaElement).value)
-        
-        trace(post("feedback", { stars: parseInt(stars as string), comment }))
     }
 
     scrollDown() {
@@ -85,6 +79,7 @@ export class PoemPage implements OnInit {
 
     goHome() {
         this.forms.clear()
+        this.feedback.isOpen.set(false)
         this.router.navigate(["/"])
     }
 }
