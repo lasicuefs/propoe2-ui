@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common"
 import {
     Component,
+    computed,
     inject,
     OnInit,
     signal,
@@ -8,7 +9,7 @@ import {
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
 import { Feedback } from "./Feedback"
-import { post, trace } from "./common"
+import { post, trace, wait } from "./common"
 import { SaveButton } from "./SaveButton"
 import { Poem } from "./Poem"
 
@@ -44,14 +45,10 @@ export class PoemPage implements OnInit {
 
     onGoHome(event: Event) {
         event.preventDefault()
+        let feedbackSent = computed(() => !this.feedbackRequested())
+        
         this.feedbackRequested.set(true)
-        this.waitForFeedback().then(() => this.goHome())
-    }
-
-    private async waitForFeedback() {
-        while (this.feedbackRequested()) {
-            await new Promise(resolve => setTimeout(resolve, 100))
-        }
+        wait(feedbackSent).then(() => this.goHome())
     }
     
     goHome() {
