@@ -30,7 +30,6 @@ type PoemStatus = "Empty"
                         </span>
                     } 
                 </p>
-                <br/>
             }
             </article>
         }
@@ -38,7 +37,7 @@ type PoemStatus = "Empty"
     `,
     styles: `
         .content {
-            @apply flex flex-col justify-start items-center
+            @apply flex flex-col justify-start items-center gap-0
                 py-16 prose-xl text-center;
         }
     `
