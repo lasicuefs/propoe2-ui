@@ -1,11 +1,9 @@
 import { CommonModule, DOCUMENT } from "@angular/common"
 import {
     Component,
-    ElementRef,
     inject,
     OnInit,
     signal,
-    ViewChild,
 } from "@angular/core"
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
@@ -28,9 +26,6 @@ export class PoemPage implements OnInit {
     feedback = inject(FeedbackService)
 
     poem = signal<string | null>(this.poetry.poem)
-
-    @ViewChild("mainContainer")
-    mainContainer!: ElementRef<HTMLElement>
 
     async ngOnInit() {
         const poem = this.poetry.poem ?? await this.fetchPoem()
@@ -65,16 +60,6 @@ export class PoemPage implements OnInit {
     onGoHome() {
         this.openFeedback()
         this.goHome()
-    }
-
-    scrollDown() {
-        const mainElement = this.mainContainer.nativeElement
-        const scrollDistance = mainElement.clientHeight * 0.8
-
-        mainElement.scrollBy({
-            top: scrollDistance,
-            behavior: "smooth",
-        })
     }
 
     goHome() {
