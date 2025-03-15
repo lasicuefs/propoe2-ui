@@ -8,6 +8,7 @@ import { ReturnButton } from "../return-back/button"
 
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
+import { Session } from "../../../services/Session"
 
 type WeightsOption = {
     key: string
@@ -59,6 +60,8 @@ export class WeightsForms {
 
     onGenerate(event: Event) {
         event.preventDefault()
+
+        Session.delete("poem")
         this.storeState()
         this.router.navigate(["/poem"])
     }

@@ -1,6 +1,7 @@
-import { Component, inject, OnInit, output, signal } from "@angular/core";
+import { Component, inject, OnInit, signal } from "@angular/core";
 import { post, trace } from "./common";
 import { Forms } from "../../services/forms.service";
+import { Session } from "../../services/Session";
 
 type PoemStatus = "Empty"
     | "Cached"
@@ -56,7 +57,7 @@ export class Poem implements OnInit {
     }
 
     private loadInitialState() {
-        const content: string | null = sessionStorage.getItem("poem")
+        const content: string | null = Session.fetch("poem")
 
         this.status.set((content)? "Cached" : "Empty")
         this.content.set(content)
@@ -70,7 +71,7 @@ export class Poem implements OnInit {
             .then(data => trace(asLines(data.content)))
             .catch(() => null)
 
-        sessionStorage.setItem("poem", content)
+        Session.save("poem", content)
         this.status.set((content)? "Fetched" : "Error")    
         this.content.set(content)
     }
