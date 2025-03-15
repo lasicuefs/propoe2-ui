@@ -7,7 +7,6 @@ import {
 } from "@angular/core"
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
-import { Poetry } from "../../services/poetry"
 import { Feedback } from "./Feedback"
 import { post, trace } from "./common"
 import { SaveButton } from "./SaveButton";
@@ -22,14 +21,13 @@ import { Poem } from "./Poem";
 })
 export class PoemPage implements OnInit {
     private forms = inject(Forms)
-    private poetry = inject(Poetry)
     private router = inject(Router)
     
     feedbackRequested = signal<boolean>(false)
-    poem = signal<string | null>(this.poetry.poem)
+    poem = signal<string>("")
 
     async ngOnInit() {
-        const poem = this.poetry.poem ?? await this.fetchPoem()
+        const poem = await this.fetchPoem()
         this.poem.set(poem)
     }
 
