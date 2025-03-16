@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { ProsodyPage } from "./prosody"
+import { ProsodyPage } from "./ProsodyPage"
 
 describe("Step1Component", () => {
     let component: ProsodyPage
