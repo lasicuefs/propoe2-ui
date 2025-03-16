@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 
 // Import Local Components
 import { WeightOption } from "./WeightOption"
-import { Steps } from "../steps/steps"
+import { FormsSteps } from "../steps/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 
 // Import Local Services
@@ -26,7 +26,7 @@ const defaultOptions: WeightsOption[] = [
 
 @Component({
     selector: "app-step-3",
-    imports: [WeightOption, Steps, ReturnButton],
+    imports: [WeightOption, FormsSteps, ReturnButton],
     template: `
         <main class="content-container">
             <h1 class="title">Pesos de avaliação</h1>

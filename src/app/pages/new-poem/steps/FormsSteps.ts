@@ -56,7 +56,7 @@ import { Component, Input } from "@angular/core"
         }
     `,
 })
-export class Steps {
+export class FormsSteps {
     @Input()
     currentStep: number = 1
     @Input()

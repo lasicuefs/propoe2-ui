@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 
 //  Components
 import { Stanza } from "./Stanza"
-import { Steps } from "../steps/steps"
+import { FormsSteps } from "../steps/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 
 // Services
@@ -16,7 +16,7 @@ interface IsStanza {
 
 @Component({
     selector: "app-step-1",
-    imports: [Stanza, Steps, ReturnButton],
+    imports: [Stanza, FormsSteps, ReturnButton],
     template: `
     <main class="content-container">
         <h1 class="title">Padrão de rima</h1>

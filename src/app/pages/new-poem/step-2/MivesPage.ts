@@ -2,12 +2,12 @@ import { Component, inject } from "@angular/core"
 import { Router } from "@angular/router"
 
 // Import Local Components
-import { Steps } from "../steps/steps"
+import { FormsSteps } from "../steps/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 
 @Component({
     selector: "app-step-2",
-    imports: [Steps, ReturnButton],
+    imports: [FormsSteps, ReturnButton],
     template: `
         <main class="content-container">
             <h1 class="title">Arquivo MIVES</h1>
