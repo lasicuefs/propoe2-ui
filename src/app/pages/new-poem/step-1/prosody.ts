@@ -44,6 +44,7 @@ export class ProsodyForms implements OnInit {
     }
 
     onNext(event: Event) {
+        event.preventDefault()
         this.saveState()
         this.nextStep()
     }
