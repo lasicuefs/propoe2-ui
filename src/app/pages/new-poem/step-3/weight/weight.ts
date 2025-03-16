@@ -23,8 +23,14 @@ function within(x: number, low: number, high: number) {
 @Component({
     selector: "weight",
     imports: [],
-    templateUrl: "./weight.html",
-    styleUrl: "./weight.css",
+    template: `
+        <li class="grid grid-cols-2 gap-4">
+            <span>{{ displayName }}</span>
+            <input type="text" [value]="value" (change)="onChange($event)"
+                class="appearance-none focus:outline-none bg-transparent w-20 text-center">
+        </li>
+
+    `
 })
 export class WeightOption {
     @Input()
