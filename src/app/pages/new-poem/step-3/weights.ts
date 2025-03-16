@@ -27,8 +27,40 @@ const defaultOptions: WeightsOption[] = [
 @Component({
     selector: "app-step-3",
     imports: [WeightOption, Steps, ReturnButton],
-    templateUrl: "./weights.html",
-    styleUrl: "./weights.css",
+    template: `
+        <main class="content-container">
+            <h1 class="title">Pesos de avaliação</h1>
+
+            <span class="hint-msg">
+                Preencha os campos abaixo para definir os pesos de avaliação do poema.
+            </span>
+            <ul id="options">
+                @for (option of weights(); track $index) {
+                <weight
+                    [displayName]="option.display"
+                    [value]="option.value"
+                    (valueChange)="onValueChange(option.key, $event)"
+                >
+                </weight>
+                }
+            </ul>
+            <a (click)="onGenerate($event)">
+                <button class="action-btn">Gerar</button>
+            </a>
+        </main>
+
+        <return-back route="/new/mives" pageTitle="Arquivo Mives"></return-back>
+        <forms-steps [currentStep]="3" [totalSteps]="3"></forms-steps>
+    `,
+    styles: `
+        #options {
+            @apply flex flex-col gap-2 
+                text-lg 
+                overflow-hidden rounded-3xl 
+                mt-4 p-4 px-10 min-w-96
+                bg-white bg-opacity-45
+        }
+    `,
 })
 export class WeightsForms {
     private forms = inject(Forms)

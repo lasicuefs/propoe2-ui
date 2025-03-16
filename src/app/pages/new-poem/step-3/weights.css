@@ -1,8 +1,0 @@
-
-#options {
-    @apply flex flex-col gap-2 
-        text-lg 
-        overflow-hidden rounded-3xl 
-        mt-4 p-4 px-10 min-w-96
-        bg-white bg-opacity-45
-}
