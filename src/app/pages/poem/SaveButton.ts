@@ -32,9 +32,7 @@ export class SaveButton {
     private window = inject(DOCUMENT).defaultView?.window
 
     onPress() {
-        (!this.window)?
-            alert("Window not found.")
-            : this.window.print()
+        (!this.window)? alert("Window not found.") : this.window.print()
     }
 
 }
