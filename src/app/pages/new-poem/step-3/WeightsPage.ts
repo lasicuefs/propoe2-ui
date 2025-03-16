@@ -36,12 +36,8 @@ const defaultOptions: WeightsOption[] = [
             </span>
             <ul id="options">
                 @for (option of weights(); track $index) {
-                <weight
-                    [displayName]="option.display"
-                    [value]="option.value"
-                    (valueChange)="onValueChange(option.key, $event)"
-                >
-                </weight>
+                    <weight [displayName]="option.display" [value]="option.value"
+                        (valueChange)="onValueChange(option.key, $event)"></weight>
                 }
             </ul>
             <a (click)="onGenerate($event)">
@@ -54,11 +50,9 @@ const defaultOptions: WeightsOption[] = [
     `,
     styles: `
         #options {
-            @apply flex flex-col gap-2 
-                text-lg 
+            @apply flex flex-col gap-2 mt-4 p-4 px-10 min-w-96 
                 overflow-hidden rounded-3xl 
-                mt-4 p-4 px-10 min-w-96
-                bg-white bg-opacity-45
+                text-lg bg-white bg-opacity-45
         }
     `,
 })
