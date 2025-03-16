@@ -14,10 +14,6 @@ interface Stanza {
     lengths: number[]
 }
 
-function inspect(obj: any): string {
-    return JSON.stringify(obj)
-}
-
 @Component({
     selector: "app-step-1",
     imports: [StanzaComponent, Steps, ReturnButton],
@@ -28,16 +24,10 @@ export class ProsodyForms implements OnInit {
     private forms = inject(Forms)
     private router = inject(Router)
 
-    DEBUG = false
-
     stanzas = signal<Stanza[]>([])
 
     ngOnInit() {
         this.stanzas.set(this.forms.data.stanzas)
-    }
-
-    inspect(obj: any): string {
-        return inspect(obj)
     }
 
     add(): void {
