@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { MivesForms } from "./mives"
+import { MivesPage } from "./mives"
 
 describe("Step2Component", () => {
-    let component: MivesForms
-    let fixture: ComponentFixture<MivesForms>
+    let component: MivesPage
+    let fixture: ComponentFixture<MivesPage>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [MivesForms],
+            imports: [MivesPage],
         })
             .compileComponents()
 
-        fixture = TestBed.createComponent(MivesForms)
+        fixture = TestBed.createComponent(MivesPage)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

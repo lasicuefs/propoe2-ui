@@ -26,7 +26,7 @@ import { ReturnButton } from "../return-back/button"
         </main>
     `
 })
-export class MivesForms {
+export class MivesPage {
     private router = inject(Router)
 
     next(): void {
