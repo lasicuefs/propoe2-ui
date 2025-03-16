@@ -2,7 +2,7 @@ import { Component, input } from "@angular/core";
 
 
 @Component({
-    selector: "subtitle",
+    selector: "page-subtitle",
     standalone: true,
     template: `<h1 class="text-2xl">{{content()}}</h1>`
 })
