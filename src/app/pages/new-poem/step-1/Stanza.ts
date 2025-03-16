@@ -1,10 +1,5 @@
 import { Component, Input } from "@angular/core"
 
-interface Unit {
-    letter: string
-    length: number
-}
-
 // Number Manipulation
 function valid(x: number): number {
     return x ? x : 0
