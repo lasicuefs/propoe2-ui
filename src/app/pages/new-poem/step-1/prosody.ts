@@ -9,7 +9,7 @@ import { ReturnButton } from "../return-back/button"
 // Services
 import { Forms } from "../../../services/forms.service"
 
-interface Stanza {
+interface IsStanza {
     pattern: string[]
     lengths: number[]
 }
@@ -24,7 +24,7 @@ export class ProsodyForms implements OnInit {
     private forms = inject(Forms)
     private router = inject(Router)
 
-    stanzas = signal<Stanza[]>([])
+    stanzas = signal<IsStanza[]>([])
 
     ngOnInit() {
         this.stanzas.set(this.forms.data.stanzas)
