@@ -62,7 +62,7 @@ const defaultOptions: WeightsOption[] = [
         }
     `,
 })
-export class WeightsForms {
+export class WeightsPage {
     private forms = inject(Forms)
     private router = inject(Router)
 

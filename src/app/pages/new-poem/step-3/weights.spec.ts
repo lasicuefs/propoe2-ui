@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { WeightsForms } from "./weights"
+import { WeightsPage } from "./weights"
 
 describe("Step3Component", () => {
-    let component: WeightsForms
-    let fixture: ComponentFixture<WeightsForms>
+    let component: WeightsPage
+    let fixture: ComponentFixture<WeightsPage>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [WeightsForms],
+            imports: [WeightsPage],
         })
             .compileComponents()
 
-        fixture = TestBed.createComponent(WeightsForms)
+        fixture = TestBed.createComponent(WeightsPage)
         component = fixture.componentInstance
         fixture.detectChanges()
     })
