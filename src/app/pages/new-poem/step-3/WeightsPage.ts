@@ -10,7 +10,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 import { Forms } from "../../../services/forms.service"
 import { Session } from "../../../services/Session"
 import { Hint } from "../shared/Hint";
-import { Title } from "../shared/Title"
+import { Title } from "../../shared/Title"
 
 type WeightsOption = {
     key: string

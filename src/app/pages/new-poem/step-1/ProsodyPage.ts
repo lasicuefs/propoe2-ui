@@ -9,7 +9,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 // Services
 import { Forms } from "../../../services/forms.service"
 import { Hint } from "../shared/Hint";
-import { Title } from "../shared/Title"
+import { Title } from "../../shared/Title"
 
 interface IsStanza {
     pattern: string[]

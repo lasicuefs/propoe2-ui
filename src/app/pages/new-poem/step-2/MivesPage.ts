@@ -5,7 +5,7 @@ import { Router } from "@angular/router"
 import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 import { Hint } from "../shared/Hint";
-import { Title } from "../shared/Title";
+import { Title } from "../../shared/Title";
 
 @Component({
     selector: "app-step-2",
