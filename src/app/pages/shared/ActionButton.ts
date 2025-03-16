@@ -9,6 +9,6 @@ import { Component, input } from "@angular/core"
         </button>
     `
 })
-export class Hint {
+export class ActionButton {
     text = input.required<string>()
 }
