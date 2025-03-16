@@ -50,7 +50,7 @@ import { post, trace } from "./common"
         }
     `,
 })
-export class Feedback {
+export class FeedbackModal {
     poemId = input<string | undefined>("")
     isOpen = model<boolean>(false)
 

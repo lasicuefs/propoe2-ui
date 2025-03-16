@@ -9,7 +9,7 @@ import {
 } from "@angular/core"
 import { Router } from "@angular/router"
 import { Forms } from "../../services/forms.service"
-import { Feedback } from "./Feedback"
+import { FeedbackModal } from "./FeedbackModal"
 import { post, trace, wait } from "./common"
 import { SaveButton } from "./SaveButton"
 import { Poem } from "./Poem"
@@ -17,7 +17,7 @@ import { Poem } from "./Poem"
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, Feedback, SaveButton, Poem],
+    imports: [CommonModule, FeedbackModal, SaveButton, Poem],
     template: `
         <div id="background" class="flex items-start place-items-baseline relative h-screen w-screen py-16
             bg-slate-100 bg-opacity-40
