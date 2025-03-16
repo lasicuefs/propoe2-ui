@@ -59,8 +59,8 @@ export class Poem implements OnInit {
     private loadInitialState() {
         const content: string | null = Session.fetch("poem")
 
-        this.status.set((content)? "Cached" : "Empty")
-        this.content.set(content)
+        this.updateStatus(content, "Cached", "Empty")
+        this.updatePoem(content, Session.fetch("poem-id"))
     }
 
     private async requestNewPoem() {
@@ -73,9 +73,22 @@ export class Poem implements OnInit {
         const content = trace(asLines(data.content))
         const id = trace(data.id, "POEM ID:")
 
-        Session.save("poem", content)
-        this.status.set((content)? "Fetched" : "Error")    
+        this.updateStatus(content, "Fetched", "Error")
+        this.storePoem(content, id)
+        this.updatePoem(content, id)
+    }
+
+    private updatePoem(content: string | null, id: string | null) {
         this.content.set(content)
-        this.id.set(id)
+        this.id.set(id ?? "")
+    }
+
+    private storePoem(content: string | null, id: string | null) {
+        Session.save("poem", content ?? "")
+        Session.save("poem-id", id ?? "")
+    }
+
+    private updateStatus(content: string | null, sucess: PoemStatus, fail: PoemStatus) {
+        this.status.set((content)? sucess : fail)
     }
 }

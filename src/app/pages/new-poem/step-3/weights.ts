@@ -62,6 +62,7 @@ export class WeightsForms {
         event.preventDefault()
 
         Session.delete("poem")
+        Session.delete("poem-id")
         this.storeState()
         this.router.navigate(["/poem"])
     }
