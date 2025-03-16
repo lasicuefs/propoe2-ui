@@ -31,9 +31,10 @@ export class ProsodyForms implements OnInit {
     }
 
     add(): void {
-        this.stanzas.set(
-            this.stanzas().concat({ pattern: ["A"], lengths: [10] }),
-        )
+        this.stanzas.set(this.stanzas().concat({ 
+            pattern: ["A"], 
+            lengths: [10] }
+        ))
     }
 
     clear(event: Event) {
