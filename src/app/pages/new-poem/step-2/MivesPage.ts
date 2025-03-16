@@ -5,13 +5,14 @@ import { Router } from "@angular/router"
 import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 import { Hint } from "../shared/Hint";
+import { Title } from "../shared/Title";
 
 @Component({
     selector: "app-step-2",
-    imports: [FormsSteps, ReturnButton, Hint],
+    imports: [FormsSteps, ReturnButton, Hint, Title],
     template: `
         <main class="content-container">
-            <h1 class="title">Arquivo MIVES</h1>
+            <page-title content="Arquivo MIVES"></page-title>
             <div class="flex gap-4 mt-4">
                 <button class="action-btn" (click)="next()">Amostra Padrão</button>
             </div>

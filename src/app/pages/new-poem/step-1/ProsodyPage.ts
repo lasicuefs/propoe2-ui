@@ -9,6 +9,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 // Services
 import { Forms } from "../../../services/forms.service"
 import { Hint } from "../shared/Hint";
+import { Title } from "../shared/Title"
 
 interface IsStanza {
     pattern: string[]
@@ -17,11 +18,10 @@ interface IsStanza {
 
 @Component({
     selector: "app-step-1",
-    imports: [Stanza, FormsSteps, ReturnButton, Hint],
+    imports: [Stanza, FormsSteps, ReturnButton, Hint, Title],
     template: `
     <main class="content-container">
-        <h1 class="title">Padrão de rima</h1>
-
+        <page-title content="Padrão de rima"></page-title>
         <section id="forms">
             <section id="stanzas">
                 @for (stanza of stanzas(); track $index) {

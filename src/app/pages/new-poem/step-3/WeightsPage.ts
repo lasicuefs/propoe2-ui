@@ -10,6 +10,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 import { Forms } from "../../../services/forms.service"
 import { Session } from "../../../services/Session"
 import { Hint } from "../shared/Hint";
+import { Title } from "../shared/Title"
 
 type WeightsOption = {
     key: string
@@ -27,10 +28,10 @@ const defaultOptions: WeightsOption[] = [
 
 @Component({
     selector: "app-step-3",
-    imports: [WeightOption, FormsSteps, ReturnButton, Hint],
+    imports: [WeightOption, FormsSteps, ReturnButton, Hint, Title],
     template: `
         <main class="content-container">
-            <h1 class="title">Pesos de avaliação</h1>
+            <page-title content="Pesos de avaliação"></page-title>
             <hint message="Preencha os campos abaixo para definir os pesos de avaliação do poema."></hint>
             
             <ul id="options">
