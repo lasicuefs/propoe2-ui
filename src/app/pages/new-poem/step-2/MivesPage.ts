@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 
 // Import Local Components
 import { Steps } from "../steps/steps"
-import { ReturnButton } from "../return-back/ReturnButton"
+import { ReturnButton } from "../shared/ReturnButton"
 
 @Component({
     selector: "app-step-2",
