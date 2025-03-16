@@ -1,14 +1,17 @@
 import { Component } from "@angular/core"
 import { RouterLink } from "@angular/router"
 import { Hint } from "../shared/Hint"
+import { Title } from "../shared/Title"
+import { Subitle } from "../shared/Subtitle"
 
 @Component({
     selector: "app-welcome",
-    imports: [RouterLink, Hint],
+    imports: [RouterLink, Hint, Title, Subitle],
     template: `
         <main class="content-container">
-            <h1 class="title">Bem-vindo ao Propoe</h1>
-            <span class="subtitle">Começe a gerar poemas de arquivos MIVES</span>
+
+            <page-title content="Bem-vindo ao Propoe"></page-title>
+            <page-subtitle content="Começe a gerar poemas de arquivos MIVES"></page-subtitle>
             
             <a routerLink="/new/rhythm">
                 <button class="action-btn">Começar</button>
