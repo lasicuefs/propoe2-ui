@@ -39,8 +39,36 @@ function alpha(x: string): string {
     selector: "stanza",
     standalone: true,
     imports: [],
-    templateUrl: "./stanza.html",
-    styleUrl: "./stanza.css",
+    template: `
+        <ul class="flex gap-4 w-full">
+            @for (unit of units; track unit.id) {
+                <li class="verse-button">
+                    <input type="text" [value]="unit.length" (change)="updateLenght($event, $index)" 
+                        title="Editar sílabas fonéticas do verso">
+                    <input type="text" [value]="unit.letter" (change)="updateLetter($event, $index)" 
+                        title="Editar padrão de rima do verso" class="text-xl">
+                </li>
+            } 
+            @if (units.length < 8) {
+                <button title="Novo Verso" (click)="add()" class="verse-button">
+                    +
+                </button>
+            }
+        </ul>
+    `,
+    styles: `
+        .verse-button {
+            @apply flex flex-col justify-center items-center 
+                bg-slate-50 bg-opacity-30 
+                w-16 h-16 rounded-2xl
+                text-xl 
+        }
+
+        input {
+            @apply bg-transparent appearance-none focus:outline-none
+                max-w-full text-center
+        }
+`,
 })
 export class StanzaComponent {
     @Input()
