@@ -3,10 +3,11 @@ import { RouterLink } from "@angular/router"
 import { Hint } from "../shared/Hint"
 import { Title } from "../shared/Title"
 import { Subitle } from "../shared/Subtitle"
+import { ActionButton } from "../shared/ActionButton"
 
 @Component({
     selector: "app-welcome",
-    imports: [RouterLink, Hint, Title, Subitle],
+    imports: [RouterLink, Hint, Title, Subitle, ActionButton],
     template: `
         <main class="content-container">
 
@@ -14,7 +15,7 @@ import { Subitle } from "../shared/Subtitle"
             <page-subtitle content="Começe a gerar poemas de arquivos MIVES"></page-subtitle>
             
             <a routerLink="/new/rhythm">
-                <button class="action-btn">Começar</button>
+                <action-button text="Começar"></action-button>
             </a>
 
             <a href="https://github.com/lasicuefs/propoe2" target="_blank" 

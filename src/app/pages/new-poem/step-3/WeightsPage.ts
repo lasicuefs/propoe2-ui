@@ -11,6 +11,7 @@ import { Forms } from "../../../services/forms.service"
 import { Session } from "../../../services/Session"
 import { Hint } from "../../shared/Hint";
 import { Title } from "../../shared/Title"
+import { ActionButton } from "../../shared/ActionButton"
 
 type WeightsOption = {
     key: string
@@ -28,7 +29,7 @@ const defaultOptions: WeightsOption[] = [
 
 @Component({
     selector: "app-step-3",
-    imports: [WeightOption, FormsSteps, ReturnButton, Hint, Title],
+    imports: [WeightOption, FormsSteps, ReturnButton, Hint, Title, ActionButton],
     template: `
         <main class="content-container">
             <page-title content="Pesos de avaliação"></page-title>
@@ -41,7 +42,7 @@ const defaultOptions: WeightsOption[] = [
                 }
             </ul>
             <a (click)="onGenerate($event)">
-                <button class="action-btn">Gerar</button>
+                <action-button text="Gerar"></action-button>
             </a>
         </main>
 

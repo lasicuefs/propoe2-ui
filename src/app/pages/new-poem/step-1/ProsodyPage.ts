@@ -10,6 +10,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 import { Forms } from "../../../services/forms.service"
 import { Hint } from "../../shared/Hint";
 import { Title } from "../../shared/Title"
+import { ActionButton } from "../../shared/ActionButton"
 
 interface IsStanza {
     pattern: string[]
@@ -18,7 +19,7 @@ interface IsStanza {
 
 @Component({
     selector: "app-step-1",
-    imports: [Stanza, FormsSteps, ReturnButton, Hint, Title],
+    imports: [Stanza, FormsSteps, ReturnButton, Hint, Title, ActionButton],
     template: `
     <main class="content-container">
         <page-title content="Padrão de rima"></page-title>
@@ -41,7 +42,7 @@ interface IsStanza {
                 <button class="action-btn">Limpar</button>
             </a>
             <a (click)="onNext($event)">
-                <button class="action-btn">Próximo</button>
+            <action-button text="Próximo"></action-button>
             </a>
         </section>
         <hint message="Exemplo: ABAB ABAB CDC CDC"></hint>

@@ -6,15 +6,16 @@ import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 import { Hint } from "../../shared/Hint";
 import { Title } from "../../shared/Title";
+import { ActionButton } from "../../shared/ActionButton";
 
 @Component({
     selector: "app-step-2",
-    imports: [FormsSteps, ReturnButton, Hint, Title],
+    imports: [FormsSteps, ReturnButton, Hint, Title, ActionButton],
     template: `
         <main class="content-container">
             <page-title content="Arquivo MIVES"></page-title>
             <div class="flex gap-4 mt-4">
-                <button class="action-btn" (click)="next()">Amostra Padrão</button>
+                <action-button text="Amostra Padrão" (click)="next()"></action-button>
             </div>
 
             <hint message="Escolha um de nossos arquivos MIVES."></hint>

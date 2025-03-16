@@ -13,11 +13,12 @@ import { FeedbackModal } from "./FeedbackModal"
 import { post, trace, wait } from "./common"
 import { SaveButton } from "./SaveButton"
 import { Poem } from "./Poem"
+import { ActionButton } from "../shared/ActionButton"
 
 @Component({
     selector: "app-poem",
     standalone: true,
-    imports: [CommonModule, FeedbackModal, SaveButton, Poem],
+    imports: [CommonModule, FeedbackModal, SaveButton, Poem, ActionButton],
     template: `
         <div id="background" class="flex items-start place-items-baseline relative h-screen w-screen py-16
             bg-slate-100 bg-opacity-40
@@ -38,9 +39,8 @@ import { Poem } from "./Poem"
         </div>
 
         <a class="print:!hidden" (click)="onGoHome($event)">
-            <button class="print:hidden action-btn fixed z-40 left-4 bottom-4">
-                Novo Poema
-            </button>
+            <action-button text="Novo Poema" class="print:hidden fixed z-40 left-4 bottom-4">
+            </action-button>
         </a>
 
         @if (feedbackRequested()) {

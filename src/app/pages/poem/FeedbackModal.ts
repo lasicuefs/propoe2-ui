@@ -1,10 +1,11 @@
 import { Component, input, model } from "@angular/core"
 import { post, trace } from "./common"
+import { ActionButton } from "../shared/ActionButton"
 
 @Component({
     selector: "feedback",
     standalone: true,
-    imports: [],
+    imports: [ActionButton],
     template: `
         @let star = "⭐";
 
@@ -28,14 +29,9 @@ import { post, trace } from "./common"
                 
                 <!-- Submit and Cancel buttons -->
                 <div class="flex gap-4">
-                    <button type="button" (click)="onCancel($event)" class="action-btn w-full">
-                        Cancelar
-                    </button>
-                    <button type="submit" (click)="onSubmit($event)" class="action-btn w-full">
-                        Enviar
-                    </button>
+                    <action-button text="Cancelar" type="button" (click)="onSubmit($event)" class="w-full"></action-button>
+                    <action-button text="Enviar" type="submit" (click)="onSubmit($event)" class="w-full"></action-button>
                 </div>
-
             </form>
         </section>
     `,
