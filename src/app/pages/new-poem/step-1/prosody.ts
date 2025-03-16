@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from "@angular/core"
 import { Router } from "@angular/router"
 
 //  Components
-import { StanzaComponent } from "./stanza/stanza"
+import { StanzaComponent } from "./Stanza"
 import { Steps } from "../steps/steps"
 import { ReturnButton } from "../return-back/button"
 
