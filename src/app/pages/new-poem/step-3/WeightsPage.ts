@@ -2,7 +2,7 @@ import { Component, inject, signal } from "@angular/core"
 import { Router } from "@angular/router"
 
 // Import Local Components
-import { WeightOption } from "./weight"
+import { WeightOption } from "./WeightOption"
 import { Steps } from "../steps/steps"
 import { ReturnButton } from "../return-back/button"
 
