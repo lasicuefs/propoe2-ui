@@ -38,7 +38,7 @@ export class ProsodyForms implements OnInit {
         console.log(this.stanzas())
     }
 
-    clear(event: Event) {
+    clear() {
         this.stanzas.set([])
         this.add()
     }
