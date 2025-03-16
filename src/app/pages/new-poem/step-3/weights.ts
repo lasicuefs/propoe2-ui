@@ -16,14 +16,6 @@ type WeightsOption = {
     value: number
 }
 
-interface Weights {
-    "vocal-harmony": number
-    "accentuation": number
-    "tonic-position": number
-    "internal-rhyme": number
-    "rhythmic-structure": number
-}
-
 const defaultOptions: WeightsOption[] = [
     { key: "vocal-harmony", display: "Rima toante e consoante", value: 1.0 },
     { key: "accentuation", display: "Acentuação", value: 1.0 },
@@ -31,10 +23,6 @@ const defaultOptions: WeightsOption[] = [
     { key: "internal-rhyme", display: "Rima interna", value: 1.0 },
     { key: "rhythmic-structure", display: "Estrutura rítimica", value: 1.0 },
 ]
-
-function inspect(obj: any): string {
-    return JSON.stringify(obj)
-}
 
 @Component({
     selector: "app-step-3",
@@ -46,16 +34,10 @@ export class WeightsForms {
     private forms = inject(Forms)
     private router = inject(Router)
 
-    DEBUG = false
-
     weights = signal<WeightsOption[]>(defaultOptions)
 
     valueOf(key: string): number {
         return this.weights().find((x) => x.key === key)?.value ?? 1
-    }
-
-    inspect(obj: any): string {
-        return inspect(obj)
     }
 
     onGenerate(event: Event) {
