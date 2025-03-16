@@ -3,7 +3,7 @@ import { Router } from "@angular/router"
 
 // Import Local Components
 import { WeightOption } from "./WeightOption"
-import { FormsSteps } from "../steps/FormsSteps"
+import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 
 // Import Local Services

@@ -2,7 +2,7 @@ import { Component, inject } from "@angular/core"
 import { Router } from "@angular/router"
 
 // Import Local Components
-import { FormsSteps } from "../steps/FormsSteps"
+import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
 
 @Component({
