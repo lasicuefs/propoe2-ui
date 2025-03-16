@@ -9,7 +9,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 // Import Local Services
 import { Forms } from "../../../services/forms.service"
 import { Session } from "../../../services/Session"
-import { Hint } from "../shared/Hint";
+import { Hint } from "../../shared/Hint";
 import { Title } from "../../shared/Title"
 
 type WeightsOption = {

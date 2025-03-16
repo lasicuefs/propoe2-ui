@@ -4,7 +4,7 @@ import { Router } from "@angular/router"
 // Import Local Components
 import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
-import { Hint } from "../shared/Hint";
+import { Hint } from "../../shared/Hint";
 import { Title } from "../../shared/Title";
 
 @Component({
