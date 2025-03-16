@@ -4,7 +4,7 @@ import { Router } from "@angular/router"
 //  Components
 import { Stanza } from "./Stanza"
 import { Steps } from "../steps/steps"
-import { ReturnButton } from "../return-back/button"
+import { ReturnButton } from "../return-back/ReturnButton"
 
 // Services
 import { Forms } from "../../../services/forms.service"
