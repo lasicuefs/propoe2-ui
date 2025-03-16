@@ -20,7 +20,7 @@ interface IsStanza {
     templateUrl: "./prosody.html",
     styleUrl: "./prosody.css",
 })
-export class ProsodyForms implements OnInit {
+export class ProsodyPage implements OnInit {
     private forms = inject(Forms)
     private router = inject(Router)
 
