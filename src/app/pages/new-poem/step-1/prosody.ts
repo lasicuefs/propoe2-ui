@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from "@angular/core"
+import { Component, effect, inject, OnInit, signal } from "@angular/core"
 import { Router } from "@angular/router"
 
 //  Components
@@ -35,6 +35,7 @@ export class ProsodyForms implements OnInit {
             pattern: ["A"], 
             lengths: [10] }
         ))
+        console.log(this.stanzas())
     }
 
     clear(event: Event) {
