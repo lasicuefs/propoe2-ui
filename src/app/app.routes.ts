@@ -2,7 +2,7 @@ import { Routes } from "@angular/router"
 
 import { WelcomePage } from "./pages/welcome/welcome"
 import { ProsodyPage } from "./pages/new-poem/step-1/ProsodyPage"
-import { MivesPage } from "./pages/new-poem/step-2/mives"
+import { MivesPage } from "./pages/new-poem/step-2/MivesPage"
 import { WeightsForms } from "./pages/new-poem/step-3/weights"
 import { PoemPage } from "./pages/poem/poem.component"
 

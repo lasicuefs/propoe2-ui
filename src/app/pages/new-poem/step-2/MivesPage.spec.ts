@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
-import { MivesPage } from "./mives"
+import { MivesPage } from "./MivesPage"
 
 describe("Step2Component", () => {
     let component: MivesPage
