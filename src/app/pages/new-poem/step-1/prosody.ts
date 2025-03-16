@@ -17,8 +17,61 @@ interface IsStanza {
 @Component({
     selector: "app-step-1",
     imports: [Stanza, Steps, ReturnButton],
-    templateUrl: "./prosody.html",
-    styleUrl: "./prosody.css",
+    template: `
+    <main class="content-container">
+        <h1 class="title">Padrão de rima</h1>
+
+        <section id="forms">
+            <section id="stanzas">
+                @for (stanza of stanzas(); track $index) {
+                <stanza
+                    [lengths]="stanza.lengths"
+                    [pattern]="stanza.pattern"
+                ></stanza>
+                }
+            </section>
+            @if (stanzas().length < 6) {
+            <button id="add-stanza" title="Nova Estrofe" (click)="add()">+</button>
+            }
+        </section>
+
+        <section class="flex gap-4">
+            <a (click)="clear()">
+                <button class="action-btn">Limpar</button>
+            </a>
+            <a (click)="onNext($event)">
+                <button class="action-btn">Próximo</button>
+            </a>
+        </section>
+        <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
+    </main>
+
+    <return-back route="/" pageTitle="Página Principal"></return-back>
+    <forms-steps [currentStep]="1" [totalSteps]="3"></forms-steps>
+    `,
+    styles: `
+        #forms {
+            @apply 
+                flex flex-col place-items-center gap-4
+                min-w-96 
+                overflow-hidden 
+                rounded-3xl;
+        }
+
+        #stanzas {
+            @apply 
+                flex flex-col place-items-start flex-grow gap-4
+                px-4 max-h-80 
+                overflow-y-scroll
+                [&::-webkit-scrollbar]:w-2 
+                    [&::-webkit-scrollbar-track]:bg-transparent 
+                    [&::-webkit-scrollbar-thumb]:bg-slate-100
+        }
+
+        #add-stanza {
+            @apply bg-slate-50 bg-opacity-60 w-full
+        }
+    `,
 })
 export class ProsodyPage implements OnInit {
     private forms = inject(Forms)
