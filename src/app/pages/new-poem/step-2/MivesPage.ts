@@ -4,10 +4,11 @@ import { Router } from "@angular/router"
 // Import Local Components
 import { FormsSteps } from "../shared/FormsSteps"
 import { ReturnButton } from "../shared/ReturnButton"
+import { Hint } from "../shared/Hint";
 
 @Component({
     selector: "app-step-2",
-    imports: [FormsSteps, ReturnButton],
+    imports: [FormsSteps, ReturnButton, Hint],
     template: `
         <main class="content-container">
             <h1 class="title">Arquivo MIVES</h1>
@@ -15,10 +16,7 @@ import { ReturnButton } from "../shared/ReturnButton"
                 <button class="action-btn" (click)="next()">Amostra Padrão</button>
             </div>
 
-            <!-- Bottom -->
-            <span class="hint-msg">
-                Ecolha um de nossos arquivos MIVES.
-            </span>
+            <hint message="Escolha um de nossos arquivos MIVES."></hint>
 
             <!-- Floating Navigation -->
             <return-back route="/new/rhythm" pageTitle="Rima & Rítimo"></return-back>

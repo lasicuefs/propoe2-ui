@@ -8,6 +8,7 @@ import { ReturnButton } from "../shared/ReturnButton"
 
 // Services
 import { Forms } from "../../../services/forms.service"
+import { Hint } from "../shared/Hint";
 
 interface IsStanza {
     pattern: string[]
@@ -16,7 +17,7 @@ interface IsStanza {
 
 @Component({
     selector: "app-step-1",
-    imports: [Stanza, FormsSteps, ReturnButton],
+    imports: [Stanza, FormsSteps, ReturnButton, Hint],
     template: `
     <main class="content-container">
         <h1 class="title">Padrão de rima</h1>
@@ -43,7 +44,7 @@ interface IsStanza {
                 <button class="action-btn">Próximo</button>
             </a>
         </section>
-        <span class="hint-msg">Exemplo: ABAB ABAB CDC CDC</span>
+        <hint message="Exemplo: ABAB ABAB CDC CDC"></hint>
     </main>
 
     <return-back route="/" pageTitle="Página Principal"></return-back>
