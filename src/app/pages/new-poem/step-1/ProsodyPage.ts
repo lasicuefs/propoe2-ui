@@ -39,7 +39,7 @@ interface IsStanza {
 
         <section class="flex gap-4">
             <a (click)="clear()">
-                <button class="action-btn">Limpar</button>
+                <action-button text="Limpar"></action-button>
             </a>
             <a (click)="onNext($event)">
             <action-button text="Próximo"></action-button>
