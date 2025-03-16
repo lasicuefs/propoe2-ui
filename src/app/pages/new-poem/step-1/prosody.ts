@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from "@angular/core"
 import { Router } from "@angular/router"
 
 //  Components
-import { StanzaComponent } from "./Stanza"
+import { Stanza } from "./Stanza"
 import { Steps } from "../steps/steps"
 import { ReturnButton } from "../return-back/button"
 
@@ -16,7 +16,7 @@ interface IsStanza {
 
 @Component({
     selector: "app-step-1",
-    imports: [StanzaComponent, Steps, ReturnButton],
+    imports: [Stanza, Steps, ReturnButton],
     templateUrl: "./prosody.html",
     styleUrl: "./prosody.css",
 })

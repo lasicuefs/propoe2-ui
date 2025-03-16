@@ -65,7 +65,7 @@ function alpha(x: string): string {
         }
 `,
 })
-export class StanzaComponent {
+export class Stanza {
     @Input()
     pattern: string[] = []
     @Input()
