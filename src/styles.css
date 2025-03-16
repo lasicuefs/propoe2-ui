@@ -26,14 +26,6 @@
     @apply w-screen h-screen font-serif flex flex-col justify-center items-center gap-2
 }
 
-.title {
-    @apply text-7xl font-bold
-}
-
-.subtitle {
-    @apply text-2xl
-}
-
 .action-btn {
     @apply bg-blue-500 text-white shadow-lg shadow-blue-200 rounded-full min-w-40 p-4 px-8 my-4 
             transition duration-150 
