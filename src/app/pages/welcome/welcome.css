@@ -1,6 +1,0 @@
-
-#follow-us {
-    @apply 
-        inline-flex items-center gap-2 
-        transition duration-150 hover:-translate-y-1 hover:ease-out
-}

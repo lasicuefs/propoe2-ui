@@ -4,24 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 5px;
+        border: rgba(0, 0, 0, 25%) 5px;
+        background: rgba(0, 0, 0, 25%);
+    }
+    
+    .scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 95%);
+    }
+}
+
 .content-container {
     @apply w-screen h-screen font-serif flex flex-col justify-center items-center gap-2
-}
-
-.title {
-    @apply text-7xl font-bold
-}
-
-.subtitle {
-    @apply text-2xl
-}
-
-.action-btn {
-    @apply bg-blue-500 text-white shadow-lg shadow-blue-200 rounded-full min-w-40 p-4 px-8 my-4 
-            transition duration-150 
-            hover:bg-blue-400 hover:shadow-xl hover:shadow-blue-200 hover:ease-out
-}
-
-.hint-msg {
-    @apply text-lg mt-2 text-center
 }
